@@ -294,9 +294,17 @@
       <div style="margin-bottom:28px;">
         <span class="config-titulo">COR — <strong id="cor-label-ipad11">Rosa</strong></span>
         <div class="ipad-cores">
+          <button class="ipad-cor sem-estoque" data-cor="Azul" onclick="semEstoque()">
+            <div class="ipad-cor-circulo" style="background:#6AACDF;"></div>
+            <span class="ipad-cor-nome">Azul</span>
+          </button>
           <button class="ipad-cor ativo" data-cor="Rosa" onclick="selecionarCor('ipad11',this)">
             <div class="ipad-cor-circulo" style="background:#E8A5B5;"></div>
             <span class="ipad-cor-nome">Rosa</span>
+          </button>
+          <button class="ipad-cor sem-estoque" data-cor="Amarelo" onclick="semEstoque()">
+            <div class="ipad-cor-circulo" style="background:#F0D87A;"></div>
+            <span class="ipad-cor-nome">Amarelo</span>
           </button>
           <button class="ipad-cor" data-cor="Prateado" onclick="selecionarCor('ipad11',this)">
             <div class="ipad-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;"></div>
@@ -309,7 +317,9 @@
       <div style="margin-bottom:28px;">
         <span class="config-titulo">ARMAZENAMENTO</span>
         <div class="ipad-storage">
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">128 GB</button>
           <button class="ipad-stor-btn ativo" onclick="selecionarStor('ipad11',this,'R$ 2.460','R$ 205,00')">256 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">512 GB</button>
         </div>
       </div>
 
