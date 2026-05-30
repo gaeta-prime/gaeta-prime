@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone — GAETA Prime</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ─── FAMILY TABS ─── */
+    .family-tabs {
+      position: sticky; top: var(--nav-h); z-index: 100;
+      background: #fff; border-bottom: 0.5px solid var(--borda);
+      overflow-x: auto; scrollbar-width: none;
+      display: flex; padding: 0 48px;
+    }
+    .family-tabs::-webkit-scrollbar { display: none; }
+    .family-tab {
+      padding: 14px 20px; font-size: 12px; letter-spacing: .5px;
+      background: transparent; border: none; font-family: inherit;
+      color: var(--cinza); white-space: nowrap; cursor: pointer;
+      border-bottom: 2px solid transparent; transition: all .2s;
+    }
+    .family-tab:hover { color: var(--grafite); }
+    .family-tab.ativo { color: var(--grafite); border-bottom-color: var(--grafite); }
+
+    /* ─── FAMILY SECTION ─── */
+    .family-section { display: none; }
+    .family-section.ativo { display: block; }
+
+    .family-header {
+      padding: 56px 48px 40px;
+      border-bottom: 0.5px solid var(--borda);
+      display: flex; align-items: flex-end; justify-content: space-between;
+    }
+    .family-titulo { font-size: clamp(36px, 5vw, 60px); font-weight: 200; letter-spacing: -1.5px; }
+    .family-sub { font-size: 13px; color: var(--cinza); margin-top: 8px; }
+    .family-badge {
+      font-size: 9px; letter-spacing: 3px; padding: 6px 14px;
+      border: 1px solid var(--cobre); color: var(--cobre);
+      align-self: flex-start; margin-top: 8px;
+    }
+
+    /* ─── PRODUCT GRID ─── */
+    .family-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: var(--borda);
+    }
+
+    @media (max-width: 900px) {
+      .family-tabs { padding: 0 24px; }
+      .family-header { padding: 40px 24px 28px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .family-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .family-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-g">GAETA</span>
+      <span class="nav-logo-p">PRIME STORE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="iphone.html" style="color:var(--cobre);">iPhone</a></li>
+      <li><a href="mac.html">Mac</a></li>
+      <li><a href="ipad.html">iPad</a></li>
+      <li><a href="watch.html">Watch</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html" class="nav-wpp">Fale Conosco</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html">Início</a>
+    <a href="iphone.html">iPhone</a>
+    <a href="mac.html">Mac</a>
+    <a href="ipad.html">iPad</a>
+    <a href="watch.html">Watch</a>
+    <a href="colecao.html?cat=acessorios">AirPods</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="page-eyebrow">COLEÇÃO</p>
+    <h1 class="page-title">iPhone.</h1>
+    <p class="page-sub">Todos os modelos, originais, com garantia Apple. Atendimento personalizado via WhatsApp.</p>
+  </div>
+
+  <!-- FAMILY TABS -->
+  <nav class="family-tabs" id="family-tabs">
+    <button class="family-tab ativo" data-family="ip17pro">iPhone 17 Pro</button>
+    <button class="family-tab" data-family="ip17">iPhone 17</button>
+    <button class="family-tab" data-family="ip16pro">iPhone 16 Pro</button>
+    <button class="family-tab" data-family="ip16">iPhone 16</button>
+    <button class="family-tab" data-family="ip15pro">iPhone 15 Pro</button>
+    <button class="family-tab" data-family="ip15">iPhone 15</button>
+    <button class="family-tab" data-family="ip14pro">iPhone 14 Pro</button>
+    <button class="family-tab" data-family="ip14">iPhone 14</button>
+    <button class="family-tab" data-family="ip13pro">iPhone 13 Pro</button>
+    <button class="family-tab" data-family="ip13">iPhone 13</button>
+    <button class="family-tab" data-family="ip12pro">iPhone 12 Pro</button>
+    <button class="family-tab" data-family="ip12">iPhone 12</button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       FAMÍLIAS
+  ═══════════════════════════════════════════ -->
+
+  <!-- iPhone 17 Pro -->
+  <div class="family-section ativo" id="ip17pro">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">LANÇAMENTO 2025</span>
+        <h2 class="family-titulo">iPhone 17 Pro</h2>
+        <p class="family-sub">Chip A19 Pro · Câmera Fusion Pro · Design em titânio</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-17-pro-max" class="prod-card">
+        <span class="prod-badge badge-novo">NOVO</span>
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 17 Pro Max</h3>
+          <p class="prod-spec">6,9" · Chip A19 Pro · Câmera Fusion Pro · Titânio</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-17-pro" class="prod-card">
+        <span class="prod-badge badge-novo">NOVO</span>
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 17 Pro</h3>
+          <p class="prod-spec">6,3" · Chip A19 Pro · Câmera Fusion Pro · Titânio</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 17 -->
+  <div class="family-section" id="ip17">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">LANÇAMENTO 2025</span>
+        <h2 class="family-titulo">iPhone 17</h2>
+        <p class="family-sub">Chip A18 · Câmera 48MP · USB-C · Dynamic Island</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-17" class="prod-card">
+        <span class="prod-badge badge-novo">NOVO</span>
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 17</h3>
+          <p class="prod-spec">6,1" · Chip A18 · Câmera 48MP · Dynamic Island</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 16 Pro -->
+  <div class="family-section" id="ip16pro">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2024</span>
+        <h2 class="family-titulo">iPhone 16 Pro</h2>
+        <p class="family-sub">Chip A18 Pro · Camera Control · Zoom óptico 5x · Titânio</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-16-pro-max" class="prod-card">
+        <span class="prod-badge badge-novo">NOVO</span>
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 16 Pro Max</h3>
+          <p class="prod-spec">6,9" · A18 Pro · Camera Control · Zoom 5x</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-16-pro" class="prod-card">
+        <span class="prod-badge badge-novo">NOVO</span>
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 16 Pro</h3>
+          <p class="prod-spec">6,3" · A18 Pro · Camera Control · Zoom 5x</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 16 -->
+  <div class="family-section" id="ip16">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2024</span>
+        <h2 class="family-titulo">iPhone 16</h2>
+        <p class="family-sub">Chip A16 Bionic · Camera Control · USB-C · Dynamic Island</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-16-plus" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 16 Plus</h3>
+          <p class="prod-spec">6,7" · A16 Bionic · Bateria extra · USB-C</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-16" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 16</h3>
+          <p class="prod-spec">6,1" · A16 Bionic · Camera Control · USB-C</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 15 Pro -->
+  <div class="family-section" id="ip15pro">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2023</span>
+        <h2 class="family-titulo">iPhone 15 Pro</h2>
+        <p class="family-sub">Chip A17 Pro · Titânio · USB-C 3 · Action Button</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-15-pro-max" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 15 Pro Max</h3>
+          <p class="prod-spec">6,7" · A17 Pro · Zoom óptico 5x · Titânio</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-15-pro" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 15 Pro</h3>
+          <p class="prod-spec">6,1" · A17 Pro · Titânio natural · USB-C 3</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 15 -->
+  <div class="family-section" id="ip15">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2023</span>
+        <h2 class="family-titulo">iPhone 15</h2>
+        <p class="family-sub">Chip A16 Bionic · Dynamic Island · USB-C · 48MP</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-15-plus" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 15 Plus</h3>
+          <p class="prod-spec">6,7" · A16 Bionic · Dynamic Island · USB-C</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-15" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 15</h3>
+          <p class="prod-spec">6,1" · A16 Bionic · Dynamic Island · USB-C</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 14 Pro -->
+  <div class="family-section" id="ip14pro">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2022</span>
+        <h2 class="family-titulo">iPhone 14 Pro</h2>
+        <p class="family-sub">Chip A16 Bionic · Dynamic Island · Always-On Display · 48MP</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-14-pro-max" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 14 Pro Max</h3>
+          <p class="prod-spec">6,7" · A16 Bionic · Always-On · Dynamic Island</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-14-pro" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 14 Pro</h3>
+          <p class="prod-spec">6,1" · A16 Bionic · Always-On · Dynamic Island</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 14 -->
+  <div class="family-section" id="ip14">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2022</span>
+        <h2 class="family-titulo">iPhone 14</h2>
+        <p class="family-sub">Chip A15 Bionic · Crash Detection · USB-C · Modo Ação</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-14-plus" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 14 Plus</h3>
+          <p class="prod-spec">6,7" · A15 Bionic · Bateria extra · Crash Detection</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-14" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 14</h3>
+          <p class="prod-spec">6,1" · A15 Bionic · Crash Detection · Emergency SOS</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 13 Pro -->
+  <div class="family-section" id="ip13pro">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2021</span>
+        <h2 class="family-titulo">iPhone 13 Pro</h2>
+        <p class="family-sub">Chip A15 Bionic · ProMotion 120Hz · Zoom óptico 3x · Aço inoxidável</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-13-pro-max" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 13 Pro Max</h3>
+          <p class="prod-spec">6,7" · A15 Bionic · ProMotion 120Hz · Zoom 3x</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-13-pro" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 13 Pro</h3>
+          <p class="prod-spec">6,1" · A15 Bionic · ProMotion 120Hz · Zoom 3x</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 13 -->
+  <div class="family-section" id="ip13">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2021</span>
+        <h2 class="family-titulo">iPhone 13</h2>
+        <p class="family-sub">Chip A15 Bionic · Modo Cinematográfico · Câmera dupla 12MP</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-13" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 13</h3>
+          <p class="prod-spec">6,1" · A15 Bionic · Modo Cinematográfico · IP68</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 12 Pro -->
+  <div class="family-section" id="ip12pro">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2020</span>
+        <h2 class="family-titulo">iPhone 12 Pro</h2>
+        <p class="family-sub">Chip A14 Bionic · 5G · LiDAR · Aço inoxidável · OLED Super Retina XDR</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-12-pro-max" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 12 Pro Max</h3>
+          <p class="prod-spec">6,7" · A14 Bionic · LiDAR · 5G · Zoom óptico 2,5x</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+      <a href="produto.html?id=iphone-12-pro" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 12 Pro</h3>
+          <p class="prod-spec">6,1" · A14 Bionic · LiDAR · 5G · Zoom óptico 2x</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- iPhone 12 -->
+  <div class="family-section" id="ip12">
+    <div class="family-header">
+      <div>
+        <span class="family-badge">2020</span>
+        <h2 class="family-titulo">iPhone 12</h2>
+        <p class="family-sub">Chip A14 Bionic · 5G · Design plano · OLED Super Retina XDR</p>
+      </div>
+    </div>
+    <div class="family-grid">
+      <a href="produto.html?id=iphone-12" class="prod-card">
+        <div class="prod-foto">
+          <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        </div>
+        <div class="prod-info">
+          <h3 class="prod-nome">iPhone 12</h3>
+          <p class="prod-spec">6,1" · A14 Bionic · 5G · OLED · Design plano icônico</p>
+          <p class="prod-preco" style="color:var(--cobre);font-size:14px;">Consultar</p>
+          <div class="prod-cta-row">
+            <span class="prod-ver">VER NO WHATSAPP →</span>
+            <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- WPP CTA -->
+  <section class="wpp-cta" style="margin-top:2px;">
+    <div class="wpp-cta-content reveal">
+      <p class="wpp-cta-eyebrow">ATENDIMENTO PERSONALIZADO</p>
+      <h2 class="wpp-cta-title">Não sabe qual<br>iPhone escolher?</h2>
+      <p class="wpp-cta-sub">Nossa equipe te ajuda a encontrar o modelo certo para o seu perfil e orçamento.</p>
+      <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21+Preciso+de+ajuda+para+escolher+o+iPhone+ideal." target="_blank" rel="noopener" class="btn-wpp-lg">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com especialista
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-g">GAETA</span>
+        <span class="footer-logo-p">PRIME STORE</span>
+        <p class="footer-tagline">Produtos Apple originais com atendimento que faz a diferença.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">IPHONE</p>
+        <ul>
+          <li><a href="#" onclick="switchFamily('ip17pro')">iPhone 17 Pro</a></li>
+          <li><a href="#" onclick="switchFamily('ip16pro')">iPhone 16 Pro</a></li>
+          <li><a href="#" onclick="switchFamily('ip15pro')">iPhone 15 Pro</a></li>
+          <li><a href="#" onclick="switchFamily('ip14pro')">iPhone 14 Pro</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">OUTROS</p>
+        <ul>
+          <li><a href="mac.html">Mac</a></li>
+          <li><a href="ipad.html">iPad</a></li>
+          <li><a href="watch.html">Apple Watch</a></li>
+          <li><a href="colecao.html?cat=acessorios">Acessórios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">CONTATO</p>
+        <ul>
+          <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/gaetaprime" target="_blank">@gaetaprime</a></li>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Gaeta Prime · Apple e Acessórios · São Paulo</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
+        <a href="https://wa.me/5511999999999" target="_blank">WHATSAPP</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    function switchFamily(id, doScroll) {
+      const secao = document.getElementById(id);
+      const tab = document.querySelector(`[data-family="${id}"]`);
+      // Se a família pedida não existe, não faz nada (mantém a ativa atual)
+      if (!secao || !tab) return;
+
+      document.querySelectorAll('.family-section').forEach(s => s.classList.remove('ativo'));
+      document.querySelectorAll('.family-tab').forEach(t => t.classList.remove('ativo'));
+      secao.classList.add('ativo');
+      tab.classList.add('ativo');
+
+      // Só rola a tela quando o usuário clica numa tab, não no carregamento via URL
+      if (doScroll) {
+        document.querySelector('.family-tabs').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      // Mantém a tab ativa visível na barra horizontal
+      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    document.querySelectorAll('.family-tab').forEach(btn => {
+      btn.addEventListener('click', () => switchFamily(btn.dataset.family, true));
+    });
+
+    // Abre família via URL ?family=ip17pro (sem rolar a página)
+    const params = new URLSearchParams(window.location.search);
+    const fam = params.get('family');
+    if (fam) switchFamily(fam, false);
+  </script>
+</body>
+</html>

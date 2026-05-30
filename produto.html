@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Produto — GAETA Prime Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── PRODUTO HERO ── */
+    .prod-hero {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: calc(100svh - var(--nav-h));
+      margin-top: var(--nav-h);
+    }
+    /* GALERIA */
+    .prod-galeria {
+      background: var(--off);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 48px 32px; gap: 20px;
+      position: sticky; top: var(--nav-h);
+      height: calc(100svh - var(--nav-h));
+    }
+    /* Placeholder de foto — elegante, sem imagem */
+    .prod-foto-placeholder {
+      width: 100%; max-width: 340px; aspect-ratio: 1/1;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .pfp-ring {
+      position: absolute; border-radius: 50%;
+      border: 0.5px solid rgba(184,149,90,.12);
+      animation: pfpPulse 4s ease-in-out infinite;
+    }
+    .pfp-ring:nth-child(1) { inset: 0; animation-delay: 0s; }
+    .pfp-ring:nth-child(2) { inset: 15%; animation-delay: .6s; }
+    .pfp-ring:nth-child(3) { inset: 30%; animation-delay: 1.2s; }
+    .pfp-inner {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 14px;
+    }
+    .pfp-icon { opacity: .15; }
+    .pfp-label {
+      font-size: 8px; letter-spacing: 4px;
+      color: rgba(0,0,0,.3); text-align: center;
+    }
+    @keyframes pfpPulse {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.02); opacity: .7; }
+    }
+
+    /* Thumbs de cor — círculos de cor */
+    .prod-thumbs {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+    }
+    .cor-thumb {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid transparent; cursor: pointer;
+      transition: border-color .2s, transform .15s;
+      position: relative;
+    }
+    .cor-thumb.ativo { border-color: var(--grafite); }
+    .cor-thumb:hover { transform: scale(1.15); }
+    .cor-thumb-label {
+      position: absolute; bottom: -18px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 7px; letter-spacing: 1px;
+      color: var(--cinza); white-space: nowrap;
+      opacity: 0; transition: opacity .2s;
+    }
+    .cor-thumb:hover .cor-thumb-label,
+    .cor-thumb.ativo .cor-thumb-label { opacity: 1; }
+
+    /* CONFIGURAÇÃO */
+    .prod-config {
+      padding: 56px 64px;
+      display: flex; flex-direction: column; gap: 0;
+      overflow-y: auto;
+    }
+    .prod-breadcrumb {
+      font-size: 10px; color: var(--cinza); letter-spacing: .5px;
+      margin-bottom: 28px; display: flex; align-items: center; gap: 8px;
+    }
+    .prod-breadcrumb a { color: var(--cinza); transition: color .2s; }
+    .prod-breadcrumb a:hover { color: var(--cobre); }
+    .prod-breadcrumb span { opacity: .4; }
+    .prod-cat {
+      font-size: 9px; letter-spacing: 5px; color: var(--cobre);
+      margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+    }
+    .prod-cat::before { content:''; display:block; width:20px; height:.5px; background:var(--cobre); flex-shrink:0; }
+    .prod-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 54px); font-weight: 300;
+      letter-spacing: -1px; line-height: 1.0; margin-bottom: 16px;
+    }
+    .prod-desc {
+      font-size: 13px; color: var(--cinza); line-height: 1.85;
+      margin-bottom: 32px;
+    }
+
+    /* Lacrado badge */
+    .badge-lacrado {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 9px; letter-spacing: 2px;
+      padding: 8px 16px; border: 0.5px solid rgba(184,149,90,.3);
+      color: var(--cobre); margin-bottom: 32px; border-radius: 2px;
+    }
+
+    /* Config step */
+    .config-bloco { margin-bottom: 28px; }
+    .config-label {
+      font-size: 9px; letter-spacing: 3px; color: var(--cinza);
+      margin-bottom: 12px; display: block;
+    }
+    .config-label strong { color: var(--grafite); font-weight: 400; }
+
+    /* Cores */
+    .cores-grid { display: flex; gap: 10px; flex-wrap: wrap; }
+    .cor-op {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      cursor: pointer; background: none; border: none;
+    }
+    .cor-circulo {
+      width: 26px; height: 26px; border-radius: 50%;
+      border: 2px solid transparent;
+      outline: 1.5px solid transparent; outline-offset: 2px;
+      transition: outline-color .2s, transform .15s;
+    }
+    .cor-op.ativo .cor-circulo { outline-color: var(--grafite); }
+    .cor-op:hover .cor-circulo { transform: scale(1.1); }
+    .cor-nome-txt { font-size: 8px; letter-spacing: 1px; color: var(--cinza); }
+
+    /* Storage */
+    .storage-grid { display: flex; gap: 8px; flex-wrap: wrap; }
+    .storage-btn {
+      padding: 9px 20px; border: 0.5px solid var(--borda);
+      background: #fff; font-size: 12px; color: var(--grafite);
+      border-radius: 2px; cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .storage-btn:hover { border-color: var(--grafite); }
+    .storage-btn.ativo {
+      background: var(--grafite); color: #fff; border-color: var(--grafite);
+    }
+
+    /* Preço */
+    .preco-bloco { margin: 28px 0; padding: 24px; background: var(--off); border-radius: 4px; }
+    .preco-label { font-size: 8px; letter-spacing: 3px; color: var(--cinza); margin-bottom: 6px; }
+    .preco-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px; font-weight: 300; color: var(--grafite);
+      letter-spacing: -1px; line-height: 1;
+    }
+    .preco-parcela { font-size: 11px; color: var(--cinza); margin-top: 6px; }
+    .preco-consultar {
+      font-size: 14px; color: var(--cinza); font-style: italic;
+    }
+
+    /* CTAs */
+    .prod-ctas { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .btn-wpp-prod {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--cobre); color: #fff;
+      padding: 15px 28px; border-radius: 999px;
+      font-size: 13px; letter-spacing: .5px;
+      transition: background .2s;
+    }
+    .btn-wpp-prod:hover { background: #a07840; }
+    .btn-duvidas {
+      display: flex; align-items: center; justify-content: center;
+      border: 0.5px solid var(--borda); color: var(--grafite);
+      padding: 14px 28px; border-radius: 999px;
+      font-size: 13px; background: #fff;
+      transition: border-color .2s;
+    }
+    .btn-duvidas:hover { border-color: var(--grafite); }
+
+    /* Garantias */
+    .garantias {
+      font-size: 11px; color: var(--cinza); line-height: 2.1;
+      padding: 20px 0; border-top: 0.5px solid var(--borda);
+      margin-bottom: 28px;
+    }
+    .garantias span { color: var(--cobre); margin-right: 8px; }
+
+    /* Specs */
+    .specs-bloco { border-top: 0.5px solid var(--borda); padding-top: 24px; }
+    .specs-titulo { font-size: 9px; letter-spacing: 4px; color: var(--cinza); margin-bottom: 16px; }
+    .spec-linha {
+      display: flex; gap: 16px; padding: 12px 0;
+      border-bottom: 0.5px solid var(--borda);
+      font-size: 12px;
+    }
+    .spec-k { color: var(--cinza); min-width: 140px; flex-shrink: 0; }
+    .spec-v { color: var(--grafite); }
+
+    /* Outros produtos */
+    .outros { padding: 72px 48px; background: var(--off); }
+    .outros-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 42px); font-weight: 300;
+      letter-spacing: -.5px; margin-bottom: 36px;
+    }
+    .outros-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--borda); }
+    .outro-card { background: #fff; display: flex; flex-direction: column; overflow: hidden; }
+    .outro-card:hover .outro-ph { opacity: .8; }
+    .outro-ph {
+      aspect-ratio: 1/1; display: flex; align-items: center;
+      justify-content: center; background: var(--off);
+      position: relative; overflow: hidden;
+      transition: opacity .3s;
+    }
+    .outro-ph svg { opacity: .1; }
+    .outro-ph-label {
+      position: absolute; bottom: 16px; left: 0; right: 0;
+      text-align: center; font-size: 7px; letter-spacing: 3px;
+      color: rgba(0,0,0,.25);
+    }
+    .outro-info { padding: 16px 20px 22px; border-top: 0.5px solid var(--borda); }
+    .outro-nome {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; font-weight: 400; margin-bottom: 3px;
+    }
+    .outro-spec { font-size: 11px; color: var(--cinza); margin-bottom: 10px; }
+    .outro-cta { font-size: 9px; letter-spacing: 2px; color: var(--cobre); }
+
+    /* Responsivo */
+    @media (max-width: 900px) {
+      .prod-hero { grid-template-columns: 1fr; }
+      .prod-galeria { position: static; height: auto; min-height: 280px; padding: 32px 20px; }
+      .prod-config { padding: 36px 24px; }
+      .outros { padding: 48px 24px; }
+      .outros-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .outros-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-g">GAETA</span>
+      <span class="nav-logo-p">PRIME STORE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="iphone.html">iPhone</a></li>
+      <li><a href="mac.html">Mac</a></li>
+      <li><a href="ipad.html">iPad</a></li>
+      <li><a href="watch.html">Watch</a></li>
+      <li><a href="colecao.html?cat=acessorios">AirPods</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html" class="nav-wpp">Fale Conosco</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html">Início</a>
+    <a href="iphone.html">iPhone</a>
+    <a href="mac.html">Mac</a>
+    <a href="ipad.html">iPad</a>
+    <a href="watch.html">Watch</a>
+    <a href="colecao.html?cat=acessorios">AirPods</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
+  </div>
+
+  <!-- Preenchido pelo JS -->
+  <div id="prod-root"></div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-g">GAETA</span>
+        <span class="footer-logo-p">PRIME STORE</span>
+        <p class="footer-tagline">Produtos Apple originais com atendimento que faz a diferença.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">PRODUTOS</p>
+        <ul>
+          <li><a href="iphone.html">iPhone</a></li>
+          <li><a href="mac.html">Mac</a></li>
+          <li><a href="ipad.html">iPad</a></li>
+          <li><a href="watch.html">Apple Watch</a></li>
+          <li><a href="colecao.html?cat=acessorios">AirPods</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">GAETA PRIME</p>
+        <ul>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">REDES</p>
+        <ul>
+          <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/gaetaprime" target="_blank">@gaetaprime</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Gaeta Prime · Apple e Acessórios · São Paulo</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
+        <a href="https://wa.me/5511999999999" target="_blank">WHATSAPP</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+  // ══════════════════════════════════════════
+  //  CATÁLOGO DE PRODUTOS
+  //  Para adicionar um produto: copie um bloco
+  //  e preencha os campos. A página se monta
+  //  automaticamente a partir daqui.
+  // ══════════════════════════════════════════
+  const CATALOGO = {
+
+    'iphone-16-pro': {
+      cat: 'IPHONE', catLink: 'iphone.html',
+      nome: 'iPhone 16 Pro',
+      desc: 'Chip A18 Pro com Apple Intelligence. Camera Control. Zoom óptico 5x. A câmera de 48MP mais versátil já criada.',
+      icone: 'iphone',
+      cores: [
+        { nome: 'Titânio Deserto', hex: '#C4A882' },
+        { nome: 'Titânio Preto',   hex: '#3D3935' },
+        { nome: 'Titânio Branco',  hex: '#F0EFEC', borda: true },
+        { nome: 'Titânio Natural', hex: '#B8A898' },
+      ],
+      storage: [
+        { label: '128 GB', preco: 'R$ 9.499' },
+        { label: '256 GB', preco: 'R$ 10.499' },
+        { label: '512 GB', preco: 'R$ 12.499' },
+        { label: '1 TB',   preco: 'R$ 14.499' },
+      ],
+      specs: [
+        ['Tela',            'Super Retina XDR OLED 6,3" ProMotion 120 Hz'],
+        ['Chip',            'A18 Pro com Neural Engine 16-core'],
+        ['Câmera principal','48 MP Fusion, f/1.78, OIS'],
+        ['Câmera frontal',  '12 MP TrueDepth, f/1.9'],
+        ['Zoom óptico',     '5x (teleobjetiva 12 MP)'],
+        ['Conectividade',   '5G, Wi-Fi 7, Bluetooth 5.3, USB-C 3'],
+        ['Resistência',     'IP68 — até 6 metros por 30 min'],
+        ['Material',        'Titânio grau 5, vidro Ceramic Shield'],
+        ['Sistema',         'iOS 18 com Apple Intelligence'],
+      ],
+      relacionados: ['iphone-16-pro-max','airpods-pro','apple-watch-ultra2'],
+      wppMsg: 'Olá! Tenho interesse no iPhone 16 Pro. Pode me ajudar?',
+    },
+
+    'iphone-16-pro-max': {
+      cat: 'IPHONE', catLink: 'iphone.html',
+      nome: 'iPhone 16 Pro Max',
+      desc: 'A maior tela Super Retina XDR já num iPhone Pro. Chip A18 Pro, bateria com autonomia recorde e zoom óptico 5x.',
+      icone: 'iphone',
+      cores: [
+        { nome: 'Titânio Deserto', hex: '#C4A882' },
+        { nome: 'Titânio Preto',   hex: '#3D3935' },
+        { nome: 'Titânio Branco',  hex: '#F0EFEC', borda: true },
+        { nome: 'Titânio Natural', hex: '#B8A898' },
+      ],
+      storage: [
+        { label: '256 GB', preco: 'R$ 11.499' },
+        { label: '512 GB', preco: 'R$ 13.499' },
+        { label: '1 TB',   preco: 'R$ 15.499' },
+      ],
+      specs: [
+        ['Tela',            'Super Retina XDR OLED 6,9" ProMotion 120 Hz'],
+        ['Chip',            'A18 Pro com Neural Engine 16-core'],
+        ['Câmera principal','48 MP Fusion, f/1.78, OIS'],
+        ['Zoom óptico',     '5x (teleobjetiva 12 MP)'],
+        ['Conectividade',   '5G, Wi-Fi 7, Bluetooth 5.3, USB-C 3'],
+        ['Resistência',     'IP68 — até 6 metros por 30 min'],
+        ['Sistema',         'iOS 18 com Apple Intelligence'],
+      ],
+      relacionados: ['iphone-16-pro','airpods-pro','macbook-pro-m4'],
+      wppMsg: 'Olá! Tenho interesse no iPhone 16 Pro Max. Pode me ajudar?',
+    },
+
+    'iphone-16': {
+      cat: 'IPHONE', catLink: 'iphone.html',
+      nome: 'iPhone 16',
+      desc: 'Chip A18, Camera Control e suporte completo ao Apple Intelligence. O iPhone para quem quer tudo, com elegância.',
+      icone: 'iphone',
+      cores: [
+        { nome: 'Ultramarino', hex: '#4A6FA5' },
+        { nome: 'Verde-Teal',  hex: '#5B8A7A' },
+        { nome: 'Rosa',        hex: '#E8B4C0' },
+        { nome: 'Preto',       hex: '#1C1C1E' },
+        { nome: 'Branco',      hex: '#F5F5F0', borda: true },
+      ],
+      storage: [
+        { label: '128 GB', preco: 'R$ 7.299' },
+        { label: '256 GB', preco: 'R$ 8.299' },
+        { label: '512 GB', preco: 'R$ 10.299' },
+      ],
+      specs: [
+        ['Tela',            'Super Retina XDR OLED 6,1" 60 Hz'],
+        ['Chip',            'A18 com Neural Engine 16-core'],
+        ['Câmera principal','48 MP Fusion, f/1.6'],
+        ['Câmera frontal',  '12 MP TrueDepth'],
+        ['Conectividade',   '5G, Wi-Fi 7, Bluetooth 5.3, USB-C'],
+        ['Resistência',     'IP68'],
+        ['Sistema',         'iOS 18 com Apple Intelligence'],
+      ],
+      relacionados: ['iphone-16-pro','airpods-pro','apple-watch-s10'],
+      wppMsg: 'Olá! Tenho interesse no iPhone 16. Pode me ajudar?',
+    },
+
+    'macbook-pro-m4': {
+      cat: 'MAC', catLink: 'mac.html',
+      nome: 'MacBook Pro 14" M4',
+      desc: 'Chip M4 Pro com até 24 horas de bateria. Tela Liquid Retina XDR. O notebook mais poderoso da história da Apple.',
+      icone: 'mac',
+      cores: [
+        { nome: 'Preto Espacial', hex: '#1C1C1E' },
+        { nome: 'Prata',          hex: '#C8C8C8', borda: true },
+      ],
+      storage: [
+        { label: '512 GB', preco: 'R$ 16.499' },
+        { label: '1 TB',   preco: 'R$ 18.499' },
+        { label: '2 TB',   preco: 'R$ 22.499' },
+      ],
+      specs: [
+        ['Tela',       'Liquid Retina XDR 14,2" ProMotion 120 Hz'],
+        ['Chip',       'M4 Pro — CPU 12-core, GPU 20-core'],
+        ['Memória',    'até 64 GB RAM unificada'],
+        ['Bateria',    'até 24 horas'],
+        ['Portas',     '3x Thunderbolt 5, HDMI, SD, MagSafe 3'],
+        ['Sistema',    'macOS Sequoia'],
+      ],
+      relacionados: ['macbook-air-m3','iphone-16-pro','airpods-pro'],
+      wppMsg: 'Olá! Tenho interesse no MacBook Pro M4. Pode me ajudar?',
+    },
+
+    'macbook-air-m3': {
+      cat: 'MAC', catLink: 'mac.html',
+      nome: 'MacBook Air 13" M3',
+      desc: 'Ultrafino, silencioso e com autonomia de até 18 horas. O laptop mais vendido do mundo com o chip M3.',
+      icone: 'mac',
+      cores: [
+        { nome: 'Meia-noite',    hex: '#1C2B38' },
+        { nome: 'Luz das estrelas', hex: '#E8E3D8', borda: true },
+        { nome: 'Cinza espacial',   hex: '#6E6E73' },
+        { nome: 'Azul',             hex: '#6A8CB8' },
+      ],
+      storage: [
+        { label: '256 GB', preco: 'R$ 10.499' },
+        { label: '512 GB', preco: 'R$ 12.499' },
+        { label: '1 TB',   preco: 'R$ 14.499' },
+      ],
+      specs: [
+        ['Tela',       'Liquid Retina 13,6" 500 nits'],
+        ['Chip',       'M3 — CPU 8-core, GPU 10-core'],
+        ['Memória',    'até 24 GB RAM unificada'],
+        ['Bateria',    'até 18 horas'],
+        ['Portas',     '2x Thunderbolt 3, MagSafe, Jack 3,5mm'],
+        ['Sistema',    'macOS Sequoia'],
+      ],
+      relacionados: ['macbook-pro-m4','iphone-16','airpods-pro'],
+      wppMsg: 'Olá! Tenho interesse no MacBook Air M3. Pode me ajudar?',
+    },
+
+    'ipad-pro-m4': {
+      cat: 'IPAD', catLink: 'ipad.html',
+      nome: 'iPad Pro 13" M4',
+      desc: 'O mais fino já fabricado pela Apple — 5,1 mm. Tela Ultra Retina XDR OLED dupla camada. Chip M4. Uma nova dimensão de poder.',
+      icone: 'ipad',
+      cores: [
+        { nome: 'Preto espacial', hex: '#1C1C1E' },
+        { nome: 'Prateado',       hex: '#E0E0E0', borda: true },
+      ],
+      storage: [
+        { label: '256 GB', preco: 'R$ 13.499' },
+        { label: '512 GB', preco: 'R$ 15.499' },
+        { label: '1 TB',   preco: 'R$ 19.499' },
+        { label: '2 TB',   preco: 'R$ 23.499' },
+      ],
+      specs: [
+        ['Tela',       'Ultra Retina XDR OLED 13" ProMotion 120 Hz'],
+        ['Chip',       'M4 — Neural Engine 38-core'],
+        ['Câmera',     '12 MP traseira, 12 MP frontal paisagem'],
+        ['Espessura',  '5,1 mm'],
+        ['Conectividade','Wi-Fi 6E, Bluetooth 5.3, USB-C 4'],
+        ['Sistema',    'iPadOS 18'],
+      ],
+      relacionados: ['ipad-air-m2','macbook-pro-m4','airpods-pro'],
+      wppMsg: 'Olá! Tenho interesse no iPad Pro M4. Pode me ajudar?',
+    },
+
+    'ipad-air-m2': {
+      cat: 'IPAD', catLink: 'ipad.html',
+      nome: 'iPad Air 13" M2',
+      desc: 'Chip M2, tela Liquid Retina de 13 polegadas e compatível com Apple Pencil Pro. O iPad perfeito para criar.',
+      icone: 'ipad',
+      cores: [
+        { nome: 'Azul',          hex: '#6A8CB8' },
+        { nome: 'Roxo',          hex: '#9B7EBD' },
+        { nome: 'Luz das estrelas', hex: '#E8E3D8', borda: true },
+        { nome: 'Cinza espacial',   hex: '#6E6E73' },
+      ],
+      storage: [
+        { label: '128 GB', preco: 'R$ 8.999' },
+        { label: '256 GB', preco: 'R$ 10.499' },
+        { label: '512 GB', preco: 'R$ 12.999' },
+      ],
+      specs: [
+        ['Tela',         'Liquid Retina 13" 60 Hz'],
+        ['Chip',         'M2 — CPU 8-core, GPU 10-core'],
+        ['Câmera',       '12 MP traseira, 12 MP frontal paisagem'],
+        ['Conectividade','Wi-Fi 6E, Bluetooth 5.3, USB-C'],
+        ['Sistema',      'iPadOS 18'],
+      ],
+      relacionados: ['ipad-pro-m4','airpods-pro','macbook-air-m3'],
+      wppMsg: 'Olá! Tenho interesse no iPad Air M2. Pode me ajudar?',
+    },
+
+    'apple-watch-ultra2': {
+      cat: 'APPLE WATCH', catLink: 'watch.html',
+      nome: 'Apple Watch Ultra 2',
+      desc: 'O relógio mais robusto e preciso da Apple. Titânio aeroespacial, GPS de dupla frequência, até 60 horas de bateria e resistência a 100 metros.',
+      icone: 'watch',
+      cores: [
+        { nome: 'Titânio Natural', hex: '#B8A898' },
+        { nome: 'Titânio Preto',   hex: '#2A2825' },
+      ],
+      storage: [
+        { label: '49mm', preco: 'R$ 8.499' },
+      ],
+      specs: [
+        ['Caixa',         'Titânio grau 5 — 49mm'],
+        ['Tela',          'LTPO OLED 2000 nits'],
+        ['Bateria',       'até 60 horas (modo low power: 72h)'],
+        ['GPS',           'Dupla frequência L1 + L5'],
+        ['Resistência',   '100m profundidade, MIL-STD-810H'],
+        ['Chip',          'S9 SiP duplo núcleo'],
+        ['Sistema',       'watchOS 11'],
+      ],
+      relacionados: ['airpods-pro','iphone-16-pro','iphone-16'],
+      wppMsg: 'Olá! Tenho interesse no Apple Watch Ultra 2. Pode me ajudar?',
+    },
+
+    'airpods-pro': {
+      cat: 'AIRPODS', catLink: 'colecao.html?cat=acessorios',
+      nome: 'AirPods Pro 2',
+      desc: 'Cancelamento de ruído ativo líder de mercado. Chip H2. Transparência adaptativa. Áudio espacial personalizado. E USB-C.',
+      icone: 'airpods',
+      cores: [
+        { nome: 'Branco', hex: '#F5F5F5', borda: true },
+      ],
+      storage: [
+        { label: 'Com USB-C', preco: 'R$ 2.199' },
+      ],
+      specs: [
+        ['Chip',          'H2 + U1'],
+        ['ANC',           'Cancelamento de ruído ativo adaptativo'],
+        ['Autonomia',     'até 6h (30h com estojo)'],
+        ['Resistência',   'IP54'],
+        ['Conectividade', 'Bluetooth 5.3, USB-C, MagSafe'],
+        ['Sistema',       'iOS 18 / iPadOS 18 / macOS Sequoia'],
+      ],
+      relacionados: ['apple-watch-ultra2','iphone-16-pro','iphone-16'],
+      wppMsg: 'Olá! Tenho interesse nos AirPods Pro 2. Pode me ajudar?',
+    },
+
+    'mac-mini-m4': {
+      cat: 'MAC', catLink: 'mac.html',
+      nome: 'Mac mini M4',
+      desc: 'O menor e mais acessível Mac com chip M4. Surpreendentemente poderoso. Extremamente compacto. Portas Thunderbolt 5.',
+      icone: 'mac',
+      cores: [
+        { nome: 'Prateado', hex: '#C8C8C8', borda: true },
+      ],
+      storage: [
+        { label: '256 GB', preco: 'R$ 7.299' },
+        { label: '512 GB', preco: 'R$ 9.299' },
+        { label: '1 TB',   preco: 'R$ 11.299' },
+      ],
+      specs: [
+        ['Chip',    'M4 — CPU 10-core, GPU 10-core'],
+        ['Memória', 'até 32 GB RAM unificada'],
+        ['Portas',  '3x Thunderbolt 5, 2x USB-A, HDMI 2.1, Ethernet'],
+        ['Sistema', 'macOS Sequoia'],
+      ],
+      relacionados: ['macbook-air-m3','iphone-16','airpods-pro'],
+      wppMsg: 'Olá! Tenho interesse no Mac mini M4. Pode me ajudar?',
+    },
+  };
+
+  // ══ ÍCONES SVG por categoria ══
+  const ICONES = {
+    iphone: `<svg width="72" height="144" viewBox="0 0 80 160" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="76" height="156" rx="18" stroke="currentColor" stroke-width="2.5"/><rect x="10" y="14" width="60" height="118" rx="6" stroke="currentColor" stroke-width="2"/><rect x="28" y="6" width="24" height="6" rx="3" stroke="currentColor" stroke-width="2"/></svg>`,
+    mac:    `<svg width="160" height="106" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="8" width="140" height="88" rx="8" stroke="currentColor" stroke-width="2.5"/><rect x="30" y="18" width="120" height="68" rx="3" stroke="currentColor" stroke-width="2"/><rect x="2" y="96" width="176" height="14" rx="4" stroke="currentColor" stroke-width="2"/><rect x="72" y="96" width="36" height="4" rx="2" fill="currentColor" opacity=".3"/></svg>`,
+    ipad:   `<svg width="108" height="144" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="116" height="156" rx="14" stroke="currentColor" stroke-width="2.5"/><rect x="10" y="12" width="100" height="136" rx="6" stroke="currentColor" stroke-width="2"/><rect x="54" y="4" width="12" height="4" rx="2" stroke="currentColor" stroke-width="2"/></svg>`,
+    watch:  `<svg width="96" height="116" viewBox="0 0 96 116" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="26" width="88" height="64" rx="20" stroke="currentColor" stroke-width="2.5"/><rect x="14" y="36" width="68" height="44" rx="10" stroke="currentColor" stroke-width="1.5"/><rect x="28" y="2" width="40" height="24" rx="4" stroke="currentColor" stroke-width="2"/><rect x="28" y="90" width="40" height="24" rx="4" stroke="currentColor" stroke-width="2"/></svg>`,
+    airpods:`<svg width="80" height="120" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="4" width="40" height="56" rx="12" stroke="currentColor" stroke-width="2.5"/><line x1="40" y1="60" x2="40" y2="88" stroke="currentColor" stroke-width="2"/><circle cx="40" cy="96" r="8" stroke="currentColor" stroke-width="2"/><rect x="26" y="16" width="28" height="24" rx="6" stroke="currentColor" stroke-width="1.5"/></svg>`,
+  };
+
+  // ══ RENDER ══
+  function render() {
+    const id = new URLSearchParams(window.location.search).get('id');
+    const prod = CATALOGO[id];
+    const root = document.getElementById('prod-root');
+
+    if (!prod) {
+      root.innerHTML = `
+        <div style="min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 24px;margin-top:var(--nav-h);">
+          <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:16px;">PRODUTO NÃO ENCONTRADO</p>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;margin-bottom:20px;">Oops.</h2>
+          <p style="font-size:13px;color:var(--cinza);margin-bottom:32px;">Esse produto não foi encontrado. Veja o catálogo completo.</p>
+          <a href="colecao.html" class="btn-primary">Ver catálogo</a>
+        </div>`;
+      return;
+    }
+
+    // Atualiza título da aba
+    document.getElementById('page-title').textContent = prod.nome + ' — GAETA Prime Store';
+
+    // Storage inicial
+    let storageAtivo = 0;
+
+    const icon = ICONES[prod.icone] || ICONES.iphone;
+
+    // Cores
+    const coresHTML = prod.cores.map((c,i) => `
+      <button class="cor-op${i===0?' ativo':''}" data-i="${i}" onclick="selecionarCor(${i})" title="${c.nome}">
+        <div class="cor-circulo" style="background:${c.hex};${c.borda?'border:1.5px solid #ccc;':''}"></div>
+        <span class="cor-nome-txt">${c.nome}</span>
+      </button>`).join('');
+
+    // Storage
+    const storageHTML = prod.storage.map((s,i) => `
+      <button class="storage-btn${i===0?' ativo':''}" data-i="${i}"
+        onclick="selecionarStorage(${i})">${s.label}</button>`).join('');
+
+    // Specs
+    const specsHTML = prod.specs.map(([k,v]) =>
+      `<div class="spec-linha"><span class="spec-k">${k}</span><span class="spec-v">${v}</span></div>`).join('');
+
+    // Relacionados
+    const relHTML = prod.relacionados.slice(0,3).map(rid => {
+      const r = CATALOGO[rid];
+      if (!r) return '';
+      const rico = ICONES[r.icone] || ICONES.iphone;
+      return `
+        <a href="produto.html?id=${rid}" class="outro-card">
+          <div class="outro-ph" style="color:var(--grafite);">${rico}<span class="outro-ph-label">FOTO EM BREVE</span></div>
+          <div class="outro-info">
+            <p class="outro-nome">${r.nome}</p>
+            <p class="outro-spec">${r.storage[0].label} · ${r.cat}</p>
+            <p class="outro-cta">VER PRODUTO →</p>
+          </div>
+        </a>`;}).join('');
+
+    const wppLink = `https://wa.me/5511999999999?text=${encodeURIComponent(prod.wppMsg)}`;
+
+    root.innerHTML = `
+      <div class="prod-hero">
+        <!-- GALERIA -->
+        <div class="prod-galeria">
+          <div class="prod-foto-placeholder">
+            <div class="pfp-ring"></div>
+            <div class="pfp-ring"></div>
+            <div class="pfp-ring"></div>
+            <div class="pfp-inner" style="color:var(--grafite);">${icon}
+              <span class="pfp-label">FOTO EM BREVE</span>
+            </div>
+          </div>
+          <div class="prod-thumbs" id="cores-thumbs">
+            ${prod.cores.map((c,i) => `
+              <div class="cor-thumb${i===0?' ativo':''}" onclick="selecionarCor(${i})"
+                style="background:${c.hex};${c.borda?'border:1.5px solid #ccc;':''}"
+                title="${c.nome}">
+              </div>`).join('')}
+          </div>
+          <p id="cor-selecionada" style="font-size:9px;letter-spacing:3px;color:var(--cinza);margin-top:4px;">${prod.cores[0].nome.toUpperCase()}</p>
+        </div>
+
+        <!-- CONFIGURAÇÃO -->
+        <div class="prod-config">
+          <div class="prod-breadcrumb">
+            <a href="${prod.catLink}">${prod.cat}</a>
+            <span>›</span>
+            <span>${prod.nome}</span>
+          </div>
+
+          <p class="prod-cat">${prod.cat}</p>
+          <h1 class="prod-titulo">${prod.nome}</h1>
+          <p class="prod-desc">${prod.desc}</p>
+
+          <div class="badge-lacrado">
+            <span style="color:var(--cobre);">✦</span> PRODUTO LACRADO · GARANTIA APPLE
+          </div>
+
+          ${prod.cores.length > 1 ? `
+          <div class="config-bloco">
+            <span class="config-label">COR — <strong id="cor-label">${prod.cores[0].nome}</strong></span>
+            <div class="cores-grid">${coresHTML}</div>
+          </div>` : ''}
+
+          ${prod.storage.length > 1 ? `
+          <div class="config-bloco">
+            <span class="config-label">ARMAZENAMENTO</span>
+            <div class="storage-grid">${storageHTML}</div>
+          </div>` : ''}
+
+          <div class="preco-bloco">
+            <p class="preco-label">PREÇO</p>
+            <p class="preco-val" id="preco-val">${prod.storage[0].preco}</p>
+            <p class="preco-parcela" id="preco-parcela"></p>
+          </div>
+
+          <div class="prod-ctas">
+            <a href="${wppLink}" target="_blank" rel="noopener" class="btn-wpp-prod">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Consultar no WhatsApp
+            </a>
+            <a href="contato.html" class="btn-duvidas">Tirar dúvidas</a>
+          </div>
+
+          <div class="garantias">
+            <span>✦</span> Produto 100% original Apple<br>
+            <span>✦</span> Garantia Apple de 12 meses<br>
+            <span>✦</span> Entrega segura em todo o Brasil
+          </div>
+
+          <div class="specs-bloco">
+            <p class="specs-titulo">ESPECIFICAÇÕES</p>
+            ${specsHTML}
+          </div>
+        </div>
+      </div>
+
+      <section class="outros">
+        <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:10px;">VOCÊ TAMBÉM VAI GOSTAR</p>
+        <h2 class="outros-titulo">Outros produtos.</h2>
+        <div class="outros-grid">${relHTML}</div>
+      </section>`;
+
+    // Parcela inicial
+    atualizarParcela(prod.storage[0].preco);
+  }
+
+  function selecionarCor(i) {
+    const prod = CATALOGO[new URLSearchParams(window.location.search).get('id')];
+    document.querySelectorAll('.cor-op').forEach((b,j) => b.classList.toggle('ativo', i===j));
+    document.querySelectorAll('.cor-thumb').forEach((b,j) => b.classList.toggle('ativo', i===j));
+    const label = document.getElementById('cor-label');
+    const label2 = document.getElementById('cor-selecionada');
+    if (label) label.textContent = prod.cores[i].nome;
+    if (label2) label2.textContent = prod.cores[i].nome.toUpperCase();
+  }
+
+  function selecionarStorage(i) {
+    const prod = CATALOGO[new URLSearchParams(window.location.search).get('id')];
+    document.querySelectorAll('.storage-btn').forEach((b,j) => b.classList.toggle('ativo', i===j));
+    const preco = prod.storage[i].preco;
+    document.getElementById('preco-val').textContent = preco;
+    atualizarParcela(preco);
+  }
+
+  function atualizarParcela(precoStr) {
+    const el = document.getElementById('preco-parcela');
+    if (!el) return;
+    const num = parseFloat(precoStr.replace('R$','').replace('.','').replace(',','.').trim());
+    if (!isNaN(num)) {
+      const parcela = (num/12).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+      el.textContent = `ou 12× de R$ ${parcela} sem juros no cartão`;
+    }
+  }
+
+  render();
+  </script>
+</body>
+</html>

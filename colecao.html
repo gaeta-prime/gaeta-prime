@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo — GAETA Premium Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-g">GAETA</span>
+      <span class="nav-logo-p">PREMIUM STORE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="colecao.html?cat=iphone">iPhone</a></li>
+      <li><a href="colecao.html?cat=mac">Mac</a></li>
+      <li><a href="colecao.html?cat=ipad">iPad</a></li>
+      <li><a href="colecao.html?cat=acessorios">Acessórios</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html" class="nav-wpp">Fale Conosco</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html">Início</a>
+    <a href="iphone.html">iPhone</a>
+    <a href="mac.html">Mac</a>
+    <a href="ipad.html">iPad</a>
+    <a href="watch.html">Watch</a>
+    <a href="colecao.html?cat=acessorios">AirPods</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="page-eyebrow reveal">CATÁLOGO</p>
+    <h1 class="page-title reveal reveal-d1" id="page-title">Todos os produtos.</h1>
+    <p class="page-sub reveal reveal-d2">Originais, com garantia Apple e atendimento personalizado.</p>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="filtros">
+    <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
+    <button class="filtro-btn" data-filtro="iphone">iPhone</button>
+    <button class="filtro-btn" data-filtro="mac">Mac</button>
+    <button class="filtro-btn" data-filtro="ipad">iPad</button>
+    <button class="filtro-btn" data-filtro="acessorios">Acessórios</button>
+    <button class="filtro-btn" data-filtro="lacrado">Lacrado</button>
+    <button class="filtro-btn" data-filtro="vitrine">Vitrine</button>
+  </div>
+
+  <!-- GRID -->
+  <div class="prod-grid" style="margin-top:2px;" id="grid">
+
+    <!-- iPhone 16 Pro Max -->
+    <a href="produto.html?id=iphone-16-pro-max" class="prod-card" data-cat="iphone" data-cond="lacrado">
+      <span class="prod-badge badge-novo">NOVO</span>
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">iPhone 16 Pro Max</h3>
+        <p class="prod-spec">Titânio deserto · 256 GB · A18 Pro · Câmera 48MP</p>
+        <p class="prod-preco">R$ 11.499</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- iPhone 16 Pro -->
+    <a href="produto.html?id=iphone-16-pro" class="prod-card" data-cat="iphone" data-cond="lacrado">
+      <span class="prod-badge badge-novo">NOVO</span>
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">iPhone 16 Pro</h3>
+        <p class="prod-spec">Titânio deserto · 128 GB · A18 Pro · Camera Control</p>
+        <p class="prod-preco">R$ 9.499</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- iPhone 16 -->
+    <a href="produto.html?id=iphone-16" class="prod-card" data-cat="iphone" data-cond="lacrado">
+      <span class="prod-badge badge-novo">NOVO</span>
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">iPhone 16</h3>
+        <p class="prod-spec">Ultramarino · 128 GB · A16 Bionic · USB-C</p>
+        <p class="prod-preco">R$ 6.299</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- iPhone 15 -->
+    <a href="produto.html?id=iphone-15" class="prod-card" data-cat="iphone" data-cond="vitrine">
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">iPhone 15</h3>
+        <p class="prod-spec">Preto · 128 GB · Dynamic Island · USB-C</p>
+        <p class="prod-preco">R$ 5.299</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- iPhone 14 Pro -->
+    <a href="produto.html?id=iphone-14-pro" class="prod-card" data-cat="iphone" data-cond="vitrine">
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">iPhone 14 Pro</h3>
+        <p class="prod-spec">Roxo profundo · 256 GB · Always-On Display</p>
+        <p class="prod-preco">R$ 4.499</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- MacBook Air M3 -->
+    <a href="produto.html?id=macbook-air-m3" class="prod-card" data-cat="mac" data-cond="lacrado">
+      <span class="prod-badge badge-novo">NOVO</span>
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">MacBook Air 13" M3</h3>
+        <p class="prod-spec">Meia-noite · 8 GB RAM · 256 GB SSD · Liquid Retina</p>
+        <p class="prod-preco">R$ 11.299</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- MacBook Pro M4 -->
+    <a href="produto.html?id=macbook-pro-m4" class="prod-card" data-cat="mac" data-cond="lacrado">
+      <span class="prod-badge badge-novo">NOVO</span>
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">MacBook Pro 14" M4</h3>
+        <p class="prod-spec">Preto espacial · 16 GB RAM · 512 GB SSD · Liquid Retina XDR</p>
+        <p class="prod-preco">R$ 17.499</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- iPad Pro M4 -->
+    <a href="produto.html?id=ipad-pro-m4" class="prod-card" data-cat="ipad" data-cond="lacrado">
+      <span class="prod-badge badge-novo">NOVO</span>
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">iPad Pro 13" M4</h3>
+        <p class="prod-spec">Cinza espacial · Wi-Fi · 256 GB · Ultra Retina XDR OLED</p>
+        <p class="prod-preco">R$ 12.499</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- AirPods Pro -->
+    <a href="produto.html?id=airpods-pro" class="prod-card" data-cat="acessorios" data-cond="lacrado">
+      <span class="prod-badge badge-novo">NOVO</span>
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">AirPods Pro 2</h3>
+        <p class="prod-spec">Cancelamento ativo de ruído · Chip H2 · USB-C</p>
+        <p class="prod-preco">R$ 2.199</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Apple Watch Ultra 2 -->
+    <a href="produto.html?id=apple-watch-ultra2" class="prod-card" data-cat="acessorios" data-cond="lacrado">
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">Apple Watch Ultra 2</h3>
+        <p class="prod-spec">Titânio natural · Pulseira Alpine · GPS + Cellular</p>
+        <p class="prod-preco">R$ 8.499</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- iPad Air M2 -->
+    <a href="produto.html?id=ipad-air-m2" class="prod-card" data-cat="ipad" data-cond="vitrine">
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">iPad Air 11" M2</h3>
+        <p class="prod-spec">Azul · Wi-Fi · 128 GB · Liquid Retina</p>
+        <p class="prod-preco">R$ 6.799</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-vitrine">VITRINE</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Mac mini M4 -->
+    <a href="produto.html?id=mac-mini-m4" class="prod-card" data-cat="mac" data-cond="lacrado">
+      <span class="prod-badge badge-novo">NOVO</span>
+      <div class="prod-foto">
+        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+      </div>
+      <div class="prod-info">
+        <h3 class="prod-nome">Mac mini M4</h3>
+        <p class="prod-spec">16 GB RAM · 256 GB SSD · Thunderbolt 4 · Wi-Fi 6E</p>
+        <p class="prod-preco">R$ 7.299</p>
+        <div class="prod-cta-row">
+          <span class="prod-ver">CONSULTAR →</span>
+          <span class="prod-tag-cond cond-lacrado">LACRADO</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- WPP CTA -->
+  <section class="wpp-cta" style="margin-top:2px;">
+    <div class="wpp-cta-content reveal">
+      <p class="wpp-cta-eyebrow">NÃO ENCONTROU?</p>
+      <h2 class="wpp-cta-title">Fale com a gente.<br>Buscamos pra você.</h2>
+      <p class="wpp-cta-sub">Produto específico, configuração especial, condição diferenciada — é só pedir.</p>
+      <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn-wpp-lg">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-g">GAETA</span>
+        <span class="footer-logo-p">PREMIUM STORE</span>
+        <p class="footer-tagline">Produtos Apple originais com atendimento que faz a diferença.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">PRODUTOS</p>
+        <ul>
+          <li><a href="colecao.html?cat=iphone">iPhone</a></li>
+          <li><a href="colecao.html?cat=mac">Mac</a></li>
+          <li><a href="colecao.html?cat=ipad">iPad</a></li>
+          <li><a href="colecao.html?cat=acessorios">Acessórios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">GAETA</p>
+        <ul>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">CONTATO</p>
+        <ul>
+          <li><a href="https://wa.me/5500000000000" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/gaetaprime" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 GAETA. Todos os direitos reservados.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
+        <a href="https://wa.me/5500000000000" target="_blank">WHATSAPP</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Atualiza título da página conforme filtro ativo
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    const titles = { iphone:'iPhone.', mac:'Mac.', ipad:'iPad.', acessorios:'Acessórios.' };
+    if (cat && titles[cat]) {
+      document.getElementById('page-title').textContent = titles[cat];
+    }
+  </script>
+</body>
+</html>

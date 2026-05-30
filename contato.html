@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — GAETA Premium Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-g">GAETA</span>
+      <span class="nav-logo-p">PREMIUM STORE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="colecao.html?cat=iphone">iPhone</a></li>
+      <li><a href="colecao.html?cat=mac">Mac</a></li>
+      <li><a href="colecao.html?cat=ipad">iPad</a></li>
+      <li><a href="colecao.html?cat=acessorios">Acessórios</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html" class="nav-wpp" style="background:var(--cobre);">Fale Conosco</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html">Início</a>
+    <a href="iphone.html">iPhone</a>
+    <a href="mac.html">Mac</a>
+    <a href="ipad.html">iPad</a>
+    <a href="watch.html">Watch</a>
+    <a href="colecao.html?cat=acessorios">AirPods</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header" style="background:var(--grafite); border-bottom-color:rgba(255,255,255,.08);">
+    <p class="page-eyebrow reveal" style="animation:fadeUp .8s ease .2s both;">CONTATO</p>
+    <h1 class="page-title reveal reveal-d1" style="color:#fff; animation:fadeUp .9s ease .4s both;">Fale com a gente.</h1>
+    <p class="page-sub reveal reveal-d2" style="color:rgba(255,255,255,.45); animation:fadeUp .9s ease .6s both;">Atendimento personalizado via WhatsApp, sem robô e sem enrolação.</p>
+  </div>
+
+  <!-- CONTATO GRID -->
+  <div class="contato-grid">
+
+    <!-- INFO -->
+    <div class="contato-info">
+      <h2 class="contato-info-title reveal">Como prefere<br>se comunicar?</h2>
+
+      <div class="contato-item reveal">
+        <p class="contato-item-label">WHATSAPP</p>
+        <p class="contato-item-val">
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" style="color:var(--cobre);">(00) 00000-0000</a><br>
+          <span style="font-size:12px; color:rgba(255,255,255,.35);">Seg – Sáb, 9h às 20h</span>
+        </p>
+      </div>
+
+      <div class="contato-item reveal reveal-d1">
+        <p class="contato-item-label">INSTAGRAM</p>
+        <p class="contato-item-val">
+          <a href="https://instagram.com/gaetaprime" target="_blank" rel="noopener">@gaetaprime</a><br>
+          <span style="font-size:12px; color:rgba(255,255,255,.35);">DMs abertas</span>
+        </p>
+      </div>
+
+      <div class="contato-item reveal reveal-d2">
+        <p class="contato-item-label">LOCALIZAÇÃO</p>
+        <p class="contato-item-val">
+          São Paulo, SP<br>
+          <span style="font-size:12px; color:rgba(255,255,255,.35);">Atendimento presencial com agendamento</span>
+        </p>
+      </div>
+
+      <div class="contato-item reveal reveal-d3">
+        <p class="contato-item-label">HORÁRIO</p>
+        <p class="contato-item-val">
+          Segunda a Sábado<br>
+          9h às 20h<br>
+          <span style="font-size:12px; color:rgba(255,255,255,.35);">Domingo: fechado</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA DIREITO -->
+    <div class="contato-cta">
+      <p class="page-eyebrow reveal" style="margin-bottom:24px;">ATENDIMENTO RÁPIDO</p>
+      <h2 class="contato-cta-title reveal reveal-d1">Já sabe o que quer?</h2>
+      <p class="contato-cta-sub reveal reveal-d2">Manda mensagem direto no WhatsApp. Nossa equipe responde em minutos e te ajuda a encontrar o produto certo com as melhores condições.</p>
+
+      <div style="display:flex; flex-direction:column; gap:12px;" class="reveal reveal-d3">
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21+Quero+ver+os+iPhones+dispon%C3%ADveis." target="_blank" rel="noopener" class="btn-wpp-contato">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Ver iPhones disponíveis
+        </a>
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21+Quero+ver+os+Macs+dispon%C3%ADveis." target="_blank" rel="noopener" class="btn-wpp-contato">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Ver Macs disponíveis
+        </a>
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%21+Tenho+uma+d%C3%BAvida+sobre+um+produto." target="_blank" rel="noopener"
+          style="display:flex; align-items:center; justify-content:center; gap:12px; padding:16px 32px; border:1px solid var(--borda); border-radius:980px; font-size:13px; color:var(--grafite); transition:all .2s;"
+          onmouseover="this.style.background='var(--grafite)';this.style.color='#fff';this.style.borderColor='var(--grafite)'"
+          onmouseout="this.style.background='';this.style.color='var(--grafite)';this.style.borderColor='var(--borda)'">
+          Tirar uma dúvida
+        </a>
+      </div>
+
+      <!-- FAQ RÁPIDO -->
+      <div style="margin-top:56px; padding-top:40px; border-top:0.5px solid var(--borda);" class="reveal">
+        <p style="font-size:11px; letter-spacing:3px; color:var(--cinza); margin-bottom:24px;">PERGUNTAS FREQUENTES</p>
+        <div style="display:flex; flex-direction:column; gap:0;">
+          <details style="border-bottom:0.5px solid var(--borda); padding:16px 0; cursor:pointer;">
+            <summary style="font-size:13px; font-weight:400; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+              Qual é a garantia? <span style="color:var(--cobre); font-size:18px; font-weight:200;">+</span>
+            </summary>
+            <p style="font-size:12px; color:var(--cinza); line-height:1.7; margin-top:12px;">12 meses de garantia Apple para produtos lacrados. Produtos de vitrine têm garantia GAETA de 90 dias + garantia Apple proporcional.</p>
+          </details>
+          <details style="border-bottom:0.5px solid var(--borda); padding:16px 0; cursor:pointer;">
+            <summary style="font-size:13px; font-weight:400; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+              Vocês entregam em todo o Brasil? <span style="color:var(--cobre); font-size:18px; font-weight:200;">+</span>
+            </summary>
+            <p style="font-size:12px; color:var(--cinza); line-height:1.7; margin-top:12px;">Sim. Enviamos para todo o Brasil com seguro de transporte e rastreamento. O prazo e o frete variam conforme a localidade.</p>
+          </details>
+          <details style="padding:16px 0; cursor:pointer;">
+            <summary style="font-size:13px; font-weight:400; list-style:none; display:flex; justify-content:space-between; align-items:center;">
+              Aceitam troca de aparelho? <span style="color:var(--cobre); font-size:18px; font-weight:200;">+</span>
+            </summary>
+            <p style="font-size:12px; color:var(--cinza); line-height:1.7; margin-top:12px;">Avaliamos trocas caso a caso. Entre em contato pelo WhatsApp com fotos do seu aparelho e conversamos.</p>
+          </details>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-g">GAETA</span>
+        <span class="footer-logo-p">PREMIUM STORE</span>
+        <p class="footer-tagline">Produtos Apple originais com atendimento que faz a diferença.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">PRODUTOS</p>
+        <ul>
+          <li><a href="colecao.html?cat=iphone">iPhone</a></li>
+          <li><a href="colecao.html?cat=mac">Mac</a></li>
+          <li><a href="colecao.html?cat=ipad">iPad</a></li>
+          <li><a href="colecao.html?cat=acessorios">Acessórios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">GAETA</p>
+        <ul>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">CONTATO</p>
+        <ul>
+          <li><a href="https://wa.me/5500000000000" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/gaetaprime" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 GAETA. Todos os direitos reservados.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
+        <a href="https://wa.me/5500000000000" target="_blank">WHATSAPP</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
