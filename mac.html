@@ -479,7 +479,12 @@ function macThumb(i) {
   macThumbAtual = i;
   [0,1,2,3].forEach(j => {
     const t = document.getElementById('mt'+j);
-    if(t) t.style.borderColor = j===i ? 'var(--cobre)' : 'var(--borda)';
+    if(t) {
+      t.style.borderColor = j===i ? 'var(--cobre)' : 'var(--borda)';
+      // Atualizar imagem do thumbnail para a cor atual
+      const tImg = t.querySelector('img');
+      if(tImg && fotos[j]) tImg.src = fotos[j];
+    }
   });
 }
 
