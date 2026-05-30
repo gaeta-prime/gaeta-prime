@@ -423,11 +423,13 @@
     document.querySelectorAll('.mac-cor').forEach(b => b.classList.remove('ativo'));
     btn.classList.add('ativo');
     document.getElementById('cor-label').textContent = btn.dataset.cor;
-    // Atualiza mensagem do WhatsApp
     const mem  = document.querySelector('#mac-mem .ativo')?.textContent || '16 GB';
-    const stor = document.querySelector('#mac-stor .ativo')?.textContent || '256 GB';
+    const stor = document.querySelector('#mac-stor .ativo')?.textContent || '512 GB';
     const cor  = btn.dataset.cor;
     atualizarWpp(cor, mem, stor);
+    // Trocar fotos da galeria
+    macCorAtual = cor;
+    macThumb(0);
   }
   function selecionarMem(btn) {
     document.querySelectorAll('#mac-mem .mac-stor-btn').forEach(b => b.classList.remove('ativo'));
@@ -481,23 +483,8 @@ function macThumb(i) {
   });
 }
 
-// Quando trocar cor, atualizar fotos
-const _selecionarCorOriginal = selecionarCor;
-function selecionarCor(btn) {
-  _selecionarCorOriginal(btn);
-  macCorAtual = btn.dataset.cor;
-  const fotos = MAC_FOTOS[macCorAtual];
-  if(fotos) {
-    macThumb(0);
-  } else {
-    // Sem fotos para essa cor ainda
-    const img = document.getElementById('mac-main-img');
-    if(img) {
-      img.style.opacity = '0';
-      setTimeout(() => { img.src = MAC_FOTOS['Azul-céu'][0]; img.style.opacity = '.3'; }, 180);
-    }
-  }
-}
+
+
 </script>
 </body>
 </html>
