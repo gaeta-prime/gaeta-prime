@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mac — GAETA Prime</title>
+  <meta name="description" content="MacBook Air M5 13 polegadas. Original, lacrado, com garantia Apple. Atendimento personalizado via WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-header{
+      padding: calc(var(--nav-h) + 64px) 48px 56px;
+      background: var(--grafite);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before{
+      content:'';position:absolute;inset:0;
+      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(184,149,90,.08), transparent 60%);
+    }
+    .page-header-content{ position:relative; z-index:1; }
+    .page-eyebrow{ font-size:9px;letter-spacing:6px;color:var(--cobre);margin-bottom:14px;display:flex;align-items:center;gap:12px; }
+    .page-eyebrow::before{ content:'';display:block;width:24px;height:.5px;background:var(--cobre);opacity:.5; }
+    .page-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(48px,7vw,88px);font-weight:300;
+      color:#fff;letter-spacing:-2px;line-height:.95;
+      margin-bottom:20px;
+    }
+    .page-sub{ font-size:14px;color:rgba(255,255,255,.4);line-height:1.8;max-width:440px; }
+
+    /* Produto único */
+    .mac-hero{
+      display:grid;grid-template-columns:1fr 1fr;
+      min-height:85svh;
+    }
+    .mac-visual{
+      background:var(--off);
+      display:flex;align-items:center;justify-content:center;
+      padding:48px 32px;position:relative;overflow:hidden;
+    }
+    .mac-visual-img{
+      max-width:88%;max-height:60svh;object-fit:contain;
+      filter:drop-shadow(0 32px 48px rgba(0,0,0,.15));
+      animation:floatPhone 6s ease-in-out infinite;
+    }
+    .mac-config{
+      padding:64px 56px;display:flex;flex-direction:column;gap:0;
+    }
+
+    /* Grade de configurações */
+    .config-titulo{
+      font-size:9px;letter-spacing:3px;color:var(--cinza);margin-bottom:12px;display:block;
+    }
+    .config-titulo strong{ color:var(--grafite);font-weight:400; }
+
+    .mac-cores{ display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px; }
+    .mac-cor{
+      display:flex;flex-direction:column;align-items:center;gap:6px;
+      cursor:pointer;background:none;border:none;
+    }
+    .mac-cor-circulo{
+      width:26px;height:26px;border-radius:50%;
+      outline:1.5px solid transparent;outline-offset:2px;
+      transition:outline-color .2s,transform .15s;
+    }
+    .mac-cor.ativo .mac-cor-circulo{ outline-color:var(--grafite); }
+    .mac-cor:hover .mac-cor-circulo{ transform:scale(1.1); }
+    .mac-cor-nome{ font-size:8px;letter-spacing:1px;color:var(--cinza); }
+
+    .mac-storage{ display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px; }
+    .mac-stor-btn{
+      padding:9px 20px;border:0.5px solid var(--borda);
+      background:#fff;font-size:12px;color:var(--grafite);
+      border-radius:2px;cursor:pointer;transition:border-color .2s,background .2s;
+    }
+    .mac-stor-btn:hover{ border-color:var(--grafite); }
+    .mac-stor-btn.ativo{ background:var(--grafite);color:#fff;border-color:var(--grafite); }
+
+    .mac-preco{
+      background:var(--off);padding:20px 24px;border-radius:4px;margin-bottom:28px;
+    }
+    .mac-preco-label{ font-size:8px;letter-spacing:3px;color:var(--cinza);margin-bottom:6px; }
+    .mac-preco-val{
+      font-family:'Cormorant Garamond',serif;
+      font-size:36px;font-weight:300;color:var(--grafite);
+      letter-spacing:-1px;line-height:1;
+    }
+
+    .mac-ctas{ display:flex;flex-direction:column;gap:10px;margin-bottom:28px; }
+    .btn-wpp-mac{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      background:var(--cobre);color:#fff;
+      padding:14px 28px;border-radius:999px;font-size:13px;
+      transition:background .2s;
+    }
+    .btn-wpp-mac:hover{ background:#a07840; }
+    .btn-duvidas-mac{
+      display:flex;align-items:center;justify-content:center;
+      border:0.5px solid var(--borda);color:var(--grafite);
+      padding:13px 28px;border-radius:999px;font-size:13px;
+      background:#fff;transition:border-color .2s;
+    }
+    .btn-duvidas-mac:hover{ border-color:var(--grafite); }
+
+    .mac-garantias{
+      font-size:11px;color:var(--cinza);line-height:2.1;
+      padding:20px 0;border-top:0.5px solid var(--borda);margin-bottom:28px;
+    }
+    .mac-garantias span{ color:var(--cobre);margin-right:8px; }
+
+    /* Specs */
+    .mac-specs{ border-top:0.5px solid var(--borda);padding-top:24px; }
+    .mac-specs-titulo{ font-size:9px;letter-spacing:4px;color:var(--cinza);margin-bottom:16px; }
+    .spec-row{
+      display:flex;gap:16px;padding:12px 0;
+      border-bottom:0.5px solid var(--borda);font-size:12px;
+    }
+    .spec-k{ color:var(--cinza);min-width:140px;flex-shrink:0; }
+    .spec-v{ color:var(--grafite); }
+
+    /* Faixa lacrado */
+    .mac-lacrado-faixa{
+      background:var(--grafite);padding:48px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:32px;flex-wrap:wrap;
+    }
+    .mac-lacrado-faixa h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(24px,3vw,40px);font-weight:300;color:#fff;letter-spacing:-1px;line-height:1.1;
+    }
+    .mac-lacrado-faixa p{ font-size:13px;color:rgba(255,255,255,.45);margin-top:8px;line-height:1.7; }
+    .mac-lacrado-btn{
+      flex-shrink:0;padding:14px 32px;border-radius:999px;
+      background:var(--cobre);color:#fff;font-size:12px;letter-spacing:1px;
+      white-space:nowrap;transition:background .2s;
+    }
+    .mac-lacrado-btn:hover{ background:#a07840; }
+
+    @media(max-width:900px){
+      .mac-hero{ grid-template-columns:1fr; }
+      .mac-visual{ min-height:280px; }
+      .mac-config{ padding:40px 24px; }
+      .page-header{ padding:calc(var(--nav-h) + 40px) 24px 40px; }
+      .mac-lacrado-faixa{ padding:40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-g">GAETA</span>
+      <span class="nav-logo-p">PRIME STORE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="iphone.html">iPhone</a></li>
+      <li><a href="mac.html" class="ativo">Mac</a></li>
+      <li><a href="ipad.html">iPad</a></li>
+      <li><a href="watch.html">Watch</a></li>
+      <li><a href="colecao.html?cat=acessorios">AirPods</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html" class="nav-wpp">Fale Conosco</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html">Início</a>
+    <a href="iphone.html">iPhone</a>
+    <a href="mac.html">Mac</a>
+    <a href="ipad.html">iPad</a>
+    <a href="watch.html">Watch</a>
+    <a href="colecao.html?cat=acessorios">AirPods</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
+  </div>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-header-content">
+      <p class="page-eyebrow">MAC</p>
+      <h1 class="page-title">MacBook Air.</h1>
+      <p class="page-sub">Original, lacrado, com garantia Apple. Atendimento personalizado via WhatsApp.</p>
+    </div>
+  </div>
+
+  <!-- PRODUTO -->
+  <div class="mac-hero">
+
+    <!-- Visual -->
+    <div class="mac-visual" id="mac-visual">
+      <div class="foto-placeholder" id="mac-foto-ph" style="width:100%;height:100%;min-height:400px;">
+        <span>FOTO EM BREVE</span>
+      </div>
+    </div>
+
+    <!-- Configuração -->
+    <div class="mac-config">
+
+      <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+        <span style="display:block;width:20px;height:.5px;background:var(--cobre);"></span>
+        MACBOOK AIR M5
+      </p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-1px;line-height:1.0;margin-bottom:14px;">
+        MacBook Air<br><em style="font-style:italic;color:var(--cobre);">13 polegadas.</em>
+      </h2>
+      <p style="font-size:13px;color:var(--cinza);line-height:1.85;margin-bottom:28px;">
+        Feito para IA. Chip M5 com CPU de 10 núcleos. Leve, silencioso e com bateria para o dia todo.
+      </p>
+
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;padding:8px 16px;border:0.5px solid rgba(184,149,90,.3);color:var(--cobre);margin-bottom:28px;border-radius:2px;">
+        <span>✦</span> PRODUTO LACRADO · GARANTIA APPLE
+      </div>
+
+      <!-- Cores -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">COR — <strong id="cor-label">Azul-céu</strong></span>
+        <div class="mac-cores" id="mac-cores">
+          <button class="mac-cor ativo" data-cor="Azul-céu" onclick="selecionarCor(this)">
+            <div class="mac-cor-circulo" style="background:#A8C5DA;"></div>
+            <span class="mac-cor-nome">Azul-céu</span>
+          </button>
+          <button class="mac-cor" data-cor="Estelar" onclick="selecionarCor(this)">
+            <div class="mac-cor-circulo" style="background:#E8E3D8;border:1.5px solid #ccc;"></div>
+            <span class="mac-cor-nome">Estelar</span>
+          </button>
+          <button class="mac-cor" data-cor="Prateado" onclick="selecionarCor(this)">
+            <div class="mac-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;"></div>
+            <span class="mac-cor-nome">Prateado</span>
+          </button>
+          <button class="mac-cor" data-cor="Meia-noite" onclick="selecionarCor(this)">
+            <div class="mac-cor-circulo" style="background:#1C2B38;"></div>
+            <span class="mac-cor-nome">Meia-noite</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Memória -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">MEMÓRIA</span>
+        <div class="mac-storage" id="mac-mem">
+          <button class="mac-stor-btn ativo" onclick="selecionarMem(this)">16 GB</button>
+          <button class="mac-stor-btn" onclick="selecionarMem(this)">24 GB</button>
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">ARMAZENAMENTO</span>
+        <div class="mac-storage" id="mac-stor">
+          <button class="mac-stor-btn ativo" onclick="selecionarStor(this)">256 GB</button>
+          <button class="mac-stor-btn" onclick="selecionarStor(this)">512 GB</button>
+          <button class="mac-stor-btn" onclick="selecionarStor(this)">1 TB</button>
+        </div>
+      </div>
+
+      <!-- Preço -->
+      <div class="mac-preco">
+        <p class="mac-preco-label">PREÇO</p>
+        <p class="mac-preco-val">Consultar</p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="mac-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20MacBook%20Air%20M5%2013%22.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-mac" id="btn-wpp">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-mac">Tirar dúvidas</a>
+      </div>
+
+      <div class="mac-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Lacrado, sem uso<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+
+      <div class="mac-specs">
+        <p class="mac-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">Liquid Retina 13,6" · 2560 x 1664 px · 500 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">Apple M5 · CPU 10 núcleos · GPU 8 ou 10 núcleos</span></div>
+        <div class="spec-row"><span class="spec-k">Memória</span><span class="spec-v">16 GB ou 24 GB RAM unificada</span></div>
+        <div class="spec-row"><span class="spec-k">Armazenamento</span><span class="spec-v">SSD de 256 GB, 512 GB ou 1 TB</span></div>
+        <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">até 18 horas de uso</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera</span><span class="spec-v">12 MP Center Stage</span></div>
+        <div class="spec-row"><span class="spec-k">Portas</span><span class="spec-v">2x Thunderbolt 4 · MagSafe 3 · Jack 3,5 mm</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Wi-Fi 6E · Bluetooth 5.3</span></div>
+        <div class="spec-row"><span class="spec-k">Espessura</span><span class="spec-v">11,3 mm · 1,24 kg</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">macOS Sequoia</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FAIXA LACRADO -->
+  <div class="mac-lacrado-faixa reveal">
+    <div>
+      <h2>Sempre lacrado.<br>Sempre original.</h2>
+      <p>Todos os MacBooks da GAETA Prime chegam lacrados de fábrica, com garantia Apple de 12 meses.</p>
+    </div>
+    <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20num%20MacBook%20Air%20M5.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="mac-lacrado-btn">Consultar agora →</a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-g">GAETA</span>
+        <span class="footer-logo-p">PRIME STORE</span>
+        <p class="footer-tagline">Produtos Apple originais com atendimento que faz a diferença.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">PRODUTOS</p>
+        <ul>
+          <li><a href="iphone.html">iPhone</a></li>
+          <li><a href="mac.html">Mac</a></li>
+          <li><a href="ipad.html">iPad</a></li>
+          <li><a href="watch.html">Apple Watch</a></li>
+          <li><a href="colecao.html?cat=acessorios">AirPods</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">GAETA PRIME</p>
+        <ul>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">REDES</p>
+        <ul>
+          <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/gaetaprime" target="_blank">@gaetaprime</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Gaeta Prime · Apple e Acessórios · São Paulo</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
+        <a href="https://wa.me/5511999999999" target="_blank">WHATSAPP</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+  function selecionarCor(btn) {
+    document.querySelectorAll('.mac-cor').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    document.getElementById('cor-label').textContent = btn.dataset.cor;
+    // Atualiza mensagem do WhatsApp
+    const mem  = document.querySelector('#mac-mem .ativo')?.textContent || '16 GB';
+    const stor = document.querySelector('#mac-stor .ativo')?.textContent || '256 GB';
+    const cor  = btn.dataset.cor;
+    atualizarWpp(cor, mem, stor);
+  }
+  function selecionarMem(btn) {
+    document.querySelectorAll('#mac-mem .mac-stor-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    const cor  = document.querySelector('.mac-cor.ativo')?.dataset.cor || 'Azul-céu';
+    const stor = document.querySelector('#mac-stor .ativo')?.textContent || '256 GB';
+    atualizarWpp(cor, btn.textContent, stor);
+  }
+  function selecionarStor(btn) {
+    document.querySelectorAll('#mac-stor .mac-stor-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    const cor = document.querySelector('.mac-cor.ativo')?.dataset.cor || 'Azul-céu';
+    const mem = document.querySelector('#mac-mem .ativo')?.textContent || '16 GB';
+    atualizarWpp(cor, mem, btn.textContent);
+  }
+  function atualizarWpp(cor, mem, stor) {
+    const msg = `Olá! Tenho interesse no MacBook Air M5 13" ${cor}, ${mem} RAM, ${stor}. Pode me ajudar?`;
+    document.getElementById('btn-wpp').href = `https://wa.me/5511999999999?text=${encodeURIComponent(msg)}`;
+  }
+  </script>
+</body>
+</html>
