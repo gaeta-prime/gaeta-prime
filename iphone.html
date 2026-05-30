@@ -12,19 +12,24 @@
     /* ─── FAMILY TABS ─── */
     .family-tabs {
       position: sticky; top: var(--nav-h); z-index: 100;
-      background: #fff; border-bottom: 0.5px solid var(--borda);
+      background: var(--off); border-bottom: 0.5px solid var(--borda);
       overflow-x: auto; scrollbar-width: none;
-      display: flex; padding: 0 48px;
+      display: flex; align-items: center;
+      padding: 24px 48px; gap: 8px; flex-wrap: wrap;
     }
     .family-tabs::-webkit-scrollbar { display: none; }
-    .family-tab {
-      padding: 14px 20px; font-size: 12px; letter-spacing: .5px;
-      background: transparent; border: none; font-family: inherit;
-      color: var(--cinza); white-space: nowrap; cursor: pointer;
-      border-bottom: 2px solid transparent; transition: all .2s;
+    .family-tabs-label {
+      font-size: 9px; letter-spacing: 3px; color: var(--cinza);
+      margin-right: 8px; white-space: nowrap; flex-shrink: 0;
     }
-    .family-tab:hover { color: var(--grafite); }
-    .family-tab.ativo { color: var(--grafite); border-bottom-color: var(--grafite); }
+    .family-tab {
+      padding: 8px 18px; border: 0.5px solid var(--borda);
+      background: #fff; font-size: 11px; letter-spacing: .5px;
+      color: var(--grafite); border-radius: 2px; cursor: pointer;
+      transition: all .2s; white-space: nowrap; font-family: inherit;
+    }
+    .family-tab:hover { border-color: var(--grafite); }
+    .family-tab.ativo { background: var(--grafite); color: #fff; border-color: var(--grafite); }
 
     /* ─── FAMILY SECTION ─── */
     .family-section { display: none; }
@@ -100,6 +105,7 @@
 
   <!-- FAMILY TABS -->
   <nav class="family-tabs" id="family-tabs">
+    <span class="family-tabs-label">MODELO</span>
     <button class="family-tab ativo" data-family="ip17pro">iPhone 17 Pro</button>
     <button class="family-tab" data-family="ip17">iPhone 17</button>
     <button class="family-tab" data-family="ip16pro">iPhone 16 Pro</button>
