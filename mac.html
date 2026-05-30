@@ -138,6 +138,33 @@
     }
     .mac-lacrado-btn:hover{ background:#a07840; }
 
+    /* Sem estoque */
+    .sem-estoque{
+      position:relative;opacity:.5;cursor:not-allowed!important;
+    }
+    .sem-estoque .mac-cor-circulo{
+      position:relative;
+    }
+    .sem-estoque .mac-cor-circulo::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,transparent 45%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.35) 55%,transparent 55%);
+      border-radius:50%;
+    }
+    .mac-stor-btn.sem-estoque{
+      text-decoration:line-through;color:var(--borda)!important;
+      border-color:var(--borda)!important;background:#fff!important;
+    }
+    /* Toast de aviso */
+    .toast-se{
+      position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+      background:var(--grafite);color:#fff;
+      font-size:12px;letter-spacing:.5px;padding:14px 28px;border-radius:999px;
+      opacity:0;pointer-events:none;z-index:9999;
+      transition:opacity .3s,transform .3s;
+      white-space:nowrap;
+    }
+    .toast-se.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
     @media(max-width:900px){
       .mac-hero{ grid-template-columns:1fr; }
       .mac-visual{ min-height:280px; }
@@ -224,13 +251,13 @@
             <div class="mac-cor-circulo" style="background:#A8C5DA;"></div>
             <span class="mac-cor-nome">Azul-céu</span>
           </button>
-          <button class="mac-cor" data-cor="Estelar" onclick="selecionarCor(this)">
-            <div class="mac-cor-circulo" style="background:#E8E3D8;border:1.5px solid #ccc;"></div>
-            <span class="mac-cor-nome">Estelar</span>
+          <button class="mac-cor sem-estoque" data-cor="Estelar" onclick="semEstoque(this,'cor')">
+            <div class="mac-cor-circulo" style="background:#E8E3D8;border:1.5px solid #ccc;opacity:.4;"></div>
+            <span class="mac-cor-nome" style="opacity:.4;">Estelar</span>
           </button>
-          <button class="mac-cor" data-cor="Prateado" onclick="selecionarCor(this)">
-            <div class="mac-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;"></div>
-            <span class="mac-cor-nome">Prateado</span>
+          <button class="mac-cor sem-estoque" data-cor="Prateado" onclick="semEstoque(this,'cor')">
+            <div class="mac-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;opacity:.4;"></div>
+            <span class="mac-cor-nome" style="opacity:.4;">Prateado</span>
           </button>
           <button class="mac-cor" data-cor="Meia-noite" onclick="selecionarCor(this)">
             <div class="mac-cor-circulo" style="background:#1C2B38;"></div>
@@ -244,7 +271,7 @@
         <span class="config-titulo">MEMÓRIA</span>
         <div class="mac-storage" id="mac-mem">
           <button class="mac-stor-btn ativo" onclick="selecionarMem(this)">16 GB</button>
-          <button class="mac-stor-btn" onclick="selecionarMem(this)">24 GB</button>
+          <button class="mac-stor-btn sem-estoque" onclick="semEstoque(this,'mem')">24 GB</button>
         </div>
       </div>
 
@@ -252,16 +279,17 @@
       <div style="margin-bottom:28px;">
         <span class="config-titulo">ARMAZENAMENTO</span>
         <div class="mac-storage" id="mac-stor">
-          <button class="mac-stor-btn ativo" onclick="selecionarStor(this)">256 GB</button>
-          <button class="mac-stor-btn" onclick="selecionarStor(this)">512 GB</button>
-          <button class="mac-stor-btn" onclick="selecionarStor(this)">1 TB</button>
+          <button class="mac-stor-btn sem-estoque" onclick="semEstoque(this,'stor')">256 GB</button>
+          <button class="mac-stor-btn ativo" onclick="selecionarStor(this)">512 GB</button>
+          <button class="mac-stor-btn sem-estoque" onclick="semEstoque(this,'stor')">1 TB</button>
         </div>
       </div>
 
       <!-- Preço -->
       <div class="mac-preco">
         <p class="mac-preco-label">PREÇO</p>
-        <p class="mac-preco-val">Consultar</p>
+        <p class="mac-preco-val" id="mac-preco-val">R$ 7.300</p>
+        <p style="font-size:11px;color:var(--cinza);margin-top:6px;">ou 12× de R$ 608,33 sem juros no cartão</p>
       </div>
 
       <!-- CTAs -->
@@ -347,8 +375,15 @@
     </div>
   </footer>
 
+  <div class="toast-se" id="toast-se">Sem estoque no momento</div>
+
   <script src="main.js"></script>
   <script>
+  function semEstoque(btn, tipo) {
+    const toast = document.getElementById('toast-se');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
   function selecionarCor(btn) {
     document.querySelectorAll('.mac-cor').forEach(b => b.classList.remove('ativo'));
     btn.classList.add('ativo');
