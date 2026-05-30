@@ -240,6 +240,38 @@
     @media (max-width: 600px) {
       .outros-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── SEM ESTOQUE ── */
+    .storage-btn.sem-estoque,
+    .cor-op.sem-estoque .cor-circulo ~ * {
+      cursor: not-allowed !important;
+    }
+    .storage-btn.sem-estoque {
+      text-decoration: line-through;
+      color: var(--cinza) !important;
+      border-color: var(--borda) !important;
+      border-style: dashed !important;
+      background: #fff !important;
+    }
+    .cor-op.sem-estoque .cor-circulo {
+      position: relative; opacity: .45;
+    }
+    .cor-op.sem-estoque .cor-circulo::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: linear-gradient(135deg,transparent 44%,rgba(0,0,0,.5) 44%,rgba(0,0,0,.5) 56%,transparent 56%);
+    }
+    /* Toast */
+    .toast-se {
+      position: fixed; bottom: 32px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--grafite); color: #fff;
+      font-size: 12px; letter-spacing: .5px;
+      padding: 14px 28px; border-radius: 999px;
+      opacity: 0; pointer-events: none; z-index: 9999;
+      transition: opacity .3s, transform .3s;
+      white-space: nowrap;
+    }
+    .toast-se.show { opacity: 1; transform: translateX(-50%) translateY(0) }
   </style>
 </head>
 <body>
@@ -1307,6 +1339,12 @@
     atualizarParcela(prod.storage[0].preco);
   }
 
+  function semEstoque() {
+    const t = document.getElementById('toast-se');
+    if(!t) return;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
   function selecionarCor(i) {
     const prod = CATALOGO[new URLSearchParams(window.location.search).get('id')];
     document.querySelectorAll('.cor-op').forEach((b,j) => b.classList.toggle('ativo', i===j));

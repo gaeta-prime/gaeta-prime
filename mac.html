@@ -140,19 +140,25 @@
 
     /* Sem estoque */
     .sem-estoque{
-      position:relative;opacity:.5;cursor:not-allowed!important;
+      position:relative;cursor:not-allowed!important;
     }
     .sem-estoque .mac-cor-circulo{
-      position:relative;
+      position:relative;opacity:.45;
     }
     .sem-estoque .mac-cor-circulo::after{
       content:'';position:absolute;inset:0;
-      background:linear-gradient(135deg,transparent 45%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.35) 55%,transparent 55%);
+      background:linear-gradient(135deg,transparent 44%,rgba(0,0,0,.5) 44%,rgba(0,0,0,.5) 56%,transparent 56%);
       border-radius:50%;
     }
+    .sem-estoque .mac-cor-nome{
+      opacity:1!important;color:var(--cinza)!important;
+    }
     .mac-stor-btn.sem-estoque{
-      text-decoration:line-through;color:var(--borda)!important;
-      border-color:var(--borda)!important;background:#fff!important;
+      text-decoration:line-through;
+      color:var(--cinza)!important;
+      border-color:var(--borda)!important;
+      border-style:dashed!important;
+      background:#fff!important;
     }
     /* Toast de aviso */
     .toast-se{
@@ -252,12 +258,12 @@
             <span class="mac-cor-nome">Azul-céu</span>
           </button>
           <button class="mac-cor sem-estoque" data-cor="Estelar" onclick="semEstoque(this,'cor')">
-            <div class="mac-cor-circulo" style="background:#E8E3D8;border:1.5px solid #ccc;opacity:.4;"></div>
-            <span class="mac-cor-nome" style="opacity:.4;">Estelar</span>
+            <div class="mac-cor-circulo" style="background:#E8E3D8;border:1.5px solid #ccc;"></div>
+            <span class="mac-cor-nome">Estelar</span>
           </button>
           <button class="mac-cor sem-estoque" data-cor="Prateado" onclick="semEstoque(this,'cor')">
-            <div class="mac-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;opacity:.4;"></div>
-            <span class="mac-cor-nome" style="opacity:.4;">Prateado</span>
+            <div class="mac-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;"></div>
+            <span class="mac-cor-nome">Prateado</span>
           </button>
           <button class="mac-cor" data-cor="Meia-noite" onclick="selecionarCor(this)">
             <div class="mac-cor-circulo" style="background:#1C2B38;"></div>
