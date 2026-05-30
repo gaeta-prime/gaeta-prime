@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPad — GAETA Prime</title>
+  <meta name="description" content="iPad originais, lacrados, com garantia Apple. iPad 11, iPad Air e iPad Pro. Atendimento via WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-header{
+      padding: calc(var(--nav-h) + 64px) 48px 56px;
+      background: var(--grafite);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before{
+      content:'';position:absolute;inset:0;
+      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(184,149,90,.08), transparent 60%);
+    }
+    .page-header-content{ position:relative; z-index:1; }
+    .page-eyebrow{ font-size:9px;letter-spacing:6px;color:var(--cobre);margin-bottom:14px;display:flex;align-items:center;gap:12px; }
+    .page-eyebrow::before{ content:'';display:block;width:24px;height:.5px;background:var(--cobre);opacity:.5; }
+    .page-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(48px,7vw,88px);font-weight:300;
+      color:#fff;letter-spacing:-2px;line-height:.95;
+      margin-bottom:20px;
+    }
+    .page-sub{ font-size:14px;color:rgba(255,255,255,.4);line-height:1.8;max-width:440px; }
+
+    /* Filtros de modelo */
+    .ipad-filtros{
+      padding:32px 48px;
+      background:var(--off);
+      display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+      border-bottom:0.5px solid var(--borda);
+    }
+    .ipad-filtro-label{ font-size:9px;letter-spacing:3px;color:var(--cinza);margin-right:8px; }
+    .filtro-btn{
+      padding:8px 18px;border:0.5px solid var(--borda);background:#fff;
+      font-size:11px;letter-spacing:.5px;color:var(--grafite);
+      border-radius:2px;cursor:pointer;transition:all .2s;white-space:nowrap;
+    }
+    .filtro-btn:hover{ border-color:var(--grafite); }
+    .filtro-btn.ativo{ background:var(--grafite);color:#fff;border-color:var(--grafite); }
+
+    /* Hero de cada modelo */
+    .ipad-hero{
+      display:grid;grid-template-columns:1fr 1fr;
+      min-height:88svh;
+      border-bottom:0.5px solid var(--borda);
+    }
+    .ipad-visual{
+      background:var(--off);
+      display:flex;align-items:center;justify-content:center;
+      flex-direction:column;
+      padding:48px 32px;position:relative;overflow:hidden;
+      gap:16px;
+    }
+    .ipad-main-img{
+      max-width:72%;max-height:55svh;object-fit:contain;
+      filter:drop-shadow(0 32px 48px rgba(0,0,0,.12));
+      animation:floatPhone 6s ease-in-out infinite;
+      transition:opacity .35s ease;
+    }
+    .ipad-thumbs{
+      display:flex;gap:8px;justify-content:center;
+    }
+    .ipad-thumb-btn{
+      width:52px;height:40px;border-radius:4px;
+      border:1.5px solid var(--borda);
+      background:var(--off);overflow:hidden;cursor:pointer;padding:2px;
+      transition:border-color .2s;
+    }
+    .ipad-thumb-btn.ativo{ border-color:var(--cobre); }
+    .ipad-thumb-btn img{ width:100%;height:100%;object-fit:contain; }
+
+    .ipad-config{
+      padding:64px 56px;display:flex;flex-direction:column;gap:0;
+    }
+
+    .config-titulo{
+      font-size:9px;letter-spacing:3px;color:var(--cinza);margin-bottom:12px;display:block;
+    }
+    .config-titulo strong{ color:var(--grafite);font-weight:400; }
+
+    /* Cores */
+    .ipad-cores{ display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px; }
+    .ipad-cor{
+      display:flex;flex-direction:column;align-items:center;gap:6px;
+      cursor:pointer;background:none;border:none;
+    }
+    .ipad-cor-circulo{
+      width:26px;height:26px;border-radius:50%;
+      outline:1.5px solid transparent;outline-offset:2px;
+      transition:outline-color .2s,transform .15s;
+    }
+    .ipad-cor.ativo .ipad-cor-circulo{ outline-color:var(--grafite); }
+    .ipad-cor:hover .ipad-cor-circulo{ transform:scale(1.1); }
+    .ipad-cor-nome{ font-size:8px;letter-spacing:1px;color:var(--cinza); }
+
+    /* Storage */
+    .ipad-storage{ display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px; }
+    .ipad-stor-btn{
+      padding:9px 20px;border:0.5px solid var(--borda);
+      background:#fff;font-size:12px;color:var(--grafite);
+      border-radius:2px;cursor:pointer;transition:border-color .2s,background .2s;
+    }
+    .ipad-stor-btn:hover{ border-color:var(--grafite); }
+    .ipad-stor-btn.ativo{ background:var(--grafite);color:#fff;border-color:var(--grafite); }
+
+    /* Preço */
+    .ipad-preco{
+      background:var(--off);padding:20px 24px;border-radius:4px;margin-bottom:28px;
+    }
+    .ipad-preco-label{ font-size:8px;letter-spacing:3px;color:var(--cinza);margin-bottom:6px; }
+    .ipad-preco-val{
+      font-family:'Cormorant Garamond',serif;
+      font-size:36px;font-weight:300;color:var(--grafite);
+      letter-spacing:-1px;line-height:1;
+    }
+
+    /* CTAs */
+    .ipad-ctas{ display:flex;flex-direction:column;gap:10px;margin-bottom:28px; }
+    .btn-wpp-ipad{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      background:var(--cobre);color:#fff;
+      padding:14px 28px;border-radius:999px;font-size:13px;
+      transition:background .2s;
+    }
+    .btn-wpp-ipad:hover{ background:#a07840; }
+    .btn-duvidas-ipad{
+      display:flex;align-items:center;justify-content:center;
+      border:0.5px solid var(--borda);color:var(--grafite);
+      padding:13px 28px;border-radius:999px;font-size:13px;
+      background:#fff;transition:border-color .2s;
+    }
+    .btn-duvidas-ipad:hover{ border-color:var(--grafite); }
+
+    /* Garantias */
+    .ipad-garantias{
+      font-size:11px;color:var(--cinza);line-height:2.1;
+      padding:20px 0;border-top:0.5px solid var(--borda);margin-bottom:28px;
+    }
+    .ipad-garantias span{ color:var(--cobre);margin-right:8px; }
+
+    /* Specs */
+    .ipad-specs{ border-top:0.5px solid var(--borda);padding-top:24px; }
+    .ipad-specs-titulo{ font-size:9px;letter-spacing:4px;color:var(--cinza);margin-bottom:16px; }
+    .spec-row{
+      display:flex;gap:16px;padding:12px 0;
+      border-bottom:0.5px solid var(--borda);font-size:12px;
+    }
+    .spec-k{ color:var(--cinza);min-width:140px;flex-shrink:0; }
+    .spec-v{ color:var(--grafite); }
+
+    /* Faixa lacrado */
+    .ipad-lacrado-faixa{
+      background:var(--grafite);padding:48px;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:32px;flex-wrap:wrap;
+    }
+    .ipad-lacrado-faixa h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(24px,3vw,40px);font-weight:300;color:#fff;letter-spacing:-1px;line-height:1.1;
+    }
+    .ipad-lacrado-faixa p{ font-size:13px;color:rgba(255,255,255,.45);margin-top:8px;line-height:1.7; }
+    .ipad-lacrado-btn{
+      flex-shrink:0;padding:14px 32px;border-radius:999px;
+      background:var(--cobre);color:#fff;font-size:12px;letter-spacing:1px;
+      white-space:nowrap;transition:background .2s;
+    }
+    .ipad-lacrado-btn:hover{ background:#a07840; }
+
+    /* Sem estoque */
+    .sem-estoque{ position:relative;cursor:not-allowed!important; }
+    .sem-estoque .ipad-cor-circulo{ position:relative;opacity:.45; }
+    .sem-estoque .ipad-cor-circulo::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,transparent 44%,rgba(0,0,0,.5) 44%,rgba(0,0,0,.5) 56%,transparent 56%);
+      border-radius:50%;
+    }
+    .sem-estoque .ipad-cor-nome{ opacity:1!important;color:var(--cinza)!important; }
+    .ipad-stor-btn.sem-estoque{
+      text-decoration:line-through;
+      color:var(--cinza)!important;
+      border-color:var(--borda)!important;
+      border-style:dashed!important;
+      background:#fff!important;
+    }
+    .toast-se{
+      position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+      background:var(--grafite);color:#fff;
+      font-size:12px;letter-spacing:.5px;padding:14px 28px;border-radius:999px;
+      opacity:0;pointer-events:none;z-index:9999;
+      transition:opacity .3s,transform .3s;
+      white-space:nowrap;
+    }
+    .toast-se.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    /* Navegação entre modelos */
+    .modelo-section{ display:none; }
+    .modelo-section.ativo{ display:grid; }
+
+    @media(max-width:900px){
+      .ipad-hero{ grid-template-columns:1fr; }
+      .ipad-visual{ min-height:300px;padding:32px 24px; }
+      .ipad-config{ padding:40px 24px; }
+      .page-header{ padding:calc(var(--nav-h) + 40px) 24px 40px; }
+      .ipad-filtros{ padding:24px; }
+      .ipad-lacrado-faixa{ padding:40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-g">GAETA</span>
+      <span class="nav-logo-p">PRIME STORE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="iphone.html">iPhone</a></li>
+      <li><a href="mac.html">Mac</a></li>
+      <li><a href="ipad.html" class="ativo">iPad</a></li>
+      <li><a href="watch.html">Watch</a></li>
+      <li><a href="colecao.html?cat=acessorios">AirPods</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html" class="nav-wpp">Fale Conosco</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html">Início</a>
+    <a href="iphone.html">iPhone</a>
+    <a href="mac.html">Mac</a>
+    <a href="ipad.html">iPad</a>
+    <a href="watch.html">Watch</a>
+    <a href="colecao.html?cat=acessorios">AirPods</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
+  </div>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="page-header-content">
+      <p class="page-eyebrow">IPAD</p>
+      <h1 class="page-title">iPad.</h1>
+      <p class="page-sub">Original, lacrado, com garantia Apple. Do essencial ao Pro — escolha o modelo ideal para você.</p>
+    </div>
+  </div>
+
+  <!-- FILTROS DE MODELO -->
+  <div class="ipad-filtros">
+    <span class="ipad-filtro-label">MODELO</span>
+    <button class="filtro-btn ativo" onclick="trocarModelo('ipad11', this)">iPad 11</button>
+    <button class="filtro-btn" onclick="trocarModelo('ipadair11', this)">iPad Air 11"</button>
+    <button class="filtro-btn" onclick="trocarModelo('ipadair13', this)">iPad Air 13"</button>
+    <button class="filtro-btn" onclick="trocarModelo('ipadpro11', this)">iPad Pro 11"</button>
+    <button class="filtro-btn" onclick="trocarModelo('ipadpro13', this)">iPad Pro 13"</button>
+  </div>
+
+  <!-- ===== MODELO 1: iPad 11 (A16) ===== -->
+  <div class="ipad-hero modelo-section ativo" id="sec-ipad11">
+    <div class="ipad-visual">
+      <img class="ipad-main-img" id="img-ipad11" src="img/ipad-1.webp" alt="iPad 11 A16">
+      <div class="ipad-thumbs">
+        <button class="ipad-thumb-btn ativo" onclick="thumb('ipad11',0,this)"><img src="img/ipad-1.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipad11',1,this)"><img src="img/ipad-2.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipad11',2,this)"><img src="img/ipad-3.webp"></button>
+      </div>
+    </div>
+    <div class="ipad-config">
+      <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+        <span style="display:block;width:20px;height:.5px;background:var(--cobre);"></span>
+        IPAD 11ª GERAÇÃO · CHIP A16
+      </p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-1px;line-height:1.0;margin-bottom:14px;">
+        iPad 11.<br><em style="font-style:italic;color:var(--cobre);">Chip A16.</em>
+      </h2>
+      <p style="font-size:13px;color:var(--cinza);line-height:1.85;margin-bottom:28px;">
+        Tela Liquid Retina de 10,9 polegadas, chip A16 com IA integrada e compatível com Apple Pencil e Magic Keyboard.
+      </p>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;padding:8px 16px;border:0.5px solid rgba(184,149,90,.3);color:var(--cobre);margin-bottom:28px;border-radius:2px;">
+        <span>✦</span> PRODUTO LACRADO · GARANTIA APPLE
+      </div>
+
+      <!-- Cores -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">COR — <strong id="cor-label-ipad11">Azul</strong></span>
+        <div class="ipad-cores">
+          <button class="ipad-cor ativo" data-cor="Azul" onclick="selecionarCor('ipad11',this)">
+            <div class="ipad-cor-circulo" style="background:#6AACDF;"></div>
+            <span class="ipad-cor-nome">Azul</span>
+          </button>
+          <button class="ipad-cor" data-cor="Rosa" onclick="selecionarCor('ipad11',this)">
+            <div class="ipad-cor-circulo" style="background:#E8A5B5;"></div>
+            <span class="ipad-cor-nome">Rosa</span>
+          </button>
+          <button class="ipad-cor" data-cor="Amarelo" onclick="selecionarCor('ipad11',this)">
+            <div class="ipad-cor-circulo" style="background:#F0D87A;"></div>
+            <span class="ipad-cor-nome">Amarelo</span>
+          </button>
+          <button class="ipad-cor" data-cor="Prateado" onclick="selecionarCor('ipad11',this)">
+            <div class="ipad-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;"></div>
+            <span class="ipad-cor-nome">Prateado</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">ARMAZENAMENTO</span>
+        <div class="ipad-storage">
+          <button class="ipad-stor-btn ativo" onclick="selecionarStor('ipad11',this,'R$ 4.200','R$ 350,00')">128 GB</button>
+          <button class="ipad-stor-btn" onclick="selecionarStor('ipad11',this,'R$ 4.900','R$ 408,33')">256 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">512 GB</button>
+        </div>
+      </div>
+
+      <!-- Preço -->
+      <div class="ipad-preco">
+        <p class="ipad-preco-label">PREÇO</p>
+        <p class="ipad-preco-val" id="preco-ipad11">R$ 4.200</p>
+        <p style="font-size:11px;color:var(--cinza);margin-top:6px;" id="parcela-ipad11">ou 12× de R$ 350,00 sem juros no cartão</p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="ipad-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20iPad%2011%20A16.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-ipad" id="btn-ipad11">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-ipad">Tirar dúvidas</a>
+      </div>
+
+      <div class="ipad-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Lacrado, sem uso<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+
+      <div class="ipad-specs">
+        <p class="ipad-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">Liquid Retina 10,9" · 2360 x 1640 px · 500 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">Apple A16 · Neural Engine 16 núcleos</span></div>
+        <div class="spec-row"><span class="spec-k">Armazenamento</span><span class="spec-v">128 GB ou 256 GB</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera traseira</span><span class="spec-v">12 MP Wide</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera frontal</span><span class="spec-v">12 MP Ultra Wide · Center Stage</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Wi-Fi 6 · Bluetooth 5.2</span></div>
+        <div class="spec-row"><span class="spec-k">Conector</span><span class="spec-v">USB-C</span></div>
+        <div class="spec-row"><span class="spec-k">Apple Pencil</span><span class="spec-v">Apple Pencil USB-C · Apple Pencil (1ª geração)</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">iPadOS 18 · Apple Intelligence</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODELO 2: iPad Air 11" M3 ===== -->
+  <div class="ipad-hero modelo-section" id="sec-ipadair11">
+    <div class="ipad-visual">
+      <img class="ipad-main-img" id="img-ipadair11" src="img/ipad-1.webp" alt="iPad Air 11 M3">
+      <div class="ipad-thumbs">
+        <button class="ipad-thumb-btn ativo" onclick="thumb('ipadair11',0,this)"><img src="img/ipad-1.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipadair11',1,this)"><img src="img/ipad-2.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipadair11',2,this)"><img src="img/ipad-3.webp"></button>
+      </div>
+    </div>
+    <div class="ipad-config">
+      <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+        <span style="display:block;width:20px;height:.5px;background:var(--cobre);"></span>
+        IPAD AIR · CHIP M3
+      </p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-1px;line-height:1.0;margin-bottom:14px;">
+        iPad Air<br><em style="font-style:italic;color:var(--cobre);">11 polegadas.</em>
+      </h2>
+      <p style="font-size:13px;color:var(--cinza);line-height:1.85;margin-bottom:28px;">
+        Chip M3 com IA, tela Liquid Retina de 11 polegadas, fino e leve. Compatível com Apple Pencil Pro e Magic Keyboard.
+      </p>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;padding:8px 16px;border:0.5px solid rgba(184,149,90,.3);color:var(--cobre);margin-bottom:28px;border-radius:2px;">
+        <span>✦</span> PRODUTO LACRADO · GARANTIA APPLE
+      </div>
+
+      <!-- Cores -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">COR — <strong id="cor-label-ipadair11">Azul</strong></span>
+        <div class="ipad-cores">
+          <button class="ipad-cor ativo" data-cor="Azul" onclick="selecionarCor('ipadair11',this)">
+            <div class="ipad-cor-circulo" style="background:#7EAFC5;"></div>
+            <span class="ipad-cor-nome">Azul</span>
+          </button>
+          <button class="ipad-cor" data-cor="Estelar" onclick="selecionarCor('ipadair11',this)">
+            <div class="ipad-cor-circulo" style="background:#E8E3D8;border:1.5px solid #ccc;"></div>
+            <span class="ipad-cor-nome">Estelar</span>
+          </button>
+          <button class="ipad-cor" data-cor="Roxo" onclick="selecionarCor('ipadair11',this)">
+            <div class="ipad-cor-circulo" style="background:#A48CBF;"></div>
+            <span class="ipad-cor-nome">Roxo</span>
+          </button>
+          <button class="ipad-cor sem-estoque" data-cor="Cinza Espacial" onclick="semEstoque()">
+            <div class="ipad-cor-circulo" style="background:#6B6B6B;"></div>
+            <span class="ipad-cor-nome">Cinza Esp.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">ARMAZENAMENTO</span>
+        <div class="ipad-storage">
+          <button class="ipad-stor-btn ativo" onclick="selecionarStor('ipadair11',this,'R$ 6.500','R$ 541,67')">128 GB</button>
+          <button class="ipad-stor-btn" onclick="selecionarStor('ipadair11',this,'R$ 7.200','R$ 600,00')">256 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">512 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">1 TB</button>
+        </div>
+      </div>
+
+      <!-- Preço -->
+      <div class="ipad-preco">
+        <p class="ipad-preco-label">PREÇO</p>
+        <p class="ipad-preco-val" id="preco-ipadair11">R$ 6.500</p>
+        <p style="font-size:11px;color:var(--cinza);margin-top:6px;" id="parcela-ipadair11">ou 12× de R$ 541,67 sem juros no cartão</p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="ipad-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20iPad%20Air%2011%22%20M3.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-ipad" id="btn-ipadair11">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-ipad">Tirar dúvidas</a>
+      </div>
+
+      <div class="ipad-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Lacrado, sem uso<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+
+      <div class="ipad-specs">
+        <p class="ipad-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">Liquid Retina 11" · 2360 x 1640 px · 500 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">Apple M3 · CPU 8 núcleos · GPU 10 núcleos</span></div>
+        <div class="spec-row"><span class="spec-k">Armazenamento</span><span class="spec-v">128 GB, 256 GB, 512 GB ou 1 TB</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera traseira</span><span class="spec-v">12 MP Wide</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera frontal</span><span class="spec-v">12 MP Ultra Wide · Center Stage · Paisagem</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Wi-Fi 6E · Bluetooth 5.3</span></div>
+        <div class="spec-row"><span class="spec-k">Conector</span><span class="spec-v">USB-C (USB 3)</span></div>
+        <div class="spec-row"><span class="spec-k">Apple Pencil</span><span class="spec-v">Apple Pencil Pro · Apple Pencil USB-C</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">iPadOS 18 · Apple Intelligence</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODELO 3: iPad Air 13" M3 ===== -->
+  <div class="ipad-hero modelo-section" id="sec-ipadair13">
+    <div class="ipad-visual">
+      <img class="ipad-main-img" id="img-ipadair13" src="img/ipad-1.webp" alt="iPad Air 13 M3">
+      <div class="ipad-thumbs">
+        <button class="ipad-thumb-btn ativo" onclick="thumb('ipadair13',0,this)"><img src="img/ipad-1.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipadair13',1,this)"><img src="img/ipad-2.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipadair13',2,this)"><img src="img/ipad-3.webp"></button>
+      </div>
+    </div>
+    <div class="ipad-config">
+      <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+        <span style="display:block;width:20px;height:.5px;background:var(--cobre);"></span>
+        IPAD AIR · CHIP M3
+      </p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-1px;line-height:1.0;margin-bottom:14px;">
+        iPad Air<br><em style="font-style:italic;color:var(--cobre);">13 polegadas.</em>
+      </h2>
+      <p style="font-size:13px;color:var(--cinza);line-height:1.85;margin-bottom:28px;">
+        A tela maior do iPad Air. Ideal para criatividade, multitarefa e produtividade com o chip M3 e Apple Intelligence.
+      </p>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;padding:8px 16px;border:0.5px solid rgba(184,149,90,.3);color:var(--cobre);margin-bottom:28px;border-radius:2px;">
+        <span>✦</span> PRODUTO LACRADO · GARANTIA APPLE
+      </div>
+
+      <!-- Cores -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">COR — <strong id="cor-label-ipadair13">Azul</strong></span>
+        <div class="ipad-cores">
+          <button class="ipad-cor ativo" data-cor="Azul" onclick="selecionarCor('ipadair13',this)">
+            <div class="ipad-cor-circulo" style="background:#7EAFC5;"></div>
+            <span class="ipad-cor-nome">Azul</span>
+          </button>
+          <button class="ipad-cor" data-cor="Estelar" onclick="selecionarCor('ipadair13',this)">
+            <div class="ipad-cor-circulo" style="background:#E8E3D8;border:1.5px solid #ccc;"></div>
+            <span class="ipad-cor-nome">Estelar</span>
+          </button>
+          <button class="ipad-cor sem-estoque" data-cor="Roxo" onclick="semEstoque()">
+            <div class="ipad-cor-circulo" style="background:#A48CBF;"></div>
+            <span class="ipad-cor-nome">Roxo</span>
+          </button>
+          <button class="ipad-cor sem-estoque" data-cor="Cinza Espacial" onclick="semEstoque()">
+            <div class="ipad-cor-circulo" style="background:#6B6B6B;"></div>
+            <span class="ipad-cor-nome">Cinza Esp.</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">ARMAZENAMENTO</span>
+        <div class="ipad-storage">
+          <button class="ipad-stor-btn ativo" onclick="selecionarStor('ipadair13',this,'R$ 7.800','R$ 650,00')">128 GB</button>
+          <button class="ipad-stor-btn" onclick="selecionarStor('ipadair13',this,'R$ 8.600','R$ 716,67')">256 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">512 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">1 TB</button>
+        </div>
+      </div>
+
+      <!-- Preço -->
+      <div class="ipad-preco">
+        <p class="ipad-preco-label">PREÇO</p>
+        <p class="ipad-preco-val" id="preco-ipadair13">R$ 7.800</p>
+        <p style="font-size:11px;color:var(--cinza);margin-top:6px;" id="parcela-ipadair13">ou 12× de R$ 650,00 sem juros no cartão</p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="ipad-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20iPad%20Air%2013%22%20M3.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-ipad" id="btn-ipadair13">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-ipad">Tirar dúvidas</a>
+      </div>
+
+      <div class="ipad-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Lacrado, sem uso<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+
+      <div class="ipad-specs">
+        <p class="ipad-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">Liquid Retina 13" · 2732 x 2048 px · 600 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">Apple M3 · CPU 8 núcleos · GPU 10 núcleos</span></div>
+        <div class="spec-row"><span class="spec-k">Armazenamento</span><span class="spec-v">128 GB, 256 GB, 512 GB ou 1 TB</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera traseira</span><span class="spec-v">12 MP Wide</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera frontal</span><span class="spec-v">12 MP Ultra Wide · Center Stage · Paisagem</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Wi-Fi 6E · Bluetooth 5.3</span></div>
+        <div class="spec-row"><span class="spec-k">Conector</span><span class="spec-v">USB-C (USB 3)</span></div>
+        <div class="spec-row"><span class="spec-k">Apple Pencil</span><span class="spec-v">Apple Pencil Pro · Apple Pencil USB-C</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">iPadOS 18 · Apple Intelligence</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODELO 4: iPad Pro 11" M4 ===== -->
+  <div class="ipad-hero modelo-section" id="sec-ipadpro11">
+    <div class="ipad-visual">
+      <img class="ipad-main-img" id="img-ipadpro11" src="img/ipad-1.webp" alt="iPad Pro 11 M4">
+      <div class="ipad-thumbs">
+        <button class="ipad-thumb-btn ativo" onclick="thumb('ipadpro11',0,this)"><img src="img/ipad-1.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipadpro11',1,this)"><img src="img/ipad-2.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipadpro11',2,this)"><img src="img/ipad-3.webp"></button>
+      </div>
+    </div>
+    <div class="ipad-config">
+      <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+        <span style="display:block;width:20px;height:.5px;background:var(--cobre);"></span>
+        IPAD PRO · CHIP M4
+      </p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-1px;line-height:1.0;margin-bottom:14px;">
+        iPad Pro<br><em style="font-style:italic;color:var(--cobre);">11 polegadas.</em>
+      </h2>
+      <p style="font-size:13px;color:var(--cinza);line-height:1.85;margin-bottom:28px;">
+        Ultra Retina XDR com OLED tandem. Chip M4. O iPad mais avançado já feito — tela perfeita, desempenho sem limites.
+      </p>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;padding:8px 16px;border:0.5px solid rgba(184,149,90,.3);color:var(--cobre);margin-bottom:28px;border-radius:2px;">
+        <span>✦</span> PRODUTO LACRADO · GARANTIA APPLE
+      </div>
+
+      <!-- Cores -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">COR — <strong id="cor-label-ipadpro11">Prateado</strong></span>
+        <div class="ipad-cores">
+          <button class="ipad-cor ativo" data-cor="Prateado" onclick="selecionarCor('ipadpro11',this)">
+            <div class="ipad-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;"></div>
+            <span class="ipad-cor-nome">Prateado</span>
+          </button>
+          <button class="ipad-cor" data-cor="Preto sideral" onclick="selecionarCor('ipadpro11',this)">
+            <div class="ipad-cor-circulo" style="background:#1C1C1E;"></div>
+            <span class="ipad-cor-nome">Preto Sideral</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Memória -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">MEMÓRIA</span>
+        <div class="ipad-storage">
+          <button class="ipad-stor-btn ativo" onclick="selecionarMem('ipadpro11',this)">8 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">16 GB</button>
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">ARMAZENAMENTO</span>
+        <div class="ipad-storage">
+          <button class="ipad-stor-btn ativo" onclick="selecionarStor('ipadpro11',this,'R$ 10.500','R$ 875,00')">256 GB</button>
+          <button class="ipad-stor-btn" onclick="selecionarStor('ipadpro11',this,'R$ 12.500','R$ 1.041,67')">512 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">1 TB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">2 TB</button>
+        </div>
+      </div>
+
+      <!-- Preço -->
+      <div class="ipad-preco">
+        <p class="ipad-preco-label">PREÇO</p>
+        <p class="ipad-preco-val" id="preco-ipadpro11">R$ 10.500</p>
+        <p style="font-size:11px;color:var(--cinza);margin-top:6px;" id="parcela-ipadpro11">ou 12× de R$ 875,00 sem juros no cartão</p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="ipad-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20iPad%20Pro%2011%22%20M4.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-ipad" id="btn-ipadpro11">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-ipad">Tirar dúvidas</a>
+      </div>
+
+      <div class="ipad-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Lacrado, sem uso<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+
+      <div class="ipad-specs">
+        <p class="ipad-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">Ultra Retina XDR 11" · OLED tandem · 1000 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">Apple M4 · CPU 10 núcleos · GPU 10 núcleos</span></div>
+        <div class="spec-row"><span class="spec-k">Memória</span><span class="spec-v">8 GB ou 16 GB RAM unificada</span></div>
+        <div class="spec-row"><span class="spec-k">Armazenamento</span><span class="spec-v">256 GB, 512 GB, 1 TB ou 2 TB</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera traseira</span><span class="spec-v">12 MP Wide · LiDAR</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera frontal</span><span class="spec-v">12 MP TrueDepth · Face ID · Paisagem</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Wi-Fi 6E · Bluetooth 5.3 · Thunderbolt / USB 4</span></div>
+        <div class="spec-row"><span class="spec-k">Apple Pencil</span><span class="spec-v">Apple Pencil Pro · Apple Pencil USB-C</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">iPadOS 18 · Apple Intelligence</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MODELO 5: iPad Pro 13" M4 ===== -->
+  <div class="ipad-hero modelo-section" id="sec-ipadpro13">
+    <div class="ipad-visual">
+      <img class="ipad-main-img" id="img-ipadpro13" src="img/ipad-1.webp" alt="iPad Pro 13 M4">
+      <div class="ipad-thumbs">
+        <button class="ipad-thumb-btn ativo" onclick="thumb('ipadpro13',0,this)"><img src="img/ipad-1.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipadpro13',1,this)"><img src="img/ipad-2.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipadpro13',2,this)"><img src="img/ipad-3.webp"></button>
+      </div>
+    </div>
+    <div class="ipad-config">
+      <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+        <span style="display:block;width:20px;height:.5px;background:var(--cobre);"></span>
+        IPAD PRO · CHIP M4
+      </p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-1px;line-height:1.0;margin-bottom:14px;">
+        iPad Pro<br><em style="font-style:italic;color:var(--cobre);">13 polegadas.</em>
+      </h2>
+      <p style="font-size:13px;color:var(--cinza);line-height:1.85;margin-bottom:28px;">
+        O maior e mais poderoso iPad. Tela Ultra Retina XDR de 13 polegadas com OLED tandem, chip M4 e desempenho de notebook.
+      </p>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;padding:8px 16px;border:0.5px solid rgba(184,149,90,.3);color:var(--cobre);margin-bottom:28px;border-radius:2px;">
+        <span>✦</span> PRODUTO LACRADO · GARANTIA APPLE
+      </div>
+
+      <!-- Cores -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">COR — <strong id="cor-label-ipadpro13">Prateado</strong></span>
+        <div class="ipad-cores">
+          <button class="ipad-cor ativo" data-cor="Prateado" onclick="selecionarCor('ipadpro13',this)">
+            <div class="ipad-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;"></div>
+            <span class="ipad-cor-nome">Prateado</span>
+          </button>
+          <button class="ipad-cor" data-cor="Preto sideral" onclick="selecionarCor('ipadpro13',this)">
+            <div class="ipad-cor-circulo" style="background:#1C1C1E;"></div>
+            <span class="ipad-cor-nome">Preto Sideral</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Memória -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">MEMÓRIA</span>
+        <div class="ipad-storage">
+          <button class="ipad-stor-btn ativo" onclick="selecionarMem('ipadpro13',this)">8 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">16 GB</button>
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div style="margin-bottom:28px;">
+        <span class="config-titulo">ARMAZENAMENTO</span>
+        <div class="ipad-storage">
+          <button class="ipad-stor-btn ativo" onclick="selecionarStor('ipadpro13',this,'R$ 13.000','R$ 1.083,33')">256 GB</button>
+          <button class="ipad-stor-btn" onclick="selecionarStor('ipadpro13',this,'R$ 15.000','R$ 1.250,00')">512 GB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">1 TB</button>
+          <button class="ipad-stor-btn sem-estoque" onclick="semEstoque()">2 TB</button>
+        </div>
+      </div>
+
+      <!-- Preço -->
+      <div class="ipad-preco">
+        <p class="ipad-preco-label">PREÇO</p>
+        <p class="ipad-preco-val" id="preco-ipadpro13">R$ 13.000</p>
+        <p style="font-size:11px;color:var(--cinza);margin-top:6px;" id="parcela-ipadpro13">ou 12× de R$ 1.083,33 sem juros no cartão</p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="ipad-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20iPad%20Pro%2013%22%20M4.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-ipad" id="btn-ipadpro13">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-ipad">Tirar dúvidas</a>
+      </div>
+
+      <div class="ipad-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Lacrado, sem uso<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+
+      <div class="ipad-specs">
+        <p class="ipad-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">Ultra Retina XDR 13" · OLED tandem · 1000 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">Apple M4 · CPU 10 núcleos · GPU 10 núcleos</span></div>
+        <div class="spec-row"><span class="spec-k">Memória</span><span class="spec-v">8 GB ou 16 GB RAM unificada</span></div>
+        <div class="spec-row"><span class="spec-k">Armazenamento</span><span class="spec-v">256 GB, 512 GB, 1 TB ou 2 TB</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera traseira</span><span class="spec-v">12 MP Wide · LiDAR</span></div>
+        <div class="spec-row"><span class="spec-k">Câmera frontal</span><span class="spec-v">12 MP TrueDepth · Face ID · Paisagem</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Wi-Fi 6E · Bluetooth 5.3 · Thunderbolt / USB 4</span></div>
+        <div class="spec-row"><span class="spec-k">Apple Pencil</span><span class="spec-v">Apple Pencil Pro · Apple Pencil USB-C</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">iPadOS 18 · Apple Intelligence</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAIXA LACRADO -->
+  <div class="ipad-lacrado-faixa reveal">
+    <div>
+      <h2>Sempre lacrado.<br>Sempre original.</h2>
+      <p>Todos os iPads da GAETA Prime chegam lacrados de fábrica, com garantia Apple de 12 meses.</p>
+    </div>
+    <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20em%20um%20iPad.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="ipad-lacrado-btn">Consultar agora →</a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-g">GAETA</span>
+        <span class="footer-logo-p">PRIME STORE</span>
+        <p class="footer-tagline">Produtos Apple originais com atendimento que faz a diferença.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">PRODUTOS</p>
+        <ul>
+          <li><a href="iphone.html">iPhone</a></li>
+          <li><a href="mac.html">Mac</a></li>
+          <li><a href="ipad.html">iPad</a></li>
+          <li><a href="watch.html">Apple Watch</a></li>
+          <li><a href="colecao.html?cat=acessorios">AirPods</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">GAETA PRIME</p>
+        <ul>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">REDES</p>
+        <ul>
+          <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/gaetaprime" target="_blank">@gaetaprime</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Gaeta Prime · Apple e Acessórios · São Paulo</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
+        <a href="https://wa.me/5511999999999" target="_blank">WHATSAPP</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-se" id="toast-se">Sem estoque no momento</div>
+
+  <script src="main.js"></script>
+  <script>
+  // ---- Troca de modelo ----
+  function trocarModelo(id, btn) {
+    document.querySelectorAll('.modelo-section').forEach(s => s.classList.remove('ativo'));
+    document.getElementById('sec-' + id).classList.add('ativo');
+    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    window.scrollTo({ top: document.querySelector('.ipad-filtros').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  // ---- Thumbnails ----
+  function thumb(modelo, i, btn) {
+    const imgs = { ipad11: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadair11: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadair13: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadpro11: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadpro13: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'] };
+    const mainImg = document.getElementById('img-' + modelo);
+    if (!mainImg) return;
+    mainImg.style.opacity = '0';
+    setTimeout(() => { mainImg.src = imgs[modelo][i]; mainImg.style.opacity = '1'; }, 180);
+    btn.closest('.ipad-thumbs').querySelectorAll('.ipad-thumb-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+  }
+
+  // ---- Cores ----
+  function selecionarCor(modelo, btn) {
+    btn.closest('.ipad-cores').querySelectorAll('.ipad-cor').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    document.getElementById('cor-label-' + modelo).textContent = btn.dataset.cor;
+  }
+
+  // ---- Memória ----
+  function selecionarMem(modelo, btn) {
+    btn.closest('.ipad-storage').querySelectorAll('.ipad-stor-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+  }
+
+  // ---- Storage + Preço ----
+  function selecionarStor(modelo, btn, preco, parcela) {
+    btn.closest('.ipad-storage').querySelectorAll('.ipad-stor-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    document.getElementById('preco-' + modelo).textContent = preco;
+    document.getElementById('parcela-' + modelo).textContent = 'ou 12× de R$ ' + parcela + ' sem juros no cartão';
+    const cor = document.querySelector('#sec-' + modelo + ' .ipad-cor.ativo')?.dataset.cor || '';
+    const stor = btn.textContent;
+    const msg = encodeURIComponent('Olá! Tenho interesse no ' + modeloNome(modelo) + ' ' + cor + ', ' + stor + '. Pode me ajudar?');
+    document.getElementById('btn-' + modelo).href = 'https://wa.me/5511999999999?text=' + msg;
+  }
+
+  function modeloNome(id) {
+    const n = { ipad11: 'iPad 11 A16', ipadair11: 'iPad Air 11" M3', ipadair13: 'iPad Air 13" M3', ipadpro11: 'iPad Pro 11" M4', ipadpro13: 'iPad Pro 13" M4' };
+    return n[id] || id;
+  }
+
+  // ---- Sem estoque ----
+  function semEstoque() {
+    const t = document.getElementById('toast-se');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+  </script>
+</body>
+</html>
