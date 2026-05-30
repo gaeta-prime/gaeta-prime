@@ -844,32 +844,42 @@
 
 <!-- PRODUTO 3 — iPad -->
 <div class="pc dk" data-pc>
-  <div class="pc-visual">
-    <div class="pc-ph">
-      <div class="ring"></div><div class="ring"></div><div class="ring"></div>
-      <div class="pc-icon-wrap">
-        <svg width="108" height="144" viewBox="0 0 120 160" fill="none" style="opacity:.14;color:#fff" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="116" height="156" rx="14" stroke="currentColor" stroke-width="2.5"/>
-          <rect x="10" y="12" width="100" height="136" rx="6" stroke="currentColor" stroke-width="2"/>
-          <rect x="54" y="4" width="12" height="4" rx="2" stroke="currentColor" stroke-width="2"/>
-        </svg>
-        <span class="ph-label" style="color:rgba(255,255,255,.18)">FOTO EM BREVE</span>
-      </div>
+  <div class="pc-visual" style="flex-direction:column;gap:16px;padding:32px;">
+    <img id="ipad-main-img"
+      src="img/ipad-1.webp"
+      style="max-width:90%;max-height:56svh;object-fit:contain;
+             filter:drop-shadow(0 24px 40px rgba(0,0,0,.45));
+             animation:floatPhone 6s ease-in-out infinite;
+             transition:opacity .35s ease;"
+      alt="iPad 11">
+    <div style="display:flex;gap:8px;justify-content:center;">
+      <button onclick="ipadThumb(0)" id="it0"
+        style="width:52px;height:40px;border-radius:4px;border:1.5px solid var(--cobre);background:rgba(255,255,255,.06);overflow:hidden;cursor:pointer;padding:2px;">
+        <img src="img/ipad-1.webp" style="width:100%;height:100%;object-fit:contain;">
+      </button>
+      <button onclick="ipadThumb(1)" id="it1"
+        style="width:52px;height:40px;border-radius:4px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);overflow:hidden;cursor:pointer;padding:2px;">
+        <img src="img/ipad-2.webp" style="width:100%;height:100%;object-fit:contain;">
+      </button>
+      <button onclick="ipadThumb(2)" id="it2"
+        style="width:52px;height:40px;border-radius:4px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);overflow:hidden;cursor:pointer;padding:2px;">
+        <img src="img/ipad-3.webp" style="width:100%;height:100%;object-fit:contain;">
+      </button>
     </div>
   </div>
   <div class="pc-text">
     <span class="pc-num">03</span>
-    <span class="pc-tag">IPAD PRO M4</span>
+    <span class="pc-tag">IPAD 11</span>
     <div class="cond-badges"><span class="cond-badge cb-lacrado"><span class="dot"></span>LACRADO</span><span class="cond-badge cb-vitrine"><span class="dot"></span>VITRINE</span></div>
     <h2 class="pc-h">
-      <span class="ln"><span class="ln-i">O mais fino</span></span>
-      <span class="ln"><span class="ln-i">já <em style="font-style:italic;color:var(--cobre)">criado.</em></span></span>
+      <span class="ln"><span class="ln-i">Colorido.</span></span>
+      <span class="ln"><span class="ln-i"><em style="font-style:italic;color:var(--cobre)">Poderoso.</em></span></span>
     </h2>
-    <p class="pc-p">5,1 mm de espessura. Tela Ultra Retina XDR OLED. Chip M4. Um computador que cabe na bolsa e supera a maioria dos notebooks.</p>
+    <p class="pc-p">Chip A16. Tela Liquid Retina de 11 polegadas. USB-C. Apple Pencil Pro. Quatro cores vibrantes. O iPad para quem quer tudo.</p>
     <div class="pc-specs">
-      <div class="pc-spec-item"><span class="pc-spec-val" style="color:var(--cobre)">M4</span><span class="pc-spec-label">CHIP</span></div>
-      <div class="pc-spec-item"><span class="pc-spec-val">5,1mm</span><span class="pc-spec-label">ESPESSURA</span></div>
-      <div class="pc-spec-item"><span class="pc-spec-val">OLED</span><span class="pc-spec-label">TELA</span></div>
+      <div class="pc-spec-item"><span class="pc-spec-val" style="color:var(--cobre)">A16</span><span class="pc-spec-label">CHIP</span></div>
+      <div class="pc-spec-item"><span class="pc-spec-val">11"</span><span class="pc-spec-label">TELA</span></div>
+      <div class="pc-spec-item"><span class="pc-spec-val">USB-C</span><span class="pc-spec-label">CONECTOR</span></div>
     </div>
     <div class="pc-ctas">
       <a href="ipad.html" class="btn-primary">Ver iPad</a>
@@ -877,7 +887,6 @@
     </div>
   </div>
 </div>
-
 <!-- FAIXA -->
 <div class="faixa reveal">
   <div class="faixa-shine"></div>
@@ -1234,6 +1243,23 @@ function macImg(i) {
 }
 // Auto-ciclo a cada 4s
 setInterval(() => macImg((macCur+1)%3), 4000);
+// ── Galeria iPad ──
+(function(){
+  const imgs = ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'];
+  window.ipadThumb = function(i) {
+    const img = document.getElementById('ipad-main-img');
+    if(!img) return;
+    img.style.opacity='0';
+    setTimeout(()=>{ img.src=imgs[i]; img.style.opacity='1'; },180);
+    [0,1,2].forEach(j=>{
+      const t=document.getElementById('it'+j);
+      if(t) t.style.borderColor = j===i ? 'var(--cobre)' : 'rgba(255,255,255,.15)';
+    });
+  };
+  // Auto-ciclo
+  let cur=0;
+  setInterval(()=>{ cur=(cur+1)%3; window.ipadThumb(cur); },4000);
+})();
 </script>
 </body>
 </html>
