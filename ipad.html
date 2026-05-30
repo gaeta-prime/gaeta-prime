@@ -268,11 +268,11 @@
   <!-- ===== MODELO 1: iPad 11 (A16) ===== -->
   <div class="ipad-hero modelo-section ativo" id="sec-ipad11">
     <div class="ipad-visual">
-      <img class="ipad-main-img" id="img-ipad11" src="img/ipad-1.webp" alt="iPad 11 A16">
-      <div class="ipad-thumbs">
-        <button class="ipad-thumb-btn ativo" onclick="thumb('ipad11',0,this)"><img src="img/ipad-1.webp"></button>
-        <button class="ipad-thumb-btn" onclick="thumb('ipad11',1,this)"><img src="img/ipad-2.webp"></button>
-        <button class="ipad-thumb-btn" onclick="thumb('ipad11',2,this)"><img src="img/ipad-3.webp"></button>
+      <img class="ipad-main-img" id="img-ipad11" src="img/ipad11-pink-1.webp" alt="iPad 11 A16">
+      <div class="ipad-thumbs" id="thumbs-ipad11">
+        <button class="ipad-thumb-btn ativo" onclick="thumb('ipad11',0,this)"><img src="img/ipad11-pink-1.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipad11',1,this)"><img src="img/ipad11-pink-2.webp"></button>
+        <button class="ipad-thumb-btn" onclick="thumb('ipad11',2,this)"><img src="img/ipad11-pink-3.webp"></button>
       </div>
     </div>
     <div class="ipad-config">
@@ -298,7 +298,7 @@
             <div class="ipad-cor-circulo" style="background:#6AACDF;"></div>
             <span class="ipad-cor-nome">Azul</span>
           </button>
-          <button class="ipad-cor ativo" data-cor="Rosa" onclick="selecionarCor('ipad11',this)">
+          <button class="ipad-cor ativo" data-cor="Rosa" onclick="selecionarCorIpad11(this,'pink')">
             <div class="ipad-cor-circulo" style="background:#E8A5B5;"></div>
             <span class="ipad-cor-nome">Rosa</span>
           </button>
@@ -306,7 +306,7 @@
             <div class="ipad-cor-circulo" style="background:#F0D87A;"></div>
             <span class="ipad-cor-nome">Amarelo</span>
           </button>
-          <button class="ipad-cor" data-cor="Prateado" onclick="selecionarCor('ipad11',this)">
+          <button class="ipad-cor" data-cor="Prateado" onclick="selecionarCorIpad11(this,'silver')">
             <div class="ipad-cor-circulo" style="background:#C8C8C8;border:1.5px solid #ccc;"></div>
             <span class="ipad-cor-nome">Prateado</span>
           </button>
@@ -805,6 +805,32 @@
 
   <script src="main.js"></script>
   <script>
+  // ---- Galeria por cor: iPad 11 ----
+  const IPAD11_FOTOS = {
+    pink:   ['img/ipad11-pink-1.webp',   'img/ipad11-pink-2.webp',   'img/ipad11-pink-3.webp'],
+    silver: ['img/ipad11-silver-1.webp', 'img/ipad11-silver-2.webp', 'img/ipad11-silver-3.webp']
+  };
+  let ipad11CorAtual = 'pink';
+
+  function selecionarCorIpad11(btn, cor) {
+    ipad11CorAtual = cor;
+    // Atualiza estado visual dos botões
+    btn.closest('.ipad-cores').querySelectorAll('.ipad-cor').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    document.getElementById('cor-label-ipad11').textContent = btn.dataset.cor;
+    // Atualiza thumbnails
+    const fotos = IPAD11_FOTOS[cor];
+    const thumbContainer = document.getElementById('thumbs-ipad11');
+    thumbContainer.querySelectorAll('.ipad-thumb-btn').forEach((b, i) => {
+      b.querySelector('img').src = fotos[i];
+      b.classList.toggle('ativo', i === 0);
+    });
+    // Troca foto principal
+    const mainImg = document.getElementById('img-ipad11');
+    mainImg.style.opacity = '0';
+    setTimeout(() => { mainImg.src = fotos[0]; mainImg.style.opacity = '1'; }, 180);
+  }
+
   // ---- Troca de modelo ----
   function trocarModelo(id, btn) {
     document.querySelectorAll('.modelo-section').forEach(s => s.classList.remove('ativo'));
