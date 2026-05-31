@@ -430,7 +430,7 @@
       desc: 'Chip A18, Camera Control e suporte completo ao Apple Intelligence. O iPhone para quem quer tudo, com elegância.',
       icone: 'iphone',
       cores: [
-        { nome: 'Ultramarino', hex: '#4A6FA5' },
+        { nome: 'Ultramarino', hex: '#4A6FA5', imgs: ['img/iphone-16-ultramarine-1.webp','img/iphone-16-ultramarine-2.webp','img/iphone-16-ultramarine-3.webp','img/iphone-16-ultramarine-4.webp'] },
         { nome: 'Verde-Teal',  hex: '#5B8A7A' },
         { nome: 'Rosa',        hex: '#E8B4C0' },
         { nome: 'Preto',       hex: '#1C1C1E' },
@@ -1159,7 +1159,7 @@
       desc: 'Tela de 6,7", chip A16 Bionic, Camera Control e bateria com autonomia extra. USB-C e 5G.',
       icone: 'iphone',
       cores: [
-        { nome: 'Ultramarino', hex: '#4A6FA5' },
+        { nome: 'Ultramarino', hex: '#4A6FA5', imgs: ['img/iphone-16-ultramarine-1.webp','img/iphone-16-ultramarine-2.webp','img/iphone-16-ultramarine-3.webp','img/iphone-16-ultramarine-4.webp'] },
         { nome: 'Verde-Teal',  hex: '#5B8A7A' },
         { nome: 'Rosa',        hex: '#E8B4C0' },
         { nome: 'Preto',       hex: '#1C1C1E' },
@@ -1277,13 +1277,24 @@
       <div class="prod-hero">
         <!-- GALERIA -->
         <div class="prod-galeria">
-          <div class="prod-foto-placeholder">
-            <div class="pfp-ring"></div>
-            <div class="pfp-ring"></div>
-            <div class="pfp-ring"></div>
-            <div class="pfp-inner" style="color:var(--grafite);">${icon}
-              <span class="pfp-label">FOTO EM BREVE</span>
-            </div>
+          <div class="prod-foto-placeholder" id="galeria-wrap">
+            ${prod.cores[0].imgs ? `
+              <img id="galeria-main" src="${prod.cores[0].imgs[0]}"
+                style="max-width:100%;max-height:360px;object-fit:contain;transition:opacity .2s ease;">
+              <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="galeria-thumbs">
+                ${prod.cores[0].imgs.map((src,i) => `
+                  <img src="${src}" onclick="galeriaThumb(${i})"
+                    style="width:52px;height:52px;object-fit:contain;cursor:pointer;opacity:${i===0?1:.45};border:1.5px solid ${i===0?'var(--grafite)':'transparent'};border-radius:4px;padding:2px;transition:all .2s;">
+                `).join('')}
+              </div>
+            ` : `
+              <div class="pfp-ring"></div>
+              <div class="pfp-ring"></div>
+              <div class="pfp-ring"></div>
+              <div class="pfp-inner" style="color:var(--grafite);">${icon}
+                <span class="pfp-label">FOTO EM BREVE</span>
+              </div>
+            `}
           </div>
           <div class="prod-thumbs" id="cores-thumbs">
             ${prod.cores.map((c,i) => `
@@ -1371,6 +1382,18 @@
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2500);
   }
+  function galeriaThumb(i) {
+    const thumbs = document.querySelectorAll('#galeria-thumbs img');
+    const main = document.getElementById('galeria-main');
+    if (!main || !thumbs.length) return;
+    main.style.opacity = '0';
+    setTimeout(() => { main.src = thumbs[i].src; main.style.opacity = '1'; }, 200);
+    thumbs.forEach((t,j) => {
+      t.style.opacity = j===i ? '1' : '.45';
+      t.style.border = j===i ? '1.5px solid var(--grafite)' : '1.5px solid transparent';
+    });
+  }
+
   function selecionarCor(i) {
     const prod = CATALOGO[new URLSearchParams(window.location.search).get('id')];
     document.querySelectorAll('.cor-op').forEach((b,j) => b.classList.toggle('ativo', i===j));
@@ -1379,6 +1402,29 @@
     const label2 = document.getElementById('cor-selecionada');
     if (label) label.textContent = prod.cores[i].nome;
     if (label2) label2.textContent = prod.cores[i].nome.toUpperCase();
+
+    // Trocar galeria se a cor tem imgs
+    const wrap = document.getElementById('galeria-wrap');
+    const cor = prod.cores[i];
+    if (wrap && cor.imgs) {
+      wrap.innerHTML = `
+        <img id="galeria-main" src="${cor.imgs[0]}"
+          style="max-width:100%;max-height:360px;object-fit:contain;transition:opacity .2s ease;">
+        <div style="display:flex;gap:8px;justify-content:center;margin-top:12px;" id="galeria-thumbs">
+          ${cor.imgs.map((src,j) => `
+            <img src="${src}" onclick="galeriaThumb(${j})"
+              style="width:52px;height:52px;object-fit:contain;cursor:pointer;opacity:${j===0?1:.45};border:1.5px solid ${j===0?'var(--grafite)':'transparent'};border-radius:4px;padding:2px;transition:all .2s;">
+          `).join('')}
+        </div>`;
+    } else if (wrap) {
+      wrap.innerHTML = `
+        <div class="pfp-ring"></div>
+        <div class="pfp-ring"></div>
+        <div class="pfp-ring"></div>
+        <div class="pfp-inner" style="color:var(--grafite);">
+          <span class="pfp-label">FOTO EM BREVE</span>
+        </div>`;
+    }
   }
 
   function selecionarStorage(i) {
