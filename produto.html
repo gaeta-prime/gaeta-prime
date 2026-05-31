@@ -1366,11 +1366,11 @@
   function atualizarParcela(precoStr) {
     const el = document.getElementById('preco-parcela');
     if (!el) return;
-    const num = parseFloat(precoStr.replace('R$','').replace('.','').replace(',','.').trim());
-    if (!isNaN(num)) {
-      const parcela = (num/12).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
-      el.textContent = `ou 12× de R$ ${parcela} sem juros no cartão`;
+    if (!precoStr || precoStr.trim() === 'Consultar') {
+      el.textContent = '';
+      return;
     }
+    el.textContent = 'em até 12× no cartão';
   }
 
   render();
