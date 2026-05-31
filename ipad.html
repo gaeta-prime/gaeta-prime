@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .page-header{
-      padding: calc(var(--nav-h) + 64px) 48px 56px;
+      padding: calc(var(--nav-h) + 36px) 48px 36px;
       background: var(--grafite);
       position: relative; overflow: hidden;
     }
@@ -24,11 +24,11 @@
     .page-eyebrow::before{ content:'';display:block;width:24px;height:.5px;background:var(--cobre);opacity:.5; }
     .page-title{
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(48px,7vw,88px);font-weight:300;
-      color:#fff;letter-spacing:-2px;line-height:.95;
-      margin-bottom:20px;
+      font-size:clamp(36px,5vw,64px);font-weight:300;
+      color:#fff;letter-spacing:-1.5px;line-height:.95;
+      margin-bottom:14px;
     }
-    .page-sub{ font-size:14px;color:rgba(255,255,255,.4);line-height:1.8;max-width:440px; }
+    .page-sub{ font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;max-width:440px; }
 
     /* Filtros de modelo */
     .ipad-filtros{
@@ -49,7 +49,7 @@
     /* Hero de cada modelo */
     .ipad-hero{
       display:grid;grid-template-columns:1fr 1fr;
-      min-height:88svh;
+      min-height:70svh;
       border-bottom:0.5px solid var(--borda);
     }
     .ipad-visual{
