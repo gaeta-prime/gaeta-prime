@@ -842,11 +842,18 @@
 
   // ---- Thumbnails ----
   function thumb(modelo, i, btn) {
-    const imgs = { ipad11: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadair11: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadair13: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadpro11: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadpro13: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'] };
     const mainImg = document.getElementById('img-' + modelo);
     if (!mainImg) return;
+    // Para o iPad 11, usa o mapa de fotos por cor atual
+    let src;
+    if (modelo === 'ipad11') {
+      src = IPAD11_FOTOS[ipad11CorAtual][i];
+    } else {
+      const imgs = { ipadair11: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadair13: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadpro11: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'], ipadpro13: ['img/ipad-1.webp','img/ipad-2.webp','img/ipad-3.webp'] };
+      src = imgs[modelo][i];
+    }
     mainImg.style.opacity = '0';
-    setTimeout(() => { mainImg.src = imgs[modelo][i]; mainImg.style.opacity = '1'; }, 180);
+    setTimeout(() => { mainImg.src = src; mainImg.style.opacity = '1'; }, 180);
     btn.closest('.ipad-thumbs').querySelectorAll('.ipad-thumb-btn').forEach(b => b.classList.remove('ativo'));
     btn.classList.add('ativo');
   }
