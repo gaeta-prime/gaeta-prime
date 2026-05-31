@@ -202,6 +202,7 @@
       <li><a href="ipad.html">iPad</a></li>
       <li><a href="watch.html" style="color:var(--cobre);">Watch</a></li>
       <li><a href="airpods.html">AirPods</a></li>
+      <li><a href="acessorios.html">Acessórios</a></li>
       <li><a href="sobre.html">Sobre</a></li>
       <li><a href="contato.html" class="nav-wpp">Fale Conosco</a></li>
     </ul>
@@ -217,6 +218,7 @@
     <a href="ipad.html">iPad</a>
     <a href="watch.html">Watch</a>
     <a href="airpods.html">AirPods</a>
+    <a href="acessorios.html">Acessórios</a>
     <a href="sobre.html">Sobre</a>
     <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
   </div>
@@ -234,11 +236,13 @@
   <div class="watch-filtros">
     <span class="watch-filtro-label">MODELO</span>
     <button class="modelo-btn ativo" data-watch="ultra2">Watch Ultra 2</button>
+    <button class="modelo-btn" data-watch="s11">Watch Series 11</button>
     <button class="modelo-btn" data-watch="s10">Watch Series 10</button>
-    <button class="modelo-btn" data-watch="se">Watch SE</button>
+    <button class="modelo-btn" data-watch="se3">Watch SE 3</button>
+    <button class="modelo-btn" data-watch="se2">Watch SE 2</button>
   </div>
 
-  <!-- Watch Ultra 2 -->
+  <!-- Apple Watch Ultra 2 -->
   <div class="watch-section ativo" id="watch-ultra2">
     <div class="watch-visual">
       <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
@@ -269,15 +273,15 @@
       </div>
       <span class="watch-config-label">TAMANHO</span>
       <div class="watch-sizes">
-        <button class="watch-size-btn ativo">49mm</button>
+        <button class="watch-size-btn ativo" onclick="watchPreco(this,'ultra2','R$ 8.499')">49mm</button>
       </div>
       <div class="watch-preco">
         <p class="watch-preco-label">PREÇO</p>
-        <p class="watch-preco-val">R$ 8.499</p>
+        <p class="watch-preco-val" id="ultra2-preco">R$ 8.499</p>
         <p class="watch-parcela">em até 12× no cartão</p>
       </div>
       <div class="watch-ctas">
-        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20Apple%20Watch%20Ultra%202.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-watch">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Apple%20Watch%20Ultra%202.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" class="btn-wpp-watch">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Consultar no WhatsApp
         </a>
@@ -291,7 +295,7 @@
       <div class="watch-specs">
         <p class="watch-specs-titulo">ESPECIFICAÇÕES</p>
         <div class="spec-row"><span class="spec-k">Caixa</span><span class="spec-v">Titânio grau 5 — 49mm</span></div>
-        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">LTPO OLED — 2000 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">LTPO OLED — 3000 nits</span></div>
         <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">S9 SiP duplo núcleo</span></div>
         <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">até 60h (low power: 72h)</span></div>
         <div class="spec-row"><span class="spec-k">GPS</span><span class="spec-v">Dupla frequência L1 + L5</span></div>
@@ -302,8 +306,8 @@
     </div>
   </div>
 
-  <!-- Watch Series 10 -->
-  <div class="watch-section" id="watch-s10">
+  <!-- Apple Watch Series 11 -->
+  <div class="watch-section" id="watch-s11">
     <div class="watch-visual">
       <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
     </div>
@@ -311,46 +315,54 @@
       <div class="watch-breadcrumb">
         <a href="index.html">Início</a>
         <span>›</span>
-        <span>Apple Watch Series 10</span>
+        <span>Apple Watch Series 11</span>
       </div>
       <p class="watch-cat">APPLE WATCH</p>
-      <h2 class="watch-titulo">Apple Watch Series 10</h2>
-      <p class="watch-desc">O Apple Watch mais fino e leve já feito. Tela OLED com 2000 nits de brilho, sensor de apneia do sono e carregamento ultrarrápido. O equilíbrio perfeito entre design e performance.</p>
+      <h2 class="watch-titulo">Apple Watch Series 11</h2>
+      <p class="watch-desc">O Apple Watch mais avançado da linha. Tela Always-On Retina de até 2000 nits com vidro Ion-X duas vezes mais resistente, chip S10, notificações de hipertensão e até 24 horas de bateria.</p>
       <div class="badge-lacrado-w">
         <span>✦</span>
         PRODUTO LACRADO · GARANTIA APPLE 12 MESES
       </div>
-      <span class="watch-config-label">COR <strong id="s10-cor-nome">Alumínio Preto Meia-Noite</strong></span>
+      <span class="watch-config-label">COR <strong id="s11-cor-nome">Alumínio Cinza-Espacial</strong></span>
       <div class="watch-cores">
-        <button class="watch-cor ativo" onclick="watchCor(this,'s10','Alumínio Preto Meia-Noite')">
+        <button class="watch-cor" onclick="watchCor(this,'s11','Alumínio Preto Meia-Noite')">
           <div class="watch-cor-circulo" style="background:#1C1C1E;"></div>
           <span class="watch-cor-nome">Meia-Noite</span>
         </button>
-        <button class="watch-cor" onclick="watchCor(this,'s10','Alumínio Prateado')">
+        <button class="watch-cor" onclick="watchCor(this,'s11','Alumínio Prateado')">
           <div class="watch-cor-circulo" style="background:#E0E0E0; outline:1px solid #ccc;"></div>
           <span class="watch-cor-nome">Prateado</span>
         </button>
-        <button class="watch-cor" onclick="watchCor(this,'s10','Alumínio Ouro Rosa')">
-          <div class="watch-cor-circulo" style="background:#D4A0A0;"></div>
-          <span class="watch-cor-nome">Ouro Rosa</span>
+        <button class="watch-cor ativo" onclick="watchCor(this,'s11','Alumínio Cinza-Espacial')">
+          <div class="watch-cor-circulo" style="background:#6E6E73;"></div>
+          <span class="watch-cor-nome">Cinza-Espacial</span>
         </button>
-        <button class="watch-cor" onclick="watchCor(this,'s10','Titânio Natural')">
+        <button class="watch-cor" onclick="watchCor(this,'s11','Alumínio Jet Black')">
+          <div class="watch-cor-circulo" style="background:#0A0A0A;"></div>
+          <span class="watch-cor-nome">Black</span>
+        </button>
+        <button class="watch-cor" onclick="watchCor(this,'s11','Alumínio Ouro Rosa')">
+          <div class="watch-cor-circulo" style="background:#D4A0A0;"></div>
+          <span class="watch-cor-nome">Rosa</span>
+        </button>
+        <button class="watch-cor" onclick="watchCor(this,'s11','Titânio Natural')">
           <div class="watch-cor-circulo" style="background:#B8A898;"></div>
-          <span class="watch-cor-nome">Titânio</span>
+          <span class="watch-cor-nome">Natural</span>
         </button>
       </div>
       <span class="watch-config-label">TAMANHO</span>
       <div class="watch-sizes">
-        <button class="watch-size-btn ativo" onclick="watchPreco(this,'s10','R$ 3.299')">42mm</button>
-        <button class="watch-size-btn" onclick="watchPreco(this,'s10','R$ 3.599')">46mm</button>
+        <button class="watch-size-btn ativo" onclick="watchPreco(this,'s11','R$ 2.070')">42mm</button>
+        <button class="watch-size-btn" onclick="watchPreco(this,'s11','R$ 2.170')">46mm</button>
       </div>
       <div class="watch-preco">
         <p class="watch-preco-label">PREÇO</p>
-        <p class="watch-preco-val" id="s10-preco">R$ 3.299</p>
+        <p class="watch-preco-val" id="s11-preco">R$ 2.070</p>
         <p class="watch-parcela">em até 12× no cartão</p>
       </div>
       <div class="watch-ctas">
-        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20Apple%20Watch%20Series%2010.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-watch">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Apple%20Watch%20Series%2011.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" class="btn-wpp-watch">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Consultar no WhatsApp
         </a>
@@ -364,19 +376,19 @@
       <div class="watch-specs">
         <p class="watch-specs-titulo">ESPECIFICAÇÕES</p>
         <div class="spec-row"><span class="spec-k">Caixa</span><span class="spec-v">Alumínio ou Titânio — 42mm / 46mm</span></div>
-        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">LTPO OLED — 2000 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">LTPO3 OLED Always-On — 2000 nits</span></div>
         <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">S10 SiP</span></div>
-        <div class="spec-row"><span class="spec-k">Saúde</span><span class="spec-v">Monitor de apneia do sono, ECG, oxímetro</span></div>
-        <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">até 18h (modo low power: 36h)</span></div>
+        <div class="spec-row"><span class="spec-k">Saúde</span><span class="spec-v">Hipertensão, ECG, oxímetro, apneia do sono</span></div>
+        <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">até 24h (low power: 38h)</span></div>
         <div class="spec-row"><span class="spec-k">Resistência</span><span class="spec-v">50m profundidade · IP6X</span></div>
         <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">LTE, Wi-Fi, Bluetooth 5.3, Ultra Wideband</span></div>
-        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">watchOS 11</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">watchOS 26</span></div>
       </div>
     </div>
   </div>
 
-  <!-- Watch SE -->
-  <div class="watch-section" id="watch-se">
+  <!-- Apple Watch Series 10 -->
+  <div class="watch-section" id="watch-s10">
     <div class="watch-visual">
       <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
     </div>
@@ -384,43 +396,112 @@
       <div class="watch-breadcrumb">
         <a href="index.html">Início</a>
         <span>›</span>
-        <span>Apple Watch SE</span>
+        <span>Apple Watch Series 10</span>
       </div>
       <p class="watch-cat">APPLE WATCH</p>
-      <h2 class="watch-titulo">Apple Watch SE</h2>
-      <p class="watch-desc">O Apple Watch essencial. Chip S9, detecção de acidentes e queda, monitoramento de frequência cardíaca e GPS. A porta de entrada ideal para o ecossistema Apple.</p>
+      <h2 class="watch-titulo">Apple Watch Series 10</h2>
+      <p class="watch-desc">O Apple Watch mais fino e leve já feito. Tela OLED grande-angular com 2000 nits de brilho, sensor de apneia do sono e carregamento ultrarrápido. O equilíbrio perfeito entre design e performance.</p>
       <div class="badge-lacrado-w">
         <span>✦</span>
         PRODUTO LACRADO · GARANTIA APPLE 12 MESES
       </div>
-      <span class="watch-config-label">COR <strong id="se-cor-nome">Alumínio Meia-Noite</strong></span>
+      <span class="watch-config-label">COR <strong id="s10-cor-nome">Alumínio Ouro Rosa</strong></span>
       <div class="watch-cores">
-        <button class="watch-cor ativo" onclick="watchCor(this,'se','Alumínio Meia-Noite')">
+        <button class="watch-cor" onclick="watchCor(this,'s10','Alumínio Preto Meia-Noite')">
           <div class="watch-cor-circulo" style="background:#1C1C1E;"></div>
           <span class="watch-cor-nome">Meia-Noite</span>
         </button>
-        <button class="watch-cor" onclick="watchCor(this,'se','Alumínio Prateado')">
+        <button class="watch-cor" onclick="watchCor(this,'s10','Alumínio Prateado')">
           <div class="watch-cor-circulo" style="background:#E0E0E0; outline:1px solid #ccc;"></div>
           <span class="watch-cor-nome">Prateado</span>
         </button>
-        <button class="watch-cor" onclick="watchCor(this,'se','Alumínio Estelar')">
-          <div class="watch-cor-circulo" style="background:#D4C5B0;"></div>
+        <button class="watch-cor ativo" onclick="watchCor(this,'s10','Alumínio Ouro Rosa')">
+          <div class="watch-cor-circulo" style="background:#D4A0A0;"></div>
+          <span class="watch-cor-nome">Rosa</span>
+        </button>
+        <button class="watch-cor" onclick="watchCor(this,'s10','Titânio Natural')">
+          <div class="watch-cor-circulo" style="background:#B8A898;"></div>
+          <span class="watch-cor-nome">Natural</span>
+        </button>
+      </div>
+      <span class="watch-config-label">TAMANHO</span>
+      <div class="watch-sizes">
+        <button class="watch-size-btn ativo" onclick="watchPreco(this,'s10','R$ 1.840')">42mm</button>
+        <button class="watch-size-btn" onclick="watchPreco(this,'s10','R$ 1.940')">46mm</button>
+      </div>
+      <div class="watch-preco">
+        <p class="watch-preco-label">PREÇO</p>
+        <p class="watch-preco-val" id="s10-preco">R$ 1.840</p>
+        <p class="watch-parcela">em até 12× no cartão</p>
+      </div>
+      <div class="watch-ctas">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Apple%20Watch%20Series%2010.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" class="btn-wpp-watch">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-watch">Tirar dúvidas</a>
+      </div>
+      <div class="watch-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+      <div class="watch-specs">
+        <p class="watch-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Caixa</span><span class="spec-v">Alumínio ou Titânio — 42mm / 46mm</span></div>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">LTPO OLED grande-angular — 2000 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">S10 SiP</span></div>
+        <div class="spec-row"><span class="spec-k">Saúde</span><span class="spec-v">ECG, oxímetro, apneia do sono</span></div>
+        <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">até 18h (low power: 36h)</span></div>
+        <div class="spec-row"><span class="spec-k">Resistência</span><span class="spec-v">50m profundidade · IP6X</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">LTE, Wi-Fi, Bluetooth 5.3, Ultra Wideband</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">watchOS 11</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apple Watch SE 3 -->
+  <div class="watch-section" id="watch-se3">
+    <div class="watch-visual">
+      <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+    </div>
+    <div class="watch-config">
+      <div class="watch-breadcrumb">
+        <a href="index.html">Início</a>
+        <span>›</span>
+        <span>Apple Watch SE 3</span>
+      </div>
+      <p class="watch-cat">APPLE WATCH</p>
+      <h2 class="watch-titulo">Apple Watch SE 3</h2>
+      <p class="watch-desc">O Apple Watch essencial, agora com chip S10 e tela Always-On. Detecção de queda e acidente, monitoramento de sono e notificações de apneia. A porta de entrada perfeita para o ecossistema Apple.</p>
+      <div class="badge-lacrado-w">
+        <span>✦</span>
+        PRODUTO LACRADO · GARANTIA APPLE 12 MESES
+      </div>
+      <span class="watch-config-label">COR <strong id="se3-cor-nome">Alumínio Meia-Noite</strong></span>
+      <div class="watch-cores">
+        <button class="watch-cor ativo" onclick="watchCor(this,'se3','Alumínio Meia-Noite')">
+          <div class="watch-cor-circulo" style="background:#1C1C1E;"></div>
+          <span class="watch-cor-nome">Meia-Noite</span>
+        </button>
+        <button class="watch-cor" onclick="watchCor(this,'se3','Alumínio Estelar')">
+          <div class="watch-cor-circulo" style="background:#E5E0D8; outline:1px solid #ccc;"></div>
           <span class="watch-cor-nome">Estelar</span>
         </button>
       </div>
       <span class="watch-config-label">TAMANHO</span>
       <div class="watch-sizes">
-        <button class="watch-size-btn ativo" onclick="watchPreco(this,'se','R$ 2.199')">40mm</button>
-        <button class="watch-size-btn" onclick="watchPreco(this,'se','R$ 2.499')">44mm</button>
+        <button class="watch-size-btn ativo" onclick="watchPreco(this,'se3','R$ 1.560')">40mm</button>
+        <button class="watch-size-btn" onclick="watchPreco(this,'se3','R$ 1.760')">44mm</button>
       </div>
       <div class="watch-preco">
         <p class="watch-preco-label">PREÇO</p>
-        <p class="watch-preco-val" id="se-preco">R$ 2.199</p>
+        <p class="watch-preco-val" id="se3-preco">R$ 1.560</p>
         <p class="watch-parcela">em até 12× no cartão</p>
       </div>
       <div class="watch-ctas">
-        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20Apple%20Watch%20SE.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-watch">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Apple%20Watch%20SE%203.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" class="btn-wpp-watch">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Consultar no WhatsApp
         </a>
         <a href="contato.html" class="btn-duvidas-watch">Tirar dúvidas</a>
@@ -433,10 +514,79 @@
       <div class="watch-specs">
         <p class="watch-specs-titulo">ESPECIFICAÇÕES</p>
         <div class="spec-row"><span class="spec-k">Caixa</span><span class="spec-v">Alumínio reciclado — 40mm / 44mm</span></div>
-        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">LTPO OLED</span></div>
-        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">S9 SiP</span></div>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">Always-On Retina OLED — 1000 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">S10 SiP</span></div>
+        <div class="spec-row"><span class="spec-k">Saúde</span><span class="spec-v">Frequência cardíaca, apneia do sono, detecção de queda</span></div>
+        <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">até 18h (low power: 32h)</span></div>
+        <div class="spec-row"><span class="spec-k">Resistência</span><span class="spec-v">50m profundidade · IP6X</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Wi-Fi, Bluetooth 5.3, GPS</span></div>
+        <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">watchOS 26</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apple Watch SE 2 -->
+  <div class="watch-section" id="watch-se2">
+    <div class="watch-visual">
+      <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+    </div>
+    <div class="watch-config">
+      <div class="watch-breadcrumb">
+        <a href="index.html">Início</a>
+        <span>›</span>
+        <span>Apple Watch SE 2</span>
+      </div>
+      <p class="watch-cat">APPLE WATCH</p>
+      <h2 class="watch-titulo">Apple Watch SE 2</h2>
+      <p class="watch-desc">Todo o essencial do Apple Watch a um preço acessível. Chip S8, detecção de acidente e queda, monitoramento de frequência cardíaca e GPS. Ideal para quem está começando.</p>
+      <div class="badge-lacrado-w">
+        <span>✦</span>
+        PRODUTO LACRADO · GARANTIA APPLE 12 MESES
+      </div>
+      <span class="watch-config-label">COR <strong id="se2-cor-nome">Alumínio Meia-Noite</strong></span>
+      <div class="watch-cores">
+        <button class="watch-cor ativo" onclick="watchCor(this,'se2','Alumínio Meia-Noite')">
+          <div class="watch-cor-circulo" style="background:#1C1C1E;"></div>
+          <span class="watch-cor-nome">Meia-Noite</span>
+        </button>
+        <button class="watch-cor" onclick="watchCor(this,'se2','Alumínio Estelar')">
+          <div class="watch-cor-circulo" style="background:#E5E0D8; outline:1px solid #ccc;"></div>
+          <span class="watch-cor-nome">Estelar</span>
+        </button>
+        <button class="watch-cor" onclick="watchCor(this,'se2','Alumínio Prateado')">
+          <div class="watch-cor-circulo" style="background:#E0E0E0; outline:1px solid #ccc;"></div>
+          <span class="watch-cor-nome">Prateado</span>
+        </button>
+      </div>
+      <span class="watch-config-label">TAMANHO</span>
+      <div class="watch-sizes">
+        <button class="watch-size-btn ativo" onclick="watchPreco(this,'se2','R$ 1.140')">40mm</button>
+        <button class="watch-size-btn" onclick="watchPreco(this,'se2','R$ 1.240')">44mm</button>
+      </div>
+      <div class="watch-preco">
+        <p class="watch-preco-label">PREÇO</p>
+        <p class="watch-preco-val" id="se2-preco">R$ 1.140</p>
+        <p class="watch-parcela">em até 12× no cartão</p>
+      </div>
+      <div class="watch-ctas">
+        <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20Apple%20Watch%20SE%202.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" class="btn-wpp-watch">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-watch">Tirar dúvidas</a>
+      </div>
+      <div class="watch-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+      <div class="watch-specs">
+        <p class="watch-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Caixa</span><span class="spec-v">Alumínio reciclado — 40mm / 44mm</span></div>
+        <div class="spec-row"><span class="spec-k">Tela</span><span class="spec-v">Retina OLED — 1000 nits</span></div>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">S8 SiP</span></div>
         <div class="spec-row"><span class="spec-k">Saúde</span><span class="spec-v">Frequência cardíaca, detecção de queda e acidente</span></div>
-        <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">até 18h (modo low power: 36h)</span></div>
+        <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">até 18h</span></div>
         <div class="spec-row"><span class="spec-k">Resistência</span><span class="spec-v">50m profundidade · IP6X</span></div>
         <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Wi-Fi, Bluetooth 5.3, GPS</span></div>
         <div class="spec-row"><span class="spec-k">Sistema</span><span class="spec-v">watchOS 11</span></div>
@@ -472,6 +622,7 @@
           <li><a href="ipad.html">iPad</a></li>
           <li><a href="watch.html">Apple Watch</a></li>
           <li><a href="airpods.html">AirPods</a></li>
+          <li><a href="acessorios.html">Acessórios</a></li>
         </ul>
       </div>
       <div class="footer-col">

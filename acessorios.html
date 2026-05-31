@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acessórios — GAETA Prime</title>
+  <meta name="description" content="Acessórios Apple originais, lacrados, com garantia Apple. AirTag, Apple Pencil USB-C e Apple Pencil Pro. Atendimento via WhatsApp.">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-header {
+      padding: calc(var(--nav-h) + 36px) 48px 36px;
+      background: var(--grafite);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(184,149,90,.08), transparent 60%);
+    }
+    .page-header-content { position:relative; z-index:1; }
+    .page-eyebrow { font-size:9px; letter-spacing:6px; color:var(--cobre); margin-bottom:14px; display:flex; align-items:center; gap:12px; }
+    .page-eyebrow::before { content:''; display:block; width:24px; height:.5px; background:var(--cobre); opacity:.5; }
+    .page-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(36px,5vw,64px); font-weight:300;
+      color:#fff; letter-spacing:-1.5px; line-height:.95;
+      margin-bottom:14px;
+    }
+    .page-sub { font-size:13px; color:rgba(255,255,255,.4); line-height:1.75; max-width:440px; }
+
+    /* Filtros de modelo */
+    .acc-filtros {
+      padding:24px 48px;
+      background:var(--off);
+      display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+      border-bottom:0.5px solid var(--borda);
+      position:sticky; top:var(--nav-h); z-index:100;
+    }
+    .acc-filtro-label { font-size:9px; letter-spacing:3px; color:var(--cinza); margin-right:8px; }
+    .modelo-btn {
+      padding:8px 18px; border:0.5px solid var(--borda); background:#fff;
+      font-size:11px; letter-spacing:.5px; color:var(--grafite);
+      border-radius:2px; cursor:pointer; transition:all .2s; white-space:nowrap;
+      font-family:inherit;
+    }
+    .modelo-btn:hover { border-color:var(--grafite); }
+    .modelo-btn.ativo { background:var(--grafite); color:#fff; border-color:var(--grafite); }
+
+    /* Seções de modelo */
+    .acc-section { display:none; }
+    .acc-section.ativo {
+      display:grid; grid-template-columns:1fr 1fr;
+      min-height:70svh; border-bottom:0.5px solid var(--borda);
+    }
+
+    .acc-visual {
+      background:var(--off);
+      display:flex; align-items:center; justify-content:center;
+      padding:48px 32px; position:relative; overflow:hidden;
+    }
+    .acc-visual .foto-placeholder {
+      width:55%; aspect-ratio:1/1; max-width:300px;
+    }
+
+    .acc-config {
+      padding:52px 56px; display:flex; flex-direction:column; gap:0;
+      border-left:0.5px solid var(--borda); overflow-y:auto;
+    }
+    .acc-breadcrumb {
+      font-size:10px; color:var(--cinza); letter-spacing:.5px;
+      margin-bottom:24px; display:flex; align-items:center; gap:8px;
+    }
+    .acc-breadcrumb a { color:var(--cinza); transition:color .2s; }
+    .acc-breadcrumb a:hover { color:var(--cobre); }
+    .acc-cat {
+      font-size:9px; letter-spacing:5px; color:var(--cobre);
+      margin-bottom:8px; display:flex; align-items:center; gap:10px;
+    }
+    .acc-cat::before { content:''; display:block; width:20px; height:.5px; background:var(--cobre); flex-shrink:0; }
+    .acc-titulo {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(28px,3.5vw,46px); font-weight:300;
+      letter-spacing:-.5px; line-height:1.05; margin-bottom:12px;
+    }
+    .acc-desc { font-size:13px; color:var(--cinza); line-height:1.85; margin-bottom:28px; }
+
+    .badge-lacrado-acc {
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:9px; letter-spacing:2px;
+      padding:8px 16px; border:0.5px solid rgba(184,149,90,.3);
+      color:var(--cobre); margin-bottom:28px; border-radius:2px;
+    }
+
+    .acc-config-label { font-size:9px; letter-spacing:3px; color:var(--cinza); margin-bottom:12px; display:block; }
+
+    /* Variantes (botões) */
+    .acc-vars { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
+    .acc-var-btn {
+      padding:9px 20px; border:0.5px solid var(--borda);
+      background:#fff; font-size:12px; color:var(--grafite);
+      border-radius:2px; cursor:pointer; transition:border-color .2s, background .2s;
+      font-family:inherit;
+    }
+    .acc-var-btn:hover { border-color:var(--grafite); }
+    .acc-var-btn.ativo { background:var(--grafite); color:#fff; border-color:var(--grafite); }
+
+    /* Preço */
+    .acc-preco {
+      background:var(--off); padding:20px 24px; border-radius:4px; margin-bottom:28px;
+    }
+    .acc-preco-label { font-size:8px; letter-spacing:3px; color:var(--cinza); margin-bottom:6px; }
+    .acc-preco-val {
+      font-family:'Cormorant Garamond',serif;
+      font-size:36px; font-weight:300; color:var(--grafite);
+      letter-spacing:-1px; line-height:1;
+    }
+    .acc-parcela { font-size:11px; color:var(--cinza); margin-top:6px; }
+
+    /* CTAs */
+    .acc-ctas { display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+    .btn-wpp-acc {
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      background:var(--cobre); color:#fff;
+      padding:14px 28px; border-radius:999px; font-size:13px;
+      transition:background .2s;
+    }
+    .btn-wpp-acc:hover { background:#a07840; }
+    .btn-duvidas-acc {
+      display:flex; align-items:center; justify-content:center;
+      border:0.5px solid var(--borda); color:var(--grafite);
+      padding:13px 28px; border-radius:999px; font-size:13px;
+      background:#fff; transition:border-color .2s;
+    }
+    .btn-duvidas-acc:hover { border-color:var(--grafite); }
+
+    .acc-garantias {
+      font-size:11px; color:var(--cinza); line-height:2.1;
+      padding:20px 0; border-top:0.5px solid var(--borda); margin-bottom:28px;
+    }
+    .acc-garantias span { color:var(--cobre); margin-right:8px; }
+
+    /* Specs */
+    .acc-specs { border-top:0.5px solid var(--borda); padding-top:24px; }
+    .acc-specs-titulo { font-size:9px; letter-spacing:4px; color:var(--cinza); margin-bottom:16px; }
+    .spec-row { display:flex; gap:16px; padding:12px 0; border-bottom:0.5px solid var(--borda); font-size:12px; }
+    .spec-k { color:var(--cinza); min-width:140px; flex-shrink:0; }
+    .spec-v { color:var(--grafite); }
+
+    @media (max-width:900px) {
+      .acc-filtros { padding:16px 24px; }
+      .acc-section.ativo { grid-template-columns:1fr; min-height:auto; }
+      .acc-visual { padding:32px 24px; min-height:260px; }
+      .acc-config { padding:36px 24px 48px; border-left:none; border-top:0.5px solid var(--borda); }
+    }
+    @media (max-width:480px) {
+      .page-header { padding:calc(var(--nav-h) + 24px) 24px 24px; }
+      .acc-filtros { padding:14px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav light" id="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-g">GAETA</span>
+      <span class="nav-logo-p">PRIME STORE</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="iphone.html">iPhone</a></li>
+      <li><a href="mac.html">Mac</a></li>
+      <li><a href="ipad.html">iPad</a></li>
+      <li><a href="watch.html">Watch</a></li>
+      <li><a href="airpods.html">AirPods</a></li>
+      <li><a href="acessorios.html" style="color:var(--cobre);">Acessórios</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html" class="nav-wpp">Fale Conosco</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="index.html">Início</a>
+    <a href="iphone.html">iPhone</a>
+    <a href="mac.html">Mac</a>
+    <a href="ipad.html">iPad</a>
+    <a href="watch.html">Watch</a>
+    <a href="airpods.html">AirPods</a>
+    <a href="acessorios.html">Acessórios</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-content">
+      <p class="page-eyebrow">COLEÇÃO</p>
+      <h1 class="page-title">Acessórios.</h1>
+      <p class="page-sub">Os complementos perfeitos para o seu ecossistema Apple. Originais, lacrados, com garantia Apple. Atendimento personalizado via WhatsApp.</p>
+    </div>
+  </div>
+
+  <!-- FILTROS -->
+  <div class="acc-filtros">
+    <span class="acc-filtro-label">PRODUTO</span>
+    <button class="modelo-btn ativo" data-acc="airtag">AirTag</button>
+    <button class="modelo-btn" data-acc="pencil-usbc">Apple Pencil USB-C</button>
+    <button class="modelo-btn" data-acc="pencil-pro">Apple Pencil Pro</button>
+  </div>
+
+  <!-- AirTag -->
+  <div class="acc-section ativo" id="acc-airtag">
+    <div class="acc-visual">
+      <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+    </div>
+    <div class="acc-config">
+      <div class="acc-breadcrumb">
+        <a href="index.html">Início</a>
+        <span>›</span>
+        <span>AirTag</span>
+      </div>
+      <p class="acc-cat">ACESSÓRIOS</p>
+      <h2 class="acc-titulo">AirTag</h2>
+      <p class="acc-desc">Uma forma simples de localizar suas coisas. Prenda um AirTag às chaves, deslize outro na mochila e acompanhe tudo pelo app Buscar. Chip U1 com Precisão de Localização e bateria que dura mais de um ano.</p>
+      <div class="badge-lacrado-acc">
+        <span>✦</span>
+        PRODUTO LACRADO · GARANTIA APPLE 12 MESES
+      </div>
+      <span class="acc-config-label">QUANTIDADE</span>
+      <div class="acc-vars">
+        <button class="acc-var-btn ativo" onclick="accPreco(this,'airtag','R$ 200')">1 unidade</button>
+        <button class="acc-var-btn" onclick="accPreco(this,'airtag','R$ 500')">Pack 4 unidades</button>
+      </div>
+      <div class="acc-preco">
+        <p class="acc-preco-label">PREÇO</p>
+        <p class="acc-preco-val" id="airtag-preco">R$ 200</p>
+        <p class="acc-parcela">em até 12× no cartão</p>
+      </div>
+      <div class="acc-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20AirTag.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-acc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-acc">Tirar dúvidas</a>
+      </div>
+      <div class="acc-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+      <div class="acc-specs">
+        <p class="acc-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Chip</span><span class="spec-v">U1 com Ultra Wideband</span></div>
+        <div class="spec-row"><span class="spec-k">Localização</span><span class="spec-v">Precisão de Localização via app Buscar</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Bluetooth, NFC (modo perdido)</span></div>
+        <div class="spec-row"><span class="spec-k">Dimensões</span><span class="spec-v">31,9mm diâmetro · 8mm altura · 11g</span></div>
+        <div class="spec-row"><span class="spec-k">Bateria</span><span class="spec-v">CR2032 substituível · mais de 1 ano</span></div>
+        <div class="spec-row"><span class="spec-k">Resistência</span><span class="spec-v">IP67 (até 1m por 30 min)</span></div>
+        <div class="spec-row"><span class="spec-k">Compatibilidade</span><span class="spec-v">iPhone e iPad com iOS / iPadOS 14.5 ou posterior</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apple Pencil USB-C -->
+  <div class="acc-section" id="acc-pencil-usbc">
+    <div class="acc-visual">
+      <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+    </div>
+    <div class="acc-config">
+      <div class="acc-breadcrumb">
+        <a href="index.html">Início</a>
+        <span>›</span>
+        <span>Apple Pencil USB-C</span>
+      </div>
+      <p class="acc-cat">ACESSÓRIOS</p>
+      <h2 class="acc-titulo">Apple Pencil USB-C</h2>
+      <p class="acc-desc">Perfeito para anotações, esboços e marcação de documentos. Precisão de pixel, baixa latência e sensibilidade à inclinação. Conecta e carrega via cabo USB-C e prende magneticamente na lateral do iPad.</p>
+      <div class="badge-lacrado-acc">
+        <span>✦</span>
+        PRODUTO LACRADO · GARANTIA APPLE 12 MESES
+      </div>
+      <div class="acc-preco">
+        <p class="acc-preco-label">PREÇO</p>
+        <p class="acc-preco-val">R$ 540</p>
+        <p class="acc-parcela">em até 12× no cartão</p>
+      </div>
+      <div class="acc-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20Apple%20Pencil%20USB-C.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-acc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-acc">Tirar dúvidas</a>
+      </div>
+      <div class="acc-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+      <div class="acc-specs">
+        <p class="acc-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Conexão</span><span class="spec-v">USB-C para pareamento e carga</span></div>
+        <div class="spec-row"><span class="spec-k">Recursos</span><span class="spec-v">Precisão de pixel, baixa latência, inclinação</span></div>
+        <div class="spec-row"><span class="spec-k">Hover</span><span class="spec-v">Suportado em iPad Pro M4/M5 e iPad Air M2/M3</span></div>
+        <div class="spec-row"><span class="spec-k">Fixação</span><span class="spec-v">Magnética na lateral do iPad (não carrega)</span></div>
+        <div class="spec-row"><span class="spec-k">Dimensões</span><span class="spec-v">155mm · 8,9mm diâmetro · 20,5g</span></div>
+        <div class="spec-row"><span class="spec-k">Conectividade</span><span class="spec-v">Bluetooth</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apple Pencil Pro -->
+  <div class="acc-section" id="acc-pencil-pro">
+    <div class="acc-visual">
+      <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+    </div>
+    <div class="acc-config">
+      <div class="acc-breadcrumb">
+        <a href="index.html">Início</a>
+        <span>›</span>
+        <span>Apple Pencil Pro</span>
+      </div>
+      <p class="acc-cat">ACESSÓRIOS</p>
+      <h2 class="acc-titulo">Apple Pencil Pro</h2>
+      <p class="acc-desc">O Apple Pencil mais avançado. Sensor de pressão com gesto de apertar, giro do barril para ferramentas com orientação, feedback háptico e integração com o app Buscar. Carregamento magnético sem fio no iPad.</p>
+      <div class="badge-lacrado-acc">
+        <span>✦</span>
+        PRODUTO LACRADO · GARANTIA APPLE 12 MESES
+      </div>
+      <div class="acc-preco">
+        <p class="acc-preco-label">PREÇO</p>
+        <p class="acc-preco-val">R$ 760</p>
+        <p class="acc-parcela">em até 12× no cartão</p>
+      </div>
+      <div class="acc-ctas">
+        <a href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20Apple%20Pencil%20Pro.%20Pode%20me%20ajudar?" target="_blank" rel="noopener" class="btn-wpp-acc">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn-duvidas-acc">Tirar dúvidas</a>
+      </div>
+      <div class="acc-garantias">
+        <span>✦</span> Produto 100% original Apple<br>
+        <span>✦</span> Garantia Apple de 12 meses<br>
+        <span>✦</span> Entrega segura em todo o Brasil
+      </div>
+      <div class="acc-specs">
+        <p class="acc-specs-titulo">ESPECIFICAÇÕES</p>
+        <div class="spec-row"><span class="spec-k">Gestos</span><span class="spec-v">Apertar, giro do barril, duplo toque</span></div>
+        <div class="spec-row"><span class="spec-k">Feedback</span><span class="spec-v">Háptico</span></div>
+        <div class="spec-row"><span class="spec-k">Buscar</span><span class="spec-v">Integrado ao app Buscar</span></div>
+        <div class="spec-row"><span class="spec-k">Carga</span><span class="spec-v">Magnética sem fio no iPad</span></div>
+        <div class="spec-row"><span class="spec-k">Recursos</span><span class="spec-v">Pressão, inclinação, hover, baixa latência</span></div>
+        <div class="spec-row"><span class="spec-k">Peso</span><span class="spec-v">20,7g</span></div>
+        <div class="spec-row"><span class="spec-k">Compatibilidade</span><span class="spec-v">iPad Pro M4/M5 e iPad Air M2/M3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Final -->
+  <section class="wpp-cta" style="margin-top:2px;">
+    <div class="wpp-cta-content reveal">
+      <p class="wpp-cta-eyebrow">ATENDIMENTO PERSONALIZADO</p>
+      <h2 class="wpp-cta-title">Precisa de ajuda com acessórios?</h2>
+      <p class="wpp-cta-sub">Nossa equipe te ajuda a escolher o acessório certo para o seu dispositivo Apple.</p>
+      <a href="https://wa.me/5511999999999?text=Olá!%20Preciso%20de%20ajuda%20para%20escolher%20um%20acessório%20Apple." target="_blank" rel="noopener" class="btn-wpp-lg">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar com especialista
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <span class="footer-logo-g">GAETA</span>
+        <span class="footer-logo-p">PRIME STORE</span>
+        <p class="footer-tagline">Produtos Apple originais com atendimento que faz a diferença.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">PRODUTOS</p>
+        <ul>
+          <li><a href="iphone.html">iPhone</a></li>
+          <li><a href="mac.html">Mac</a></li>
+          <li><a href="ipad.html">iPad</a></li>
+          <li><a href="watch.html">Apple Watch</a></li>
+          <li><a href="airpods.html">AirPods</a></li>
+          <li><a href="acessorios.html">Acessórios</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">GAETA PRIME</p>
+        <ul>
+          <li><a href="sobre.html">Sobre nós</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">REDES</p>
+        <ul>
+          <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a></li>
+          <li><a href="https://instagram.com/gaetaprime" target="_blank">@gaetaprime</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Gaeta Prime · Apple e Acessórios · São Paulo</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
+        <a href="https://wa.me/5511999999999" target="_blank">WHATSAPP</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Troca de produto
+    document.querySelectorAll('[data-acc]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-acc]').forEach(b => b.classList.remove('ativo'));
+        document.querySelectorAll('.acc-section').forEach(s => s.classList.remove('ativo'));
+        btn.classList.add('ativo');
+        document.getElementById('acc-' + btn.dataset.acc).classList.add('ativo');
+      });
+    });
+
+    // Troca de preço por variante
+    function accPreco(btn, produto, preco) {
+      btn.closest('.acc-vars').querySelectorAll('.acc-var-btn').forEach(b => b.classList.remove('ativo'));
+      btn.classList.add('ativo');
+      document.getElementById(produto + '-preco').textContent = preco;
+    }
+  </script>
+</body>
+</html>
