@@ -248,6 +248,17 @@ button { font-family:inherit; cursor:pointer; }
   text-decoration:line-through; text-decoration-thickness:1px;
 }
 
+/* Preços por condição (vitrine / lacrado) no card */
+.prod-precos { display:flex; flex-direction:column; gap:3px; margin-bottom:14px; }
+.prod-preco-cond { font-size:13px; letter-spacing:.2px; }
+.prc-vitrine { color:#8A6020; }
+.prc-lacrado { color:#2A6A2A; }
+.prod-preco-cond.prc-off {
+  color:#B0B0B0; background:none;
+  text-decoration:line-through; text-decoration-thickness:1px;
+  font-size:12px;
+}
+
 /* ─── WPP CTA ───────────────────────────────── */
 .wpp-cta {
   background:var(--grafite); padding:120px 48px; text-align:center;
