@@ -1247,13 +1247,13 @@ setInterval(() => macImg((macCur+1)%3), 4000);
     setTimeout(()=>{ img.src=imgs[i]; img.style.opacity='1'; },180);
     [0,1,2].forEach(j=>{
       const t=document.getElementById('it'+j);
-      if(t) t.style.borderColor = j===i ? 'var(--cobre)' : 'rgba(255,255,255,.15)';
+    if(t){ t.style.background = j===i ? 'var(--cobre)' : 'rgba(255,255,255,.2)'; t.style.boxShadow = j===i ? '0 0 8px rgba(184,149,90,.8)' : 'none'; }
     });
   };
   // Auto-ciclo
   let cur=0;
   setInterval(()=>{ cur=(cur+1)%3; window.ipadThumb(cur); },4000);
-if(t){ t.style.background = j===i ? 'var(--cobre)' : 'rgba(255,255,255,.2)'; t.style.boxShadow = j===i ? '0 0 8px rgba(184,149,90,.8)' : 'none'; }
+
 </script>
 </body>
 </html>
