@@ -241,6 +241,13 @@ button { font-family:inherit; cursor:pointer; }
 .cond-lacrado { background:#F0F9F0; color:#2A6A2A; }
 .cond-vitrine { background:#FFF8EE; color:#8A6020; }
 
+/* Duas condições lado a lado; a indisponível fica riscada e apagada */
+.prod-conds { display:flex; gap:6px; align-items:center; }
+.cond-off {
+  background:#F2F2F2; color:#B0B0B0;
+  text-decoration:line-through; text-decoration-thickness:1px;
+}
+
 /* ─── WPP CTA ───────────────────────────────── */
 .wpp-cta {
   background:var(--grafite); padding:120px 48px; text-align:center;
