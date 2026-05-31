@@ -1267,9 +1267,12 @@
       </button>`).join('');
 
     // Storage
-    const storageHTML = prod.storage.map((s,i) => `
-      <button class="storage-btn${i===0?' ativo':''}" data-i="${i}"
-        onclick="selecionarStorage(${i})">${s.label}</button>`).join('');
+    const storageHTML = prod.storage.map((s,i) => {
+      const esgotado = s.preco === 'Consultar' || !s.preco;
+      const ativo = i===0 && !esgotado ? ' ativo' : '';
+      return `<button class="storage-btn${ativo}${esgotado?' sem-estoque':''}" data-i="${i}"
+        onclick="selecionarStorage(${i})">${s.label}</button>`;
+    }).join('');
 
     // Specs
     const specsHTML = prod.specs.map(([k,v]) =>
@@ -1315,14 +1318,6 @@
               </div>
             `}
           </div>
-          <div class="prod-thumbs" id="cores-thumbs" style="margin-top:20px;">
-            ${prod.cores.map((c,i) => `
-              <div class="cor-thumb${i===0?' ativo':''}" onclick="selecionarCor(${i})"
-                style="background:${c.hex};${c.borda?'border:1.5px solid #ccc;':''}"
-                title="${c.nome}">
-              </div>`).join('')}
-          </div>
-          <p id="cor-selecionada" style="font-size:9px;letter-spacing:3px;color:var(--cinza);margin-top:8px;">${prod.cores[0].nome.toUpperCase()}</p>
         </div>
 
         <!-- CONFIGURAÇÃO -->
@@ -1337,12 +1332,13 @@
           <h1 class="prod-titulo">${prod.nome}</h1>
           <p class="prod-desc">${prod.desc}</p>
 
+          ${prod.condicao ? `
           <div class="badge-lacrado">
             <span style="color:var(--cobre);">✦</span>
             ${prod.condicao === 'vitrine'
               ? 'PRODUTO VITRINE · SEMINOVO · GARANTIA 3 MESES'
               : 'PRODUTO LACRADO · GARANTIA APPLE 12 MESES'}
-          </div>
+          </div>` : ''}
 
           ${prod.cores.length > 1 ? `
           <div class="config-bloco">
