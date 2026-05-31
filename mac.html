@@ -178,6 +178,8 @@
       .page-header{ padding:calc(var(--nav-h) + 40px) 24px 40px; }
       .mac-lacrado-faixa{ padding:40px 24px; }
     }
+    .mac-modelo-section { display: block; }
+    .mac-modelo-section.ativo { display: block; }
   </style>
 </head>
 <body>
@@ -216,11 +218,20 @@
   <div class="page-header">
     <div class="page-header-content">
       <p class="page-eyebrow">MAC</p>
-      <h1 class="page-title">MacBook Air.</h1>
+      <h1 class="page-title">MacBook.</h1>
       <p class="page-sub">Original, lacrado, com garantia Apple. Atendimento personalizado via WhatsApp.</p>
     </div>
   </div>
 
+  <!-- FILTRO DE MODELO -->
+  <div class="ipad-filtros">
+    <span class="ipad-filtro-label">MODELO</span>
+    <button class="filtro-btn ativo" onclick="trocarMac('air', this)">MacBook Air M5</button>
+    <button class="filtro-btn" onclick="trocarMac('neo', this)">MacBook Neo</button>
+  </div>
+
+  <!-- MacBook Air -->
+  <div id="sec-mac-air" class="mac-modelo-section ativo">
   <!-- PRODUTO -->
   <div class="mac-hero">
 
@@ -361,6 +372,124 @@
   </div>
 
   <!-- FAIXA LACRADO -->
+  </div><!-- fim sec-mac-air -->
+
+  <!-- MacBook Neo -->
+  <div id="sec-mac-neo" class="mac-modelo-section" style="display:none;">
+  <div class="mac-hero">
+    <div class="mac-visual" id="neo-visual" style="background:var(--off);padding:32px;flex-direction:column;gap:16px;">
+      <img id="neo-main-img"
+        src="img/macbook-neo-silver-1.webp"
+        style="max-width:90%;max-height:52svh;object-fit:contain;
+               filter:drop-shadow(0 24px 40px rgba(0,0,0,.12));
+               animation:floatPhone 6s ease-in-out infinite;
+               transition:opacity .35s ease;"
+        alt="MacBook Neo Prateado">
+      <div style="display:flex;gap:8px;justify-content:center;" id="neo-thumbs">
+        <button onclick="neoThumb(0)" id="nt0" style="width:56px;height:44px;border-radius:4px;border:1.5px solid var(--cobre);background:var(--off);overflow:hidden;cursor:pointer;padding:2px;">
+          <img src="img/macbook-neo-silver-1.webp" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button onclick="neoThumb(1)" id="nt1" style="width:56px;height:44px;border-radius:4px;border:1.5px solid var(--borda);background:var(--off);overflow:hidden;cursor:pointer;padding:2px;">
+          <img src="img/macbook-neo-silver-2.webp" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button onclick="neoThumb(2)" id="nt2" style="width:56px;height:44px;border-radius:4px;border:1.5px solid var(--borda);background:var(--off);overflow:hidden;cursor:pointer;padding:2px;">
+          <img src="img/macbook-neo-silver-3.webp" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+        <button onclick="neoThumb(3)" id="nt3" style="width:56px;height:44px;border-radius:4px;border:1.5px solid var(--borda);background:var(--off);overflow:hidden;cursor:pointer;padding:2px;">
+          <img src="img/macbook-neo-silver-4.webp" style="width:100%;height:100%;object-fit:contain;">
+        </button>
+      </div>
+    </div>
+
+    <div class="mac-config">
+      <p style="font-size:9px;letter-spacing:4px;color:var(--cobre);margin-bottom:10px;display:flex;align-items:center;gap:10px;">
+        <span style="display:block;width:20px;height:.5px;background:var(--cobre);"></span>
+        MACBOOK NEO · CHIP A18 PRO
+      </p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-1px;line-height:1.0;margin-bottom:14px;">
+        MacBook Neo.<br><em style="font-style:italic;color:var(--cobre);">13 polegadas.</em>
+      </h2>
+      <p style="font-size:13px;color:var(--cinza);line-height:1.85;margin-bottom:28px;">
+        Chip A18 Pro, tela Liquid Retina de 13", até 15 horas de bateria e Apple Intelligence integrada. O Mac mais acessível e cheio de cor.
+      </p>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-size:9px;letter-spacing:2px;padding:8px 16px;border:0.5px solid rgba(184,149,90,.3);color:var(--cobre);margin-bottom:28px;border-radius:2px;">
+        <span>✦</span> PRODUTO LACRADO · GARANTIA APPLE
+      </div>
+
+      <!-- Cores -->
+      <div style="margin-bottom:28px;">
+        <p style="font-size:9px;letter-spacing:3px;color:var(--cinza);margin-bottom:10px;">COR — <strong id="neo-cor-label" style="color:var(--grafite);font-weight:400;">Prateado</strong></p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="mac-cor-btn ativo" data-cor="Prateado" data-key="silver" onclick="neoSelecionarCor(this)" style="display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;cursor:pointer;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#C8C8C8;border:1.5px solid #ccc;outline:1.5px solid var(--grafite);outline-offset:2px;"></div>
+            <span style="font-size:8px;letter-spacing:1px;color:var(--cinza);">Prateado</span>
+          </button>
+          <button class="mac-cor-btn" data-cor="Blush" data-key="blush" onclick="neoSelecionarCor(this)" style="display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;cursor:pointer;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#E8B4C0;outline:1.5px solid transparent;outline-offset:2px;transition:outline-color .2s;"></div>
+            <span style="font-size:8px;letter-spacing:1px;color:var(--cinza);">Blush</span>
+          </button>
+          <button class="mac-cor-btn" data-cor="Amarelo-cítrico" data-key="citrus" onclick="neoSelecionarCor(this)" style="display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;cursor:pointer;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#D4E04A;outline:1.5px solid transparent;outline-offset:2px;transition:outline-color .2s;"></div>
+            <span style="font-size:8px;letter-spacing:1px;color:var(--cinza);">Am. Cítrico</span>
+          </button>
+          <button class="mac-cor-btn" data-cor="Índigo" data-key="indigo" onclick="neoSelecionarCor(this)" style="display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:none;cursor:pointer;">
+            <div style="width:26px;height:26px;border-radius:50%;background:#3D5A8A;outline:1.5px solid transparent;outline-offset:2px;transition:outline-color .2s;"></div>
+            <span style="font-size:8px;letter-spacing:1px;color:var(--cinza);">Índigo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Armazenamento -->
+      <div style="margin-bottom:28px;">
+        <p style="font-size:9px;letter-spacing:3px;color:var(--cinza);margin-bottom:10px;">ARMAZENAMENTO</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button style="padding:9px 20px;border:0.5px solid var(--grafite);background:var(--grafite);color:#fff;font-size:12px;border-radius:2px;cursor:pointer;">256 GB</button>
+          <button onclick="semEstoque()" style="padding:9px 20px;border:0.5px dashed var(--borda);background:#fff;font-size:12px;color:var(--cinza);border-radius:2px;cursor:pointer;text-decoration:line-through;">512 GB</button>
+          <button onclick="semEstoque()" style="padding:9px 20px;border:0.5px dashed var(--borda);background:#fff;font-size:12px;color:var(--cinza);border-radius:2px;cursor:pointer;text-decoration:line-through;">1 TB</button>
+        </div>
+      </div>
+
+      <!-- Preço -->
+      <div style="background:var(--off);padding:20px 24px;border-radius:4px;margin-bottom:28px;">
+        <p style="font-size:8px;letter-spacing:3px;color:var(--cinza);margin-bottom:6px;">PREÇO</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--grafite);letter-spacing:-1px;line-height:1;">R$ 4.900</p>
+        <p style="font-size:11px;color:var(--cinza);margin-top:6px;">ou 12× de R$ 408,33 sem juros no cartão</p>
+      </div>
+
+      <!-- CTAs -->
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+        <a id="neo-wpp-btn" href="https://wa.me/5511999999999?text=Olá!%20Tenho%20interesse%20no%20MacBook%20Neo%20Prateado%20256GB.%20Pode%20me%20ajudar?" target="_blank" rel="noopener"
+          style="display:flex;align-items:center;justify-content:center;gap:10px;background:var(--cobre);color:#fff;padding:14px 28px;border-radius:999px;font-size:13px;transition:background .2s;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar no WhatsApp
+        </a>
+        <a href="contato.html" style="display:flex;align-items:center;justify-content:center;border:0.5px solid var(--borda);color:var(--grafite);padding:13px 28px;border-radius:999px;font-size:13px;background:#fff;transition:border-color .2s;">Tirar dúvidas</a>
+      </div>
+
+      <div style="font-size:11px;color:var(--cinza);line-height:2.1;padding:20px 0;border-top:0.5px solid var(--borda);margin-bottom:28px;">
+        <span style="color:var(--cobre);margin-right:8px;">✦</span> Produto 100% original Apple<br>
+        <span style="color:var(--cobre);margin-right:8px;">✦</span> Lacrado, sem uso<br>
+        <span style="color:var(--cobre);margin-right:8px;">✦</span> Garantia Apple de 12 meses<br>
+        <span style="color:var(--cobre);margin-right:8px;">✦</span> Entrega segura em todo o Brasil
+      </div>
+
+      <!-- Specs -->
+      <div style="border-top:0.5px solid var(--borda);padding-top:24px;">
+        <p style="font-size:9px;letter-spacing:4px;color:var(--cinza);margin-bottom:16px;">ESPECIFICAÇÕES</p>
+        <div style="display:flex;gap:16px;padding:12px 0;border-bottom:0.5px solid var(--borda);font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Tela</span><span style="color:var(--grafite);">Liquid Retina 13" · 2560 x 1664 px · 500 nits</span></div>
+        <div style="display:flex;gap:16px;padding:12px 0;border-bottom:0.5px solid var(--borda);font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Chip</span><span style="color:var(--grafite);">Apple A18 Pro · CPU 6 núcleos · GPU 5 núcleos</span></div>
+        <div style="display:flex;gap:16px;padding:12px 0;border-bottom:0.5px solid var(--borda);font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Memória</span><span style="color:var(--grafite);">8 GB unificada</span></div>
+        <div style="display:flex;gap:16px;padding:12px 0;border-bottom:0.5px solid var(--borda);font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Armazenamento</span><span style="color:var(--grafite);">256 GB, 512 GB ou 1 TB</span></div>
+        <div style="display:flex;gap:16px;padding:12px 0;border-bottom:0.5px solid var(--borda);font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Câmera</span><span style="color:var(--grafite);">FaceTime HD 1080p</span></div>
+        <div style="display:flex;gap:16px;padding:12px 0;border-bottom:0.5px solid var(--borda);font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Bateria</span><span style="color:var(--grafite);">Até 15 horas de uso</span></div>
+        <div style="display:flex;gap:16px;padding:12px 0;border-bottom:0.5px solid var(--borda);font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Conectividade</span><span style="color:var(--grafite);">Wi-Fi 6E · Bluetooth 5.3</span></div>
+        <div style="display:flex;gap:16px;padding:12px 0;border-bottom:0.5px solid var(--borda);font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Portas</span><span style="color:var(--grafite);">2× USB-C · Entrada P2</span></div>
+        <div style="display:flex;gap:16px;padding:12px 0;font-size:12px;"><span style="color:var(--cinza);min-width:140px;">Cores</span><span style="color:var(--grafite);">Prateado · Blush · Amarelo-cítrico · Índigo</span></div>
+      </div>
+    </div>
+  </div>
+  </div><!-- fim sec-mac-neo -->
+
   <div class="mac-lacrado-faixa reveal">
     <div>
       <h2>Sempre lacrado.<br>Sempre original.</h2>
@@ -491,5 +620,57 @@ function macThumb(i) {
 
 
 </script>
+  <script>
+  // ---- Troca de modelo Mac ----
+  function trocarMac(id, btn) {
+    document.querySelectorAll('.mac-modelo-section').forEach(s => s.style.display = 'none');
+    document.getElementById('sec-mac-' + id).style.display = 'block';
+    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+    btn.classList.add('ativo');
+    window.scrollTo({ top: document.querySelector('.ipad-filtros').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  // ---- MacBook Neo: galeria por cor ----
+  const NEO_FOTOS = {
+    silver: ['img/macbook-neo-silver-1.webp','img/macbook-neo-silver-2.webp','img/macbook-neo-silver-3.webp','img/macbook-neo-silver-4.webp'],
+    blush:  ['img/macbook-neo-blush-1.webp','img/macbook-neo-blush-2.webp','img/macbook-neo-blush-3.webp','img/macbook-neo-blush-4.webp'],
+    citrus: ['img/macbook-neo-citrus-1.webp','img/macbook-neo-citrus-2.webp','img/macbook-neo-citrus-3.webp','img/macbook-neo-citrus-4.webp'],
+    indigo: ['img/macbook-neo-indigo-1.webp','img/macbook-neo-indigo-2.webp','img/macbook-neo-indigo-3.webp','img/macbook-neo-indigo-4.webp'],
+  };
+  let neoCorAtual = 'silver';
+  let neoThumbAtual = 0;
+
+  function neoSelecionarCor(btn) {
+    neoCorAtual = btn.dataset.key;
+    neoThumbAtual = 0;
+    document.querySelectorAll('.mac-cor-btn').forEach(b => {
+      b.querySelector('div').style.outlineColor = 'transparent';
+    });
+    btn.querySelector('div').style.outlineColor = 'var(--grafite)';
+    document.getElementById('neo-cor-label').textContent = btn.dataset.cor;
+    const fotos = NEO_FOTOS[neoCorAtual];
+    const thumbs = document.getElementById('neo-thumbs').querySelectorAll('button');
+    thumbs.forEach((t, i) => {
+      t.querySelector('img').src = fotos[i];
+      t.style.borderColor = i === 0 ? 'var(--cobre)' : 'var(--borda)';
+    });
+    const mainImg = document.getElementById('neo-main-img');
+    mainImg.style.opacity = '0';
+    setTimeout(() => { mainImg.src = fotos[0]; mainImg.style.opacity = '1'; }, 180);
+    const msg = encodeURIComponent(`Olá! Tenho interesse no MacBook Neo ${btn.dataset.cor} 256GB. Pode me ajudar?`);
+    document.getElementById('neo-wpp-btn').href = `https://wa.me/5511999999999?text=${msg}`;
+  }
+
+  function neoThumb(i) {
+    neoThumbAtual = i;
+    const fotos = NEO_FOTOS[neoCorAtual];
+    const mainImg = document.getElementById('neo-main-img');
+    mainImg.style.opacity = '0';
+    setTimeout(() => { mainImg.src = fotos[i]; mainImg.style.opacity = '1'; }, 180);
+    document.getElementById('neo-thumbs').querySelectorAll('button').forEach((t, j) => {
+      t.style.borderColor = j === i ? 'var(--cobre)' : 'var(--borda)';
+    });
+  }
+  </script>
 </body>
 </html>
