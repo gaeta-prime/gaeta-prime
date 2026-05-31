@@ -188,14 +188,14 @@
       position:sticky;top:var(--nav-h);z-index:100;
     }
     .ipad-filtro-label{ font-size:9px;letter-spacing:3px;color:var(--cinza);margin-right:8px; }
-    .filtro-btn{
+    .modelo-btn{
       padding:8px 18px;border:0.5px solid var(--borda);background:#fff;
       font-size:11px;letter-spacing:.5px;color:var(--grafite);
       border-radius:2px;cursor:pointer;transition:all .2s;white-space:nowrap;
       font-family:inherit;
     }
-    .filtro-btn:hover{ border-color:var(--grafite); }
-    .filtro-btn.ativo{ background:var(--grafite);color:#fff;border-color:var(--grafite); }
+    .modelo-btn:hover{ border-color:var(--grafite); }
+    .modelo-btn.ativo{ background:var(--grafite);color:#fff;border-color:var(--grafite); }
   </style>
 </head>
 <body>
@@ -242,8 +242,8 @@
   <!-- FILTRO DE MODELO -->
   <div class="ipad-filtros">
     <span class="ipad-filtro-label">MODELO</span>
-    <button class="filtro-btn ativo" onclick="trocarMac('air', this)">MacBook Air M5</button>
-    <button class="filtro-btn" onclick="trocarMac('neo', this)">MacBook Neo</button>
+    <button class="modelo-btn ativo" onclick="trocarMac('air', this)">MacBook Air M5</button>
+    <button class="modelo-btn" onclick="trocarMac('neo', this)">MacBook Neo</button>
   </div>
 
   <!-- MacBook Air -->
@@ -641,7 +641,7 @@ function macThumb(i) {
   function trocarMac(id, btn) {
     document.querySelectorAll('.mac-modelo-section').forEach(s => s.style.display = 'none');
     document.getElementById('sec-mac-' + id).style.display = 'block';
-    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+    document.querySelectorAll('.modelo-btn').forEach(b => b.classList.remove('ativo'));
     btn.classList.add('ativo');
     window.scrollTo({ top: document.querySelector('.ipad-filtros').offsetTop - 80, behavior: 'smooth' });
   }

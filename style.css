@@ -305,6 +305,16 @@ button { font-family:inherit; cursor:pointer; }
 .filtro-btn:hover { color:var(--grafite); }
 .filtro-btn.ativo { color:var(--grafite); border-bottom-color:var(--grafite); }
 
+/* Botões de modelo (iPhone, iPad, Mac) */
+.modelo-btn {
+  padding:8px 18px; border:0.5px solid var(--borda); background:#fff;
+  font-size:11px; letter-spacing:.5px; color:var(--grafite);
+  border-radius:2px; cursor:pointer; transition:all .2s; white-space:nowrap;
+  font-family:inherit;
+}
+.modelo-btn:hover { border-color:var(--grafite); }
+.modelo-btn.ativo { background:var(--grafite); color:#fff; border-color:var(--grafite); }
+
 /* ─── PÁGINA PRODUTO ───────────────────────── */
 .prod-hero { display:grid; grid-template-columns:1fr 480px; min-height:calc(100svh - var(--nav-h)); }
 .prod-galeria {
