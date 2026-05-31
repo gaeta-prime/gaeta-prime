@@ -852,20 +852,14 @@
              animation:floatPhone 6s ease-in-out infinite;
              transition:opacity .35s ease;"
       alt="iPad 11">
-    <div style="display:flex;gap:8px;justify-content:center;">
-      <button onclick="ipadThumb(0)" id="it0"
-        style="width:52px;height:40px;border-radius:4px;border:1.5px solid var(--cobre);background:rgba(255,255,255,.06);overflow:hidden;cursor:pointer;padding:2px;">
-        <img src="img/ipad-1.webp" style="width:100%;height:100%;object-fit:contain;">
-      </button>
-      <button onclick="ipadThumb(1)" id="it1"
-        style="width:52px;height:40px;border-radius:4px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);overflow:hidden;cursor:pointer;padding:2px;">
-        <img src="img/ipad-2.webp" style="width:100%;height:100%;object-fit:contain;">
-      </button>
-      <button onclick="ipadThumb(2)" id="it2"
-        style="width:52px;height:40px;border-radius:4px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);overflow:hidden;cursor:pointer;padding:2px;">
-        <img src="img/ipad-3.webp" style="width:100%;height:100%;object-fit:contain;">
-      </button>
-    </div>
+   <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3;">
+  <button onclick="ipadThumb(0)" id="it0"
+    style="width:6px;height:6px;border-radius:50%;background:var(--cobre);border:none;cursor:pointer;box-shadow:0 0 8px rgba(184,149,90,.8);"></button>
+  <button onclick="ipadThumb(1)" id="it1"
+    style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);border:none;cursor:pointer;"></button>
+  <button onclick="ipadThumb(2)" id="it2"
+    style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);border:none;cursor:pointer;"></button>
+</div>
   </div>
   <div class="pc-text">
     <span class="pc-num">03</span>
@@ -1259,7 +1253,7 @@ setInterval(() => macImg((macCur+1)%3), 4000);
   // Auto-ciclo
   let cur=0;
   setInterval(()=>{ cur=(cur+1)%3; window.ipadThumb(cur); },4000);
-})();
+if(t){ t.style.background = j===i ? 'var(--cobre)' : 'rgba(255,255,255,.2)'; t.style.boxShadow = j===i ? '0 0 8px rgba(184,149,90,.8)' : 'none'; }
 </script>
 </body>
 </html>
