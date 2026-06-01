@@ -278,10 +278,13 @@
     /* Responsivo */
     @media (max-width: 900px) {
       .prod-hero { grid-template-columns: 1fr; }
-      .prod-galeria { position: static; height: auto; min-height: 280px; padding: 32px 20px; }
+      .prod-galeria { position: static; height: auto; min-height: 280px; padding: 24px 20px; }
       .prod-config { padding: 36px 24px; }
       .outros { padding: 48px 24px; }
       .outros-grid { grid-template-columns: 1fr 1fr; }
+      .prod-main-img { width: 100%; max-width: 480px; max-height: 60vh; }
+      .prod-main-img.is-17 { width: 115%; max-width: 560px; max-height: 68vh; }
+      .prod-foto-thumbs { margin-top: 12px; }
     }
     @media (max-width: 600px) {
       .outros-grid { grid-template-columns: 1fr; }
