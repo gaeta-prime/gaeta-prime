@@ -105,6 +105,14 @@
     }
     .prod-thumb.ativo { border-color: var(--grafite); opacity: 1; }
     .prod-thumb:hover { opacity: 1; }
+    /* Dots indicadores (só mobile) */
+    .prod-foto-dots { display: none; gap: 8px; justify-content: center; margin-top: 18px; }
+    .foto-dot {
+      width: 7px; height: 7px; border-radius: 50%; padding: 0;
+      border: none; background: rgba(0,0,0,.18); cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .foto-dot.ativo { background: var(--cobre); transform: scale(1.25); }
 
     /* CONFIGURAÇÃO */
     .prod-config {
@@ -284,7 +292,8 @@
       .outros-grid { grid-template-columns: 1fr 1fr; }
       .prod-main-img { width: 100%; max-width: 480px; max-height: 60vh; }
       .prod-main-img.is-17 { width: 115%; max-width: 560px; max-height: 68vh; }
-      .prod-foto-thumbs { margin-top: 12px; }
+      .prod-foto-thumbs { display: none; }
+      .prod-foto-dots { display: flex; }
     }
     @media (max-width: 600px) {
       .outros-grid { grid-template-columns: 1fr; }
@@ -1401,6 +1410,11 @@
                   <img src="${src}" class="prod-thumb${i===0?' ativo':''}" onclick="galeriaThumb(${i})">
                 `).join('')}
               </div>
+              <div class="prod-foto-dots" id="galeria-dots">
+                ${prod.cores[0].imgs.map((src,i) => `
+                  <button class="foto-dot${i===0?' ativo':''}" onclick="galeriaThumb(${i})" aria-label="Foto ${i+1}"></button>
+                `).join('')}
+              </div>
             ` : `
               <div class="prod-foto-placeholder">
                 <div class="pfp-ring"></div>
@@ -1492,11 +1506,13 @@
   }
   function galeriaThumb(i) {
     const thumbs = document.querySelectorAll('#galeria-thumbs .prod-thumb');
+    const dots = document.querySelectorAll('#galeria-dots .foto-dot');
     const main = document.getElementById('galeria-main');
     if (!main || !thumbs.length) return;
     main.style.opacity = '0';
     setTimeout(() => { main.src = thumbs[i].src; main.style.opacity = '1'; }, 200);
     thumbs.forEach((t,j) => t.classList.toggle('ativo', j===i));
+    dots.forEach((d,j) => d.classList.toggle('ativo', j===i));
   }
 
   function selecionarCor(i) {
@@ -1519,6 +1535,11 @@
         <div class="prod-foto-thumbs" id="galeria-thumbs">
           ${cor.imgs.map((src,j) => `
             <img src="${src}" class="prod-thumb${j===0?' ativo':''}" onclick="galeriaThumb(${j})">
+          `).join('')}
+        </div>
+        <div class="prod-foto-dots" id="galeria-dots">
+          ${cor.imgs.map((src,j) => `
+            <button class="foto-dot${j===0?' ativo':''}" onclick="galeriaThumb(${j})" aria-label="Foto ${j+1}"></button>
           `).join('')}
         </div>`;
     } else if (wrap) {
