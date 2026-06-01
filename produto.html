@@ -185,9 +185,7 @@
 
     /* Dois preços por condição (Opção B) */
     .precos-cond { display: flex; gap: 10px; margin: 28px 0; }
-    .preco-cond-box {
-      flex: 1; padding: 16px 18px; border-radius: 6px;
-    }
+    .preco-cond-box { flex: 1; padding: 16px 18px; border-radius: 6px; }
     .preco-cond-vitrine { background: #FFF8EE; border: 1px solid #E8C97A; }
     .preco-cond-lacrado { background: #F0F9F0; border: 1px solid #A8D5A8; }
     .preco-cond-off { background: #F2F2F2; border: 1px solid #E5E5E5; }
@@ -195,21 +193,10 @@
     .preco-cond-vitrine .preco-cond-label { color: #8A6020; }
     .preco-cond-lacrado .preco-cond-label { color: #2A6A2A; }
     .preco-cond-off .preco-cond-label { color: #B0B0B0; }
-    .preco-cond-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px; font-weight: 300; color: var(--grafite);
-      letter-spacing: -.5px; line-height: 1;
-    }
-    .preco-cond-off .preco-cond-val {
-      color: #B0B0B0; text-decoration: line-through; text-decoration-thickness: 1px;
-      font-size: 22px;
-    }
-    .preco-cond-consultar {
-      font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--cinza); font-style: italic;
-    }
-    @media (max-width: 480px) {
-      .precos-cond { flex-direction: column; }
-    }
+    .preco-cond-val { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--grafite); letter-spacing: -.5px; line-height: 1; }
+    .preco-cond-off .preco-cond-val { color: #B0B0B0; text-decoration: line-through; font-size: 22px; }
+    .preco-cond-consultar { font-family: 'DM Sans', sans-serif; font-size: 15px; color: var(--cinza); font-style: italic; }
+    @media (max-width: 480px) { .precos-cond { flex-direction: column; } }
 
     /* CTAs */
     .prod-ctas { display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
@@ -417,10 +404,10 @@
       desc: 'Chip A18 Pro com Apple Intelligence. Camera Control. Zoom óptico 5x. A câmera de 48MP mais versátil já criada.',
       icone: 'iphone',
       cores: [
-        { nome: 'Titânio Deserto', hex: '#C4A882' },
-        { nome: 'Titânio Preto',   hex: '#3D3935' },
-        { nome: 'Titânio Branco',  hex: '#F0EFEC', borda: true },
-        { nome: 'Titânio Natural', hex: '#B8A898' },
+        { nome: 'Titânio Deserto', hex: '#C4A882', imgs: ['img/iphone-16-pro-titanio-deserto-1.webp','img/iphone-16-pro-titanio-deserto-2.webp','img/iphone-16-pro-titanio-deserto-3.webp','img/iphone-16-pro-titanio-deserto-4.webp'] },
+        { nome: 'Titânio Natural', hex: '#B8A898', imgs: ['img/iphone-16-pro-titanio-natural-1.webp','img/iphone-16-pro-titanio-natural-2.webp','img/iphone-16-pro-titanio-natural-3.webp','img/iphone-16-pro-titanio-natural-4.webp'] },
+        { nome: 'Titânio Branco', hex: '#E8E5DE', borda: true, imgs: ['img/iphone-16-pro-titanio-branco-1.webp','img/iphone-16-pro-titanio-branco-2.webp','img/iphone-16-pro-titanio-branco-3.webp','img/iphone-16-pro-titanio-branco-4.webp'] },
+        { nome: 'Titânio Preto', hex: '#3A3A3C', imgs: ['img/iphone-16-pro-titanio-preto-1.webp','img/iphone-16-pro-titanio-preto-2.webp','img/iphone-16-pro-titanio-preto-3.webp','img/iphone-16-pro-titanio-preto-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 4.450' },
@@ -448,10 +435,10 @@
       desc: 'A maior tela Super Retina XDR já num iPhone Pro. Chip A18 Pro, bateria com autonomia recorde e zoom óptico 5x.',
       icone: 'iphone',
       cores: [
-        { nome: 'Titânio Deserto', hex: '#C4A882' },
-        { nome: 'Titânio Preto',   hex: '#3D3935' },
-        { nome: 'Titânio Branco',  hex: '#F0EFEC', borda: true },
-        { nome: 'Titânio Natural', hex: '#B8A898' },
+        { nome: 'Titânio Deserto', hex: '#C4A882', imgs: ['img/iphone-16-pro-max-titanio-deserto-1.webp','img/iphone-16-pro-max-titanio-deserto-2.webp','img/iphone-16-pro-max-titanio-deserto-3.webp','img/iphone-16-pro-max-titanio-deserto-4.webp'] },
+        { nome: 'Titânio Natural', hex: '#B8A898', imgs: ['img/iphone-16-pro-max-titanio-natural-1.webp','img/iphone-16-pro-max-titanio-natural-2.webp','img/iphone-16-pro-max-titanio-natural-3.webp','img/iphone-16-pro-max-titanio-natural-4.webp'] },
+        { nome: 'Titânio Branco', hex: '#E8E5DE', borda: true, imgs: ['img/iphone-16-pro-max-titanio-branco-1.webp','img/iphone-16-pro-max-titanio-branco-2.webp','img/iphone-16-pro-max-titanio-branco-3.webp','img/iphone-16-pro-max-titanio-branco-4.webp'] },
+        { nome: 'Titânio Preto', hex: '#3A3A3C', imgs: ['img/iphone-16-pro-max-titanio-preto-1.webp','img/iphone-16-pro-max-titanio-preto-2.webp','img/iphone-16-pro-max-titanio-preto-3.webp','img/iphone-16-pro-max-titanio-preto-4.webp'] },
       ],
       storage: [
         { label: '256 GB', preco: 'R$ 5.250' },
@@ -477,11 +464,11 @@
       desc: 'Chip A18, Camera Control e suporte completo ao Apple Intelligence. O iPhone para quem quer tudo, com elegância.',
       icone: 'iphone',
       cores: [
-        { nome: 'Ultramarino', hex: '#4A6FA5', imgs: ['img/iphone-16-ultramarine-1.webp','img/iphone-16-ultramarine-2.webp','img/iphone-16-ultramarine-3.webp','img/iphone-16-ultramarine-4.webp'] },
-        { nome: 'Verde-Teal',  hex: '#5B8A7A', imgs: ['img/iphone-16-teal-1.webp','img/iphone-16-teal-2.webp','img/iphone-16-teal-3.webp','img/iphone-16-teal-4.webp'] },
-        { nome: 'Rosa',        hex: '#E8B4C0', imgs: ['img/iphone-16-pink-1.webp','img/iphone-16-pink-2.webp','img/iphone-16-pink-3.webp','img/iphone-16-pink-4.webp'] },
-        { nome: 'Preto',       hex: '#1C1C1E', imgs: ['img/iphone-16-black-1.webp','img/iphone-16-black-2.webp','img/iphone-16-black-3.webp','img/iphone-16-black-4.webp'] },
-        { nome: 'Branco',      hex: '#F5F5F0', borda: true, imgs: ['img/iphone-16-white-1.webp','img/iphone-16-white-2.webp','img/iphone-16-white-3.webp','img/iphone-16-white-4.webp'] },
+        { nome: 'Ultramarino', hex: '#4A6FA5', imgs: ['img/iphone-16-ultramarino-1.webp','img/iphone-16-ultramarino-2.webp','img/iphone-16-ultramarino-3.webp','img/iphone-16-ultramarino-4.webp'] },
+        { nome: 'Verde-Teal', hex: '#5B8A7A', imgs: ['img/iphone-16-verde-teal-1.webp','img/iphone-16-verde-teal-2.webp','img/iphone-16-verde-teal-3.webp','img/iphone-16-verde-teal-4.webp'] },
+        { nome: 'Rosa', hex: '#E8B4C0', imgs: ['img/iphone-16-rosa-1.webp','img/iphone-16-rosa-2.webp','img/iphone-16-rosa-3.webp','img/iphone-16-rosa-4.webp'] },
+        { nome: 'Preto', hex: '#1C1C1E', imgs: ['img/iphone-16-preto-1.webp','img/iphone-16-preto-2.webp','img/iphone-16-preto-3.webp','img/iphone-16-preto-4.webp'] },
+        { nome: 'Branco', hex: '#F5F5F0', borda: true, imgs: ['img/iphone-16-branco-1.webp','img/iphone-16-branco-2.webp','img/iphone-16-branco-3.webp','img/iphone-16-branco-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 3.850' },
@@ -694,10 +681,9 @@
       desc: 'O maior e mais poderoso iPhone já criado. Chip A19 Pro, tela de 6,9" Super Retina XDR e câmera Fusion Pro. Bateria com autonomia recorde.',
       icone: 'iphone',
       cores: [
-        { nome: 'Titânio Deserto', hex: '#C4A882' },
-        { nome: 'Titânio Preto',   hex: '#3D3935' },
-        { nome: 'Titânio Branco',  hex: '#F0EFEC', borda: true },
-        { nome: 'Titânio Natural', hex: '#B8A898' },
+        { nome: 'Laranja Cósmico', hex: '#D4824A', imgs: ['img/iphone-17-pro-max-laranja-cosmico-1.webp','img/iphone-17-pro-max-laranja-cosmico-2.webp','img/iphone-17-pro-max-laranja-cosmico-3.webp','img/iphone-17-pro-max-laranja-cosmico-4.webp'] },
+        { nome: 'Azul Profundo', hex: '#2C4A6E', imgs: ['img/iphone-17-pro-max-azul-profundo-1.webp','img/iphone-17-pro-max-azul-profundo-2.webp','img/iphone-17-pro-max-azul-profundo-3.webp','img/iphone-17-pro-max-azul-profundo-4.webp'] },
+        { nome: 'Prateado', hex: '#E3E4E6', imgs: ['img/iphone-17-pro-max-prateado-1.webp','img/iphone-17-pro-max-prateado-2.webp','img/iphone-17-pro-max-prateado-3.webp','img/iphone-17-pro-max-prateado-4.webp'] },
       ],
       storage: [
         { label: '256 GB', preco: 'Consultar' },
@@ -724,10 +710,9 @@
       desc: 'Chip A19 Pro. Câmera Fusion Pro de 48MP. Camera Control redesenhado. O iPhone mais avançado que já existiu.',
       icone: 'iphone',
       cores: [
-        { nome: 'Titânio Deserto', hex: '#C4A882' },
-        { nome: 'Titânio Preto',   hex: '#3D3935' },
-        { nome: 'Titânio Branco',  hex: '#F0EFEC', borda: true },
-        { nome: 'Titânio Natural', hex: '#B8A898' },
+        { nome: 'Laranja Cósmico', hex: '#D4824A', imgs: ['img/iphone-17-pro-laranja-cosmico-1.webp','img/iphone-17-pro-laranja-cosmico-2.webp','img/iphone-17-pro-laranja-cosmico-3.webp','img/iphone-17-pro-laranja-cosmico-4.webp'] },
+        { nome: 'Azul Profundo', hex: '#2C4A6E', imgs: ['img/iphone-17-pro-azul-profundo-1.webp','img/iphone-17-pro-azul-profundo-2.webp','img/iphone-17-pro-azul-profundo-3.webp','img/iphone-17-pro-azul-profundo-4.webp'] },
+        { nome: 'Prateado', hex: '#E3E4E6', imgs: ['img/iphone-17-pro-prateado-1.webp','img/iphone-17-pro-prateado-2.webp','img/iphone-17-pro-prateado-3.webp','img/iphone-17-pro-prateado-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'Consultar' },
@@ -755,11 +740,11 @@
       desc: 'Chip A18, câmera de 48MP e suporte completo ao Apple Intelligence. O iPhone para quem quer tudo.',
       icone: 'iphone',
       cores: [
-        { nome: 'Azul',    hex: '#4A6FA5' },
-        { nome: 'Verde',   hex: '#5B8A7A' },
-        { nome: 'Rosa',    hex: '#E8B4C0' },
-        { nome: 'Preto',   hex: '#1C1C1E' },
-        { nome: 'Branco',  hex: '#F5F5F0', borda: true },
+        { nome: 'Lavanda', hex: '#C9C2E8', imgs: ['img/iphone-17-lavanda-1.webp','img/iphone-17-lavanda-2.webp','img/iphone-17-lavanda-3.webp','img/iphone-17-lavanda-4.webp'] },
+        { nome: 'Sálvia', hex: '#B8C9B0', imgs: ['img/iphone-17-salvia-1.webp','img/iphone-17-salvia-2.webp','img/iphone-17-salvia-3.webp','img/iphone-17-salvia-4.webp'] },
+        { nome: 'Névoa', hex: '#D8E0E8', imgs: ['img/iphone-17-nevoa-1.webp','img/iphone-17-nevoa-2.webp','img/iphone-17-nevoa-3.webp','img/iphone-17-nevoa-4.webp'] },
+        { nome: 'Branco', hex: '#F5F5F0', borda: true, imgs: ['img/iphone-17-branco-1.webp','img/iphone-17-branco-2.webp','img/iphone-17-branco-3.webp','img/iphone-17-branco-4.webp'] },
+        { nome: 'Preto', hex: '#1C1C1E', imgs: ['img/iphone-17-preto-1.webp','img/iphone-17-preto-2.webp','img/iphone-17-preto-3.webp','img/iphone-17-preto-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'Consultar' },
@@ -785,10 +770,10 @@
       desc: 'Chip A17 Pro, titânio aeroespacial, zoom óptico 5x e USB-C 3. O Pro Max mais avançado da geração 2023.',
       icone: 'iphone',
       cores: [
-        { nome: 'Titânio Natural', hex: '#B8A898' },
-        { nome: 'Titânio Preto',   hex: '#3D3935' },
-        { nome: 'Titânio Branco',  hex: '#F0EFEC', borda: true },
-        { nome: 'Titânio Azul',    hex: '#6A8CB8' },
+        { nome: 'Titânio Natural', hex: '#B8A898', imgs: ['img/iphone-15-pro-max-titanio-natural-1.webp','img/iphone-15-pro-max-titanio-natural-2.webp','img/iphone-15-pro-max-titanio-natural-3.webp','img/iphone-15-pro-max-titanio-natural-4.webp'] },
+        { nome: 'Titânio Azul', hex: '#4F5B6B', imgs: ['img/iphone-15-pro-max-titanio-azul-1.webp','img/iphone-15-pro-max-titanio-azul-2.webp','img/iphone-15-pro-max-titanio-azul-3.webp','img/iphone-15-pro-max-titanio-azul-4.webp'] },
+        { nome: 'Titânio Branco', hex: '#E8E5DE', borda: true, imgs: ['img/iphone-15-pro-max-titanio-branco-1.webp','img/iphone-15-pro-max-titanio-branco-2.webp','img/iphone-15-pro-max-titanio-branco-3.webp','img/iphone-15-pro-max-titanio-branco-4.webp'] },
+        { nome: 'Titânio Preto', hex: '#3A3A3C', imgs: ['img/iphone-15-pro-max-titanio-preto-1.webp','img/iphone-15-pro-max-titanio-preto-2.webp','img/iphone-15-pro-max-titanio-preto-3.webp','img/iphone-15-pro-max-titanio-preto-4.webp'] },
       ],
       storage: [
         { label: '256 GB', preco: 'R$ 4.300' },
@@ -814,10 +799,10 @@
       desc: 'Chip A17 Pro, caixa em titânio e botão de ação. O primeiro iPhone com USB-C 3 para transferências ultrarrápidas.',
       icone: 'iphone',
       cores: [
-        { nome: 'Titânio Natural', hex: '#B8A898' },
-        { nome: 'Titânio Preto',   hex: '#3D3935' },
-        { nome: 'Titânio Branco',  hex: '#F0EFEC', borda: true },
-        { nome: 'Titânio Azul',    hex: '#6A8CB8' },
+        { nome: 'Titânio Natural', hex: '#B8A898', imgs: ['img/iphone-15-pro-titanio-natural-1.webp','img/iphone-15-pro-titanio-natural-2.webp','img/iphone-15-pro-titanio-natural-3.webp','img/iphone-15-pro-titanio-natural-4.webp'] },
+        { nome: 'Titânio Azul', hex: '#4F5B6B', imgs: ['img/iphone-15-pro-titanio-azul-1.webp','img/iphone-15-pro-titanio-azul-2.webp','img/iphone-15-pro-titanio-azul-3.webp','img/iphone-15-pro-titanio-azul-4.webp'] },
+        { nome: 'Titânio Branco', hex: '#E8E5DE', borda: true, imgs: ['img/iphone-15-pro-titanio-branco-1.webp','img/iphone-15-pro-titanio-branco-2.webp','img/iphone-15-pro-titanio-branco-3.webp','img/iphone-15-pro-titanio-branco-4.webp'] },
+        { nome: 'Titânio Preto', hex: '#3A3A3C', imgs: ['img/iphone-15-pro-titanio-preto-1.webp','img/iphone-15-pro-titanio-preto-2.webp','img/iphone-15-pro-titanio-preto-3.webp','img/iphone-15-pro-titanio-preto-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 3.650' },
@@ -844,11 +829,11 @@
       desc: 'Tela grande de 6,7", Dynamic Island, USB-C e bateria com autonomia extra. Chip A16 Bionic.',
       icone: 'iphone',
       cores: [
-        { nome: 'Rosa',    hex: '#E8B4C0' },
-        { nome: 'Amarelo', hex: '#F5E97A' },
-        { nome: 'Verde',   hex: '#5B8A7A' },
-        { nome: 'Azul',    hex: '#4A6FA5' },
-        { nome: 'Preto',   hex: '#1C1C1E' },
+        { nome: 'Rosa', hex: '#E8C4C8', imgs: ['img/iphone-15-plus-rosa-1.webp','img/iphone-15-plus-rosa-2.webp','img/iphone-15-plus-rosa-3.webp','img/iphone-15-plus-rosa-4.webp'] },
+        { nome: 'Amarelo', hex: '#F5E97A', imgs: ['img/iphone-15-plus-amarelo-1.webp','img/iphone-15-plus-amarelo-2.webp','img/iphone-15-plus-amarelo-3.webp','img/iphone-15-plus-amarelo-4.webp'] },
+        { nome: 'Verde', hex: '#B8C9B0', imgs: ['img/iphone-15-plus-verde-1.webp','img/iphone-15-plus-verde-2.webp','img/iphone-15-plus-verde-3.webp','img/iphone-15-plus-verde-4.webp'] },
+        { nome: 'Azul', hex: '#C2D4E0', imgs: ['img/iphone-15-plus-azul-1.webp','img/iphone-15-plus-azul-2.webp','img/iphone-15-plus-azul-3.webp','img/iphone-15-plus-azul-4.webp'] },
+        { nome: 'Preto', hex: '#1C1C1E', imgs: ['img/iphone-15-plus-preto-1.webp','img/iphone-15-plus-preto-2.webp','img/iphone-15-plus-preto-3.webp','img/iphone-15-plus-preto-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'Consultar' },
@@ -874,11 +859,11 @@
       desc: 'Dynamic Island, câmera de 48MP, USB-C e chip A16 Bionic. O iPhone que mudou o jogo em 2023.',
       icone: 'iphone',
       cores: [
-        { nome: 'Rosa',    hex: '#E8B4C0' },
-        { nome: 'Amarelo', hex: '#F5E97A' },
-        { nome: 'Verde',   hex: '#5B8A7A' },
-        { nome: 'Azul',    hex: '#4A6FA5' },
-        { nome: 'Preto',   hex: '#1C1C1E' },
+        { nome: 'Rosa', hex: '#E8C4C8', imgs: ['img/iphone-15-rosa-1.webp','img/iphone-15-rosa-2.webp','img/iphone-15-rosa-3.webp','img/iphone-15-rosa-4.webp'] },
+        { nome: 'Amarelo', hex: '#F5E97A', imgs: ['img/iphone-15-amarelo-1.webp','img/iphone-15-amarelo-2.webp','img/iphone-15-amarelo-3.webp','img/iphone-15-amarelo-4.webp'] },
+        { nome: 'Verde', hex: '#B8C9B0', imgs: ['img/iphone-15-verde-1.webp','img/iphone-15-verde-2.webp','img/iphone-15-verde-3.webp','img/iphone-15-verde-4.webp'] },
+        { nome: 'Azul', hex: '#C2D4E0', imgs: ['img/iphone-15-azul-1.webp','img/iphone-15-azul-2.webp','img/iphone-15-azul-3.webp','img/iphone-15-azul-4.webp'] },
+        { nome: 'Preto', hex: '#1C1C1E', imgs: ['img/iphone-15-preto-1.webp','img/iphone-15-preto-2.webp','img/iphone-15-preto-3.webp','img/iphone-15-preto-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 2.950' },
@@ -904,10 +889,10 @@
       desc: 'Always-On Display, Dynamic Island, câmera de 48MP e chip A16 Bionic. O Pro Max de 2022.',
       icone: 'iphone',
       cores: [
-        { nome: 'Dourado',        hex: '#F0D080' },
-        { nome: 'Roxo Escuro',    hex: '#4B3F6B' },
-        { nome: 'Prateado',       hex: '#E0E0E0', borda: true },
-        { nome: 'Preto Espacial', hex: '#1C1C1E' },
+        { nome: 'Roxo-Profundo', hex: '#5A4E6E', imgs: ['img/iphone-14-pro-max-roxo-profundo-1.webp','img/iphone-14-pro-max-roxo-profundo-2.webp','img/iphone-14-pro-max-roxo-profundo-3.webp','img/iphone-14-pro-max-roxo-profundo-4.webp'] },
+        { nome: 'Ouro', hex: '#E8D4A8', imgs: ['img/iphone-14-pro-max-ouro-1.webp','img/iphone-14-pro-max-ouro-2.webp','img/iphone-14-pro-max-ouro-3.webp','img/iphone-14-pro-max-ouro-4.webp'] },
+        { nome: 'Prateado', hex: '#E3E4E6', borda: true, imgs: ['img/iphone-14-pro-max-prateado-1.webp','img/iphone-14-pro-max-prateado-2.webp','img/iphone-14-pro-max-prateado-3.webp','img/iphone-14-pro-max-prateado-4.webp'] },
+        { nome: 'Preto Espacial', hex: '#1C1C1E', imgs: ['img/iphone-14-pro-max-preto-espacial-1.webp','img/iphone-14-pro-max-preto-espacial-2.webp','img/iphone-14-pro-max-preto-espacial-3.webp','img/iphone-14-pro-max-preto-espacial-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 3.500' },
@@ -934,10 +919,10 @@
       desc: 'Always-On Display, Dynamic Island pela primeira vez, câmera de 48MP. Chip A16 Bionic.',
       icone: 'iphone',
       cores: [
-        { nome: 'Dourado',        hex: '#F0D080' },
-        { nome: 'Roxo Escuro',    hex: '#4B3F6B' },
-        { nome: 'Prateado',       hex: '#E0E0E0', borda: true },
-        { nome: 'Preto Espacial', hex: '#1C1C1E' },
+        { nome: 'Roxo-Profundo', hex: '#5A4E6E', imgs: ['img/iphone-14-pro-roxo-profundo-1.webp','img/iphone-14-pro-roxo-profundo-2.webp','img/iphone-14-pro-roxo-profundo-3.webp','img/iphone-14-pro-roxo-profundo-4.webp'] },
+        { nome: 'Ouro', hex: '#E8D4A8', imgs: ['img/iphone-14-pro-ouro-1.webp','img/iphone-14-pro-ouro-2.webp','img/iphone-14-pro-ouro-3.webp','img/iphone-14-pro-ouro-4.webp'] },
+        { nome: 'Prateado', hex: '#E3E4E6', borda: true, imgs: ['img/iphone-14-pro-prateado-1.webp','img/iphone-14-pro-prateado-2.webp','img/iphone-14-pro-prateado-3.webp','img/iphone-14-pro-prateado-4.webp'] },
+        { nome: 'Preto Espacial', hex: '#1C1C1E', imgs: ['img/iphone-14-pro-preto-espacial-1.webp','img/iphone-14-pro-preto-espacial-2.webp','img/iphone-14-pro-preto-espacial-3.webp','img/iphone-14-pro-preto-espacial-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 3.000' },
@@ -964,11 +949,11 @@
       desc: 'Tela grande de 6,7", bateria extra e chip A15 Bionic. Crash Detection e Emergency SOS via satélite.',
       icone: 'iphone',
       cores: [
-        { nome: 'Roxo',   hex: '#9B7EBD' },
-        { nome: 'Azul',   hex: '#4A6FA5' },
-        { nome: 'Meia-noite', hex: '#1C2B38' },
-        { nome: 'Luz das estrelas', hex: '#E8E3D8', borda: true },
-        { nome: 'Vermelho', hex: '#C0392B' },
+        { nome: 'Meia-noite', hex: '#1C2B38', imgs: ['img/iphone-14-plus-meia-noite-1.webp','img/iphone-14-plus-meia-noite-2.webp','img/iphone-14-plus-meia-noite-3.webp','img/iphone-14-plus-meia-noite-4.webp'] },
+        { nome: 'Luz das estrelas', hex: '#E8E3D8', borda: true, imgs: ['img/iphone-14-plus-luz-das-estrelas-1.webp','img/iphone-14-plus-luz-das-estrelas-2.webp','img/iphone-14-plus-luz-das-estrelas-3.webp','img/iphone-14-plus-luz-das-estrelas-4.webp'] },
+        { nome: 'Azul', hex: '#A8C4D8', imgs: ['img/iphone-14-plus-azul-1.webp','img/iphone-14-plus-azul-2.webp','img/iphone-14-plus-azul-3.webp','img/iphone-14-plus-azul-4.webp'] },
+        { nome: 'Roxo', hex: '#D8CCE0', imgs: ['img/iphone-14-plus-roxo-1.webp','img/iphone-14-plus-roxo-2.webp','img/iphone-14-plus-roxo-3.webp','img/iphone-14-plus-roxo-4.webp'] },
+        { nome: 'Vermelho', hex: '#C0392B', imgs: ['img/iphone-14-plus-vermelho-1.webp','img/iphone-14-plus-vermelho-2.webp','img/iphone-14-plus-vermelho-3.webp','img/iphone-14-plus-vermelho-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'Consultar' },
@@ -994,11 +979,11 @@
       desc: 'Chip A15 Bionic, Crash Detection, Emergency SOS via satélite. O iPhone 14 com câmera aprimorada.',
       icone: 'iphone',
       cores: [
-        { nome: 'Roxo',   hex: '#9B7EBD' },
-        { nome: 'Azul',   hex: '#4A6FA5' },
-        { nome: 'Meia-noite', hex: '#1C2B38' },
-        { nome: 'Luz das estrelas', hex: '#E8E3D8', borda: true },
-        { nome: 'Vermelho', hex: '#C0392B' },
+        { nome: 'Meia-noite', hex: '#1C2B38', imgs: ['img/iphone-14-meia-noite-1.webp','img/iphone-14-meia-noite-2.webp','img/iphone-14-meia-noite-3.webp','img/iphone-14-meia-noite-4.webp'] },
+        { nome: 'Luz das estrelas', hex: '#E8E3D8', borda: true, imgs: ['img/iphone-14-luz-das-estrelas-1.webp','img/iphone-14-luz-das-estrelas-2.webp','img/iphone-14-luz-das-estrelas-3.webp','img/iphone-14-luz-das-estrelas-4.webp'] },
+        { nome: 'Azul', hex: '#A8C4D8', imgs: ['img/iphone-14-azul-1.webp','img/iphone-14-azul-2.webp','img/iphone-14-azul-3.webp','img/iphone-14-azul-4.webp'] },
+        { nome: 'Roxo', hex: '#D8CCE0', imgs: ['img/iphone-14-roxo-1.webp','img/iphone-14-roxo-2.webp','img/iphone-14-roxo-3.webp','img/iphone-14-roxo-4.webp'] },
+        { nome: 'Vermelho', hex: '#C0392B', imgs: ['img/iphone-14-vermelho-1.webp','img/iphone-14-vermelho-2.webp','img/iphone-14-vermelho-3.webp','img/iphone-14-vermelho-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 2.300' },
@@ -1024,11 +1009,11 @@
       desc: 'Tela ProMotion 120Hz, chip A15 Bionic, zoom óptico 3x e bateria recorde. O maior Pro da geração 2021.',
       icone: 'iphone',
       cores: [
-        { nome: 'Dourado',        hex: '#F0D080' },
-        { nome: 'Prateado',       hex: '#E0E0E0', borda: true },
-        { nome: 'Azul Sierra',    hex: '#6A8CB8' },
-        { nome: 'Preto Grafite',  hex: '#3A3A3A' },
-        { nome: 'Alpine Green',   hex: '#5B8A7A' },
+        { nome: 'Grafite', hex: '#54524F', imgs: ['img/iphone-13-pro-max-grafite-1.webp','img/iphone-13-pro-max-grafite-2.webp','img/iphone-13-pro-max-grafite-3.webp','img/iphone-13-pro-max-grafite-4.webp'] },
+        { nome: 'Ouro', hex: '#E8D4A8', imgs: ['img/iphone-13-pro-max-ouro-1.webp','img/iphone-13-pro-max-ouro-2.webp','img/iphone-13-pro-max-ouro-3.webp','img/iphone-13-pro-max-ouro-4.webp'] },
+        { nome: 'Prateado', hex: '#E3E4E6', borda: true, imgs: ['img/iphone-13-pro-max-prateado-1.webp','img/iphone-13-pro-max-prateado-2.webp','img/iphone-13-pro-max-prateado-3.webp','img/iphone-13-pro-max-prateado-4.webp'] },
+        { nome: 'Azul-Sierra', hex: '#A8C0D8', imgs: ['img/iphone-13-pro-max-azul-sierra-1.webp','img/iphone-13-pro-max-azul-sierra-2.webp','img/iphone-13-pro-max-azul-sierra-3.webp','img/iphone-13-pro-max-azul-sierra-4.webp'] },
+        { nome: 'Verde-Alpino', hex: '#4A6B5A', imgs: ['img/iphone-13-pro-max-verde-alpino-1.webp','img/iphone-13-pro-max-verde-alpino-2.webp','img/iphone-13-pro-max-verde-alpino-3.webp','img/iphone-13-pro-max-verde-alpino-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 2.750' },
@@ -1055,11 +1040,11 @@
       desc: 'ProMotion 120Hz, LiDAR, chip A15 Bionic e câmera macro. O Pro mais completo de 2021.',
       icone: 'iphone',
       cores: [
-        { nome: 'Dourado',        hex: '#F0D080' },
-        { nome: 'Prateado',       hex: '#E0E0E0', borda: true },
-        { nome: 'Azul Sierra',    hex: '#6A8CB8' },
-        { nome: 'Preto Grafite',  hex: '#3A3A3A' },
-        { nome: 'Alpine Green',   hex: '#5B8A7A' },
+        { nome: 'Grafite', hex: '#54524F', imgs: ['img/iphone-13-pro-grafite-1.webp','img/iphone-13-pro-grafite-2.webp','img/iphone-13-pro-grafite-3.webp','img/iphone-13-pro-grafite-4.webp'] },
+        { nome: 'Ouro', hex: '#E8D4A8', imgs: ['img/iphone-13-pro-ouro-1.webp','img/iphone-13-pro-ouro-2.webp','img/iphone-13-pro-ouro-3.webp','img/iphone-13-pro-ouro-4.webp'] },
+        { nome: 'Prateado', hex: '#E3E4E6', borda: true, imgs: ['img/iphone-13-pro-prateado-1.webp','img/iphone-13-pro-prateado-2.webp','img/iphone-13-pro-prateado-3.webp','img/iphone-13-pro-prateado-4.webp'] },
+        { nome: 'Azul-Sierra', hex: '#A8C0D8', imgs: ['img/iphone-13-pro-azul-sierra-1.webp','img/iphone-13-pro-azul-sierra-2.webp','img/iphone-13-pro-azul-sierra-3.webp','img/iphone-13-pro-azul-sierra-4.webp'] },
+        { nome: 'Verde-Alpino', hex: '#4A6B5A', imgs: ['img/iphone-13-pro-verde-alpino-1.webp','img/iphone-13-pro-verde-alpino-2.webp','img/iphone-13-pro-verde-alpino-3.webp','img/iphone-13-pro-verde-alpino-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 2.550' },
@@ -1086,12 +1071,12 @@
       desc: 'Chip A15 Bionic, Modo Cinematográfico, câmera dupla de 12MP e design compacto clássico.',
       icone: 'iphone',
       cores: [
-        { nome: 'Rosa',    hex: '#E8B4C0' },
-        { nome: 'Azul',    hex: '#4A6FA5' },
-        { nome: 'Verde',   hex: '#5B8A7A' },
-        { nome: 'Meia-noite', hex: '#1C2B38' },
-        { nome: 'Luz das estrelas', hex: '#E8E3D8', borda: true },
-        { nome: 'Vermelho', hex: '#C0392B' },
+        { nome: 'Meia-noite', hex: '#1C2B38', imgs: ['img/iphone-13-meia-noite-1.webp','img/iphone-13-meia-noite-2.webp','img/iphone-13-meia-noite-3.webp','img/iphone-13-meia-noite-4.webp'] },
+        { nome: 'Luz das estrelas', hex: '#E8E3D8', borda: true, imgs: ['img/iphone-13-luz-das-estrelas-1.webp','img/iphone-13-luz-das-estrelas-2.webp','img/iphone-13-luz-das-estrelas-3.webp','img/iphone-13-luz-das-estrelas-4.webp'] },
+        { nome: 'Azul', hex: '#4A6FA5', imgs: ['img/iphone-13-azul-1.webp','img/iphone-13-azul-2.webp','img/iphone-13-azul-3.webp','img/iphone-13-azul-4.webp'] },
+        { nome: 'Rosa', hex: '#E8C4C8', imgs: ['img/iphone-13-rosa-1.webp','img/iphone-13-rosa-2.webp','img/iphone-13-rosa-3.webp','img/iphone-13-rosa-4.webp'] },
+        { nome: 'Verde', hex: '#4A6B5A', imgs: ['img/iphone-13-verde-1.webp','img/iphone-13-verde-2.webp','img/iphone-13-verde-3.webp','img/iphone-13-verde-4.webp'] },
+        { nome: 'Vermelho', hex: '#C0392B', imgs: ['img/iphone-13-vermelho-1.webp','img/iphone-13-vermelho-2.webp','img/iphone-13-vermelho-3.webp','img/iphone-13-vermelho-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'R$ 2.100' },
@@ -1117,10 +1102,10 @@
       desc: 'Chip A14 Bionic, 5G, LiDAR, tela de 6,7" e zoom óptico 2,5x. O maior Pro da primeira geração 5G.',
       icone: 'iphone',
       cores: [
-        { nome: 'Dourado',        hex: '#F0D080' },
-        { nome: 'Prateado',       hex: '#E0E0E0', borda: true },
-        { nome: 'Azul Pacífico',  hex: '#4A6FA5' },
-        { nome: 'Preto Grafite',  hex: '#3A3A3A' },
+        { nome: 'Grafite', hex: '#54524F', imgs: ['img/iphone-12-pro-max-grafite-1.webp','img/iphone-12-pro-max-grafite-2.webp','img/iphone-12-pro-max-grafite-3.webp','img/iphone-12-pro-max-grafite-4.webp'] },
+        { nome: 'Prateado', hex: '#E3E4E6', borda: true, imgs: ['img/iphone-12-pro-max-prateado-1.webp','img/iphone-12-pro-max-prateado-2.webp','img/iphone-12-pro-max-prateado-3.webp','img/iphone-12-pro-max-prateado-4.webp'] },
+        { nome: 'Dourado', hex: '#E8D4A8', imgs: ['img/iphone-12-pro-max-dourado-1.webp','img/iphone-12-pro-max-dourado-2.webp','img/iphone-12-pro-max-dourado-3.webp','img/iphone-12-pro-max-dourado-4.webp'] },
+        { nome: 'Azul-Pacífico', hex: '#2C4A6E', imgs: ['img/iphone-12-pro-max-azul-pacifico-1.webp','img/iphone-12-pro-max-azul-pacifico-2.webp','img/iphone-12-pro-max-azul-pacifico-3.webp','img/iphone-12-pro-max-azul-pacifico-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'Consultar' },
@@ -1146,10 +1131,10 @@
       desc: 'Chip A14 Bionic, 5G, LiDAR e tela OLED Super Retina XDR. O Pro da primeira geração com 5G.',
       icone: 'iphone',
       cores: [
-        { nome: 'Dourado',        hex: '#F0D080' },
-        { nome: 'Prateado',       hex: '#E0E0E0', borda: true },
-        { nome: 'Azul Pacífico',  hex: '#4A6FA5' },
-        { nome: 'Preto Grafite',  hex: '#3A3A3A' },
+        { nome: 'Grafite', hex: '#54524F', imgs: ['img/iphone-12-pro-grafite-1.webp','img/iphone-12-pro-grafite-2.webp','img/iphone-12-pro-grafite-3.webp','img/iphone-12-pro-grafite-4.webp'] },
+        { nome: 'Prateado', hex: '#E3E4E6', borda: true, imgs: ['img/iphone-12-pro-prateado-1.webp','img/iphone-12-pro-prateado-2.webp','img/iphone-12-pro-prateado-3.webp','img/iphone-12-pro-prateado-4.webp'] },
+        { nome: 'Dourado', hex: '#E8D4A8', imgs: ['img/iphone-12-pro-dourado-1.webp','img/iphone-12-pro-dourado-2.webp','img/iphone-12-pro-dourado-3.webp','img/iphone-12-pro-dourado-4.webp'] },
+        { nome: 'Azul-Pacífico', hex: '#2C4A6E', imgs: ['img/iphone-12-pro-azul-pacifico-1.webp','img/iphone-12-pro-azul-pacifico-2.webp','img/iphone-12-pro-azul-pacifico-3.webp','img/iphone-12-pro-azul-pacifico-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'Consultar' },
@@ -1175,12 +1160,12 @@
       desc: 'Design plano icônico, 5G, chip A14 Bionic e tela OLED. O iPhone que definiu uma geração.',
       icone: 'iphone',
       cores: [
-        { nome: 'Preto',   hex: '#1C1C1E' },
-        { nome: 'Branco',  hex: '#F5F5F0', borda: true },
-        { nome: 'Vermelho', hex: '#C0392B' },
-        { nome: 'Verde',   hex: '#5B8A7A' },
-        { nome: 'Azul',    hex: '#4A6FA5' },
-        { nome: 'Roxo',    hex: '#9B7EBD' },
+        { nome: 'Preto', hex: '#1C1C1E', imgs: ['img/iphone-12-preto-1.webp','img/iphone-12-preto-2.webp','img/iphone-12-preto-3.webp','img/iphone-12-preto-4.webp'] },
+        { nome: 'Branco', hex: '#F5F5F0', borda: true, imgs: ['img/iphone-12-branco-1.webp','img/iphone-12-branco-2.webp','img/iphone-12-branco-3.webp','img/iphone-12-branco-4.webp'] },
+        { nome: 'Azul', hex: '#2C4A6E', imgs: ['img/iphone-12-azul-1.webp','img/iphone-12-azul-2.webp','img/iphone-12-azul-3.webp','img/iphone-12-azul-4.webp'] },
+        { nome: 'Verde', hex: '#B8C9B0', imgs: ['img/iphone-12-verde-1.webp','img/iphone-12-verde-2.webp','img/iphone-12-verde-3.webp','img/iphone-12-verde-4.webp'] },
+        { nome: 'Roxo', hex: '#C8B8D8', imgs: ['img/iphone-12-roxo-1.webp','img/iphone-12-roxo-2.webp','img/iphone-12-roxo-3.webp','img/iphone-12-roxo-4.webp'] },
+        { nome: 'Vermelho', hex: '#C0392B', imgs: ['img/iphone-12-vermelho-1.webp','img/iphone-12-vermelho-2.webp','img/iphone-12-vermelho-3.webp','img/iphone-12-vermelho-4.webp'] },
       ],
       storage: [
         { label: '64 GB', preco: 'Consultar' },
@@ -1206,11 +1191,11 @@
       desc: 'Tela de 6,7", chip A16 Bionic, Camera Control e bateria com autonomia extra. USB-C e 5G.',
       icone: 'iphone',
       cores: [
-        { nome: 'Ultramarino', hex: '#4A6FA5', imgs: ['img/iphone-16-ultramarine-1.webp','img/iphone-16-ultramarine-2.webp','img/iphone-16-ultramarine-3.webp','img/iphone-16-ultramarine-4.webp'] },
-        { nome: 'Verde-Teal',  hex: '#5B8A7A', imgs: ['img/iphone-16-teal-1.webp','img/iphone-16-teal-2.webp','img/iphone-16-teal-3.webp','img/iphone-16-teal-4.webp'] },
-        { nome: 'Rosa',        hex: '#E8B4C0', imgs: ['img/iphone-16-pink-1.webp','img/iphone-16-pink-2.webp','img/iphone-16-pink-3.webp','img/iphone-16-pink-4.webp'] },
-        { nome: 'Preto',       hex: '#1C1C1E', imgs: ['img/iphone-16-black-1.webp','img/iphone-16-black-2.webp','img/iphone-16-black-3.webp','img/iphone-16-black-4.webp'] },
-        { nome: 'Branco',      hex: '#F5F5F0', borda: true, imgs: ['img/iphone-16-white-1.webp','img/iphone-16-white-2.webp','img/iphone-16-white-3.webp','img/iphone-16-white-4.webp'] },
+        { nome: 'Ultramarino', hex: '#4A6FA5', imgs: ['img/iphone-16-ultramarino-1.webp','img/iphone-16-ultramarino-2.webp','img/iphone-16-ultramarino-3.webp','img/iphone-16-ultramarino-4.webp'] },
+        { nome: 'Verde-Teal', hex: '#5B8A7A', imgs: ['img/iphone-16-verde-teal-1.webp','img/iphone-16-verde-teal-2.webp','img/iphone-16-verde-teal-3.webp','img/iphone-16-verde-teal-4.webp'] },
+        { nome: 'Rosa', hex: '#E8B4C0', imgs: ['img/iphone-16-rosa-1.webp','img/iphone-16-rosa-2.webp','img/iphone-16-rosa-3.webp','img/iphone-16-rosa-4.webp'] },
+        { nome: 'Preto', hex: '#1C1C1E', imgs: ['img/iphone-16-preto-1.webp','img/iphone-16-preto-2.webp','img/iphone-16-preto-3.webp','img/iphone-16-preto-4.webp'] },
+        { nome: 'Branco', hex: '#F5F5F0', borda: true, imgs: ['img/iphone-16-branco-1.webp','img/iphone-16-branco-2.webp','img/iphone-16-branco-3.webp','img/iphone-16-branco-4.webp'] },
       ],
       storage: [
         { label: '128 GB', preco: 'Consultar' },
@@ -1264,7 +1249,6 @@
 
   // ══ RENDER ══
   // Produtos com LACRADO disponível agora (mostram as duas condições ativas).
-  // Os demais mostram Vitrine ativo + Lacrado riscado/Consultar.
   const LACRADO_DISPONIVEL = new Set([
     'iphone-17-pro-max','iphone-17-pro','iphone-17',
     'iphone-15','iphone-13'
@@ -1330,25 +1314,11 @@
 
     const wppLink = `https://wa.me/5511999999999?text=${encodeURIComponent(prod.wppMsg)}`;
     const wppLacrado = `https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Quero saber o valor do ' + prod.nome + ' lacrado. Pode me ajudar?')}`;
-
-    // Bloco de preços por condição (Opção B)
     const temLacrado = LACRADO_DISPONIVEL.has(id);
-    const esgotadoTudo = prod.storage.every(s => s.preco === 'Consultar' || !s.preco);
-    const precoVitrineInicial = prod.storage[0].preco;
-    const vitrineBox = `
-      <div class="preco-cond-box preco-cond-vitrine">
-        <p class="preco-cond-label">VITRINE · SEMINOVO</p>
-        <p class="preco-cond-val" id="preco-val">${precoVitrineInicial}</p>
-      </div>`;
+    const vitrineBox = `<div class="preco-cond-box preco-cond-vitrine"><p class="preco-cond-label">VITRINE · SEMINOVO</p><p class="preco-cond-val" id="preco-val">${prod.storage[0].preco}</p></div>`;
     const lacradoBox = temLacrado
-      ? `<div class="preco-cond-box preco-cond-lacrado">
-        <p class="preco-cond-label">LACRADO · NOVO</p>
-        <p class="preco-cond-consultar">Consultar</p>
-      </div>`
-      : `<div class="preco-cond-box preco-cond-off">
-        <p class="preco-cond-label">LACRADO</p>
-        <p class="preco-cond-consultar">Consultar</p>
-      </div>`;
+      ? `<div class="preco-cond-box preco-cond-lacrado"><p class="preco-cond-label">LACRADO · NOVO</p><p class="preco-cond-consultar">Consultar</p></div>`
+      : `<div class="preco-cond-box preco-cond-off"><p class="preco-cond-label">LACRADO</p><p class="preco-cond-consultar">Consultar</p></div>`;
     const precosCondHTML = `<div class="precos-cond">${vitrineBox}${lacradoBox}</div>`;
 
     root.innerHTML = `
@@ -1408,7 +1378,7 @@
             <div class="storage-grid">${storageHTML}</div>
           </div>` : ''}
 
-          <div class="preco-bloco" style="padding:0;background:none;margin:0;">
+          <div style="margin:28px 0;">
             ${precosCondHTML}
           </div>
 
@@ -1417,13 +1387,10 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               ${temLacrado ? 'Consultar vitrine no WhatsApp' : 'Consultar no WhatsApp'}
             </a>
-            ${temLacrado ? `
-            <a href="${wppLacrado}" target="_blank" rel="noopener" class="btn-duvidas">Consultar valor do lacrado</a>
-            ` : `
-            <a href="contato.html" class="btn-duvidas">Tirar dúvidas</a>
-            `}
+            ${temLacrado
+              ? `<a href="${wppLacrado}" target="_blank" rel="noopener" class="btn-duvidas">Consultar valor do lacrado</a>`
+              : `<a href="contato.html" class="btn-duvidas">Tirar dúvidas</a>`}
           </div>
-
           <div class="garantias">
             <span>✦</span> Produto 100% original Apple<br>
             ${temLacrado
