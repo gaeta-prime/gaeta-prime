@@ -88,6 +88,10 @@
       width: 94%; max-width: 600px; max-height: 70vh; object-fit: contain;
       transition: opacity .2s ease;
     }
+    /* iPhone 17: fotos em perspectiva, ampliadas para igualar o preenchimento visual das demais */
+    .prod-main-img.is-17 {
+      width: 112%; max-width: 720px; max-height: 82vh;
+    }
     .prod-foto-thumbs {
       display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
       margin-top: 16px;
@@ -1320,6 +1324,8 @@
     const wppLink = `https://wa.me/5511999999999?text=${encodeURIComponent(prod.wppMsg)}`;
     const wppLacrado = `https://wa.me/5511999999999?text=${encodeURIComponent('Olá! Quero saber o valor do ' + prod.nome + ' lacrado. Pode me ajudar?')}`;
     const temLacrado = LACRADO_DISPONIVEL.has(id);
+    const is17 = id.startsWith('iphone-17');
+    const classe17 = is17 ? ' is-17' : '';
     const vitrineBox = `<div class="preco-cond-box preco-cond-vitrine"><p class="preco-cond-label">VITRINE · SEMINOVO</p><p class="preco-cond-val" id="preco-val">${prod.storage[0].preco}</p></div>`;
     const lacradoBox = temLacrado
       ? `<div class="preco-cond-box preco-cond-lacrado"><p class="preco-cond-label">LACRADO · NOVO</p><p class="preco-cond-consultar">Consultar</p></div>`
@@ -1332,7 +1338,7 @@
         <div class="prod-galeria">
           <div id="galeria-wrap" style="display:flex;flex-direction:column;align-items:center;width:100%;">
             ${prod.cores[0].imgs ? `
-              <img id="galeria-main" class="prod-main-img" src="${prod.cores[0].imgs[0]}">
+              <img id="galeria-main" class="prod-main-img${classe17}" src="${prod.cores[0].imgs[0]}">
               <div class="prod-foto-thumbs" id="galeria-thumbs">
                 ${prod.cores[0].imgs.map((src,i) => `
                   <img src="${src}" class="prod-thumb${i===0?' ativo':''}" onclick="galeriaThumb(${i})">
@@ -1437,7 +1443,9 @@
   }
 
   function selecionarCor(i) {
-    const prod = CATALOGO[new URLSearchParams(window.location.search).get('id')];
+    const id = new URLSearchParams(window.location.search).get('id');
+    const prod = CATALOGO[id];
+    const classe17 = id.startsWith('iphone-17') ? ' is-17' : '';
     document.querySelectorAll('.cor-op').forEach((b,j) => b.classList.toggle('ativo', i===j));
     document.querySelectorAll('.cor-thumb').forEach((b,j) => b.classList.toggle('ativo', i===j));
     const label = document.getElementById('cor-label');
@@ -1450,7 +1458,7 @@
     const cor = prod.cores[i];
     if (wrap && cor.imgs) {
       wrap.innerHTML = `
-        <img id="galeria-main" class="prod-main-img" src="${cor.imgs[0]}">
+        <img id="galeria-main" class="prod-main-img${classe17}" src="${cor.imgs[0]}">
         <div class="prod-foto-thumbs" id="galeria-thumbs">
           ${cor.imgs.map((src,j) => `
             <img src="${src}" class="prod-thumb${j===0?' ativo':''}" onclick="galeriaThumb(${j})">
