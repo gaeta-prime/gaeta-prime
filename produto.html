@@ -105,10 +105,12 @@
     }
     .prod-thumb.ativo { border-color: var(--grafite); opacity: 1; }
     .prod-thumb:hover { opacity: 1; }
-    /* Dots indicadores (só mobile) */
-    .prod-foto-dots { display: none; gap: 8px; justify-content: center; margin-top: 18px; }
+    /* Miniaturas desativadas — usamos só pontinhos */
+    .prod-foto-thumbs { display: none !important; }
+    /* Dots indicadores (todas as telas) */
+    .prod-foto-dots { display: flex; gap: 8px; justify-content: center; margin-top: 24px; }
     .foto-dot {
-      width: 7px; height: 7px; border-radius: 50%; padding: 0;
+      width: 8px; height: 8px; border-radius: 50%; padding: 0;
       border: none; background: rgba(0,0,0,.18); cursor: pointer;
       transition: background .2s, transform .2s;
     }
@@ -292,8 +294,6 @@
       .outros-grid { grid-template-columns: 1fr 1fr; }
       .prod-main-img { width: 100%; max-width: 480px; max-height: 60vh; }
       .prod-main-img.is-17 { width: 115%; max-width: 560px; max-height: 68vh; }
-      .prod-foto-thumbs { display: none; }
-      .prod-foto-dots { display: flex; }
     }
     @media (max-width: 600px) {
       .outros-grid { grid-template-columns: 1fr; }
@@ -360,8 +360,6 @@
       /* Foto do produto maior no desktop */
       .prod-main-img { width: 100%; max-width: 780px; max-height: 80vh; }
       .prod-main-img.is-17 { width: 118%; max-width: 920px; max-height: 90vh; }
-      .prod-thumb { width: 80px; height: 80px; }
-      .prod-foto-thumbs { gap: 12px; margin-top: 24px; }
     }
   </style>
 </head>
@@ -1496,6 +1494,8 @@
 
     // Parcela inicial
     atualizarParcela(prod.storage[0].preco);
+    galeriaIdx = 0;
+    ativarSwipe();
   }
 
   function semEstoque() {
@@ -1504,15 +1504,47 @@
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 2500);
   }
+  let galeriaIdx = 0;
   function galeriaThumb(i) {
     const thumbs = document.querySelectorAll('#galeria-thumbs .prod-thumb');
     const dots = document.querySelectorAll('#galeria-dots .foto-dot');
     const main = document.getElementById('galeria-main');
     if (!main || !thumbs.length) return;
+    const total = thumbs.length;
+    i = (i + total) % total;
+    galeriaIdx = i;
     main.style.opacity = '0';
     setTimeout(() => { main.src = thumbs[i].src; main.style.opacity = '1'; }, 200);
     thumbs.forEach((t,j) => t.classList.toggle('ativo', j===i));
     dots.forEach((d,j) => d.classList.toggle('ativo', j===i));
+  }
+  function galeriaProxima() { galeriaThumb(galeriaIdx + 1); }
+  function galeriaAnterior() { galeriaThumb(galeriaIdx - 1); }
+
+  function ativarSwipe() {
+    const main = document.getElementById('galeria-main');
+    if (!main) return;
+    let x0 = null, y0 = null;
+    main.addEventListener('touchstart', e => {
+      x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+    }, { passive: true });
+    main.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      const dy = e.changedTouches[0].clientY - y0;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        if (dx < 0) galeriaProxima(); else galeriaAnterior();
+      }
+      x0 = null; y0 = null;
+    }, { passive: true });
+    let mx0 = null;
+    main.addEventListener('mousedown', e => { mx0 = e.clientX; });
+    main.addEventListener('mouseup', e => {
+      if (mx0 === null) return;
+      const dx = e.clientX - mx0;
+      if (Math.abs(dx) > 50) { if (dx < 0) galeriaProxima(); else galeriaAnterior(); }
+      mx0 = null;
+    });
   }
 
   function selecionarCor(i) {
@@ -1542,6 +1574,8 @@
             <button class="foto-dot${j===0?' ativo':''}" onclick="galeriaThumb(${j})" aria-label="Foto ${j+1}"></button>
           `).join('')}
         </div>`;
+      galeriaIdx = 0;
+      ativarSwipe();
     } else if (wrap) {
       wrap.innerHTML = `
         <div class="pfp-ring"></div>
