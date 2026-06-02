@@ -478,7 +478,7 @@
         ['Material',        'Titânio grau 5, vidro Ceramic Shield'],
         ['Sistema',         'iOS 18 com Apple Intelligence'],
       ],
-      relacionados: ['iphone-16-pro-max','airpods-pro','apple-watch-ultra2'],
+      relacionados: ['iphone-16','airpods-pro','apple-watch-ultra2'],
       wppMsg: 'Olá! Tenho interesse no iPhone 16 Pro. Pode me ajudar?',
     },
 
@@ -540,7 +540,7 @@
         ['Resistência',     'IP68'],
         ['Sistema',         'iOS 18 com Apple Intelligence'],
       ],
-      relacionados: ['iphone-16-pro','airpods-pro','apple-watch-s10'],
+      relacionados: ['iphone-16-pro','airpods-pro','apple-watch-ultra2'],
       wppMsg: 'Olá! Tenho interesse no iPhone 16. Pode me ajudar?',
     },
 
@@ -566,11 +566,11 @@
         ['Portas',     '3x Thunderbolt 5, HDMI, SD, MagSafe 3'],
         ['Sistema',    'macOS Sequoia'],
       ],
-      relacionados: ['macbook-air-m5','iphone-16-pro','airpods-pro'],
+      relacionados: ['macbook-pro-m4','iphone-16-pro','airpods-pro'],
       wppMsg: 'Olá! Tenho interesse no MacBook Pro M4. Pode me ajudar?',
     },
 
-        'macbook-air-m5': {
+        'macbook-pro-m4': {
       cat: 'MAC', catLink: 'mac.html',
       nome: 'MacBook Air 13" M5',
       desc: 'Feito para IA. Chip M5 com CPU de 10 núcleos. Leve, silencioso e com bateria para o dia todo. O notebook mais vendido do mundo, mais poderoso do que nunca.',
@@ -677,7 +677,7 @@
         ['Conectividade','Wi-Fi 6E, Bluetooth 5.3, USB-C'],
         ['Sistema',      'iPadOS 18'],
       ],
-      relacionados: ['ipad-pro-m4','airpods-pro','macbook-air-m5'],
+      relacionados: ['ipad-pro-m4','airpods-pro','macbook-pro-m4'],
       wppMsg: 'Olá! Tenho interesse no iPad Air M2. Pode me ajudar?',
     },
 
@@ -1307,7 +1307,7 @@
         ['Portas',  '3x Thunderbolt 5, 2x USB-A, HDMI 2.1, Ethernet'],
         ['Sistema', 'macOS Sequoia'],
       ],
-      relacionados: ['macbook-air-m5','iphone-16','airpods-pro'],
+      relacionados: ['macbook-pro-m4','iphone-16','airpods-pro'],
       wppMsg: 'Olá! Tenho interesse no Mac mini M4. Pode me ajudar?',
     },
   };
@@ -1372,7 +1372,7 @@
       `<div class="spec-linha"><span class="spec-k">${k}</span><span class="spec-v">${v}</span></div>`).join('');
 
     // Relacionados
-    const relHTML = prod.relacionados.slice(0,3).map(rid => {
+    const relHTML = prod.relacionados.filter(rid => rid !== id && CATALOGO[rid]).slice(0,3).map(rid => {
       const r = CATALOGO[rid];
       if (!r) return '';
       const rico = ICONES[r.icone] || ICONES.iphone;
