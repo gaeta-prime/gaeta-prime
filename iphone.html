@@ -57,14 +57,17 @@
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 2px; background: var(--borda);
     }
+    /* Quando a grid tem só 1 ou 2 filhos, limita a largura */
+    .family-grid:has(> :last-child:nth-child(1)) { grid-template-columns: 1fr; max-width: 420px; }
+    .family-grid:has(> :last-child:nth-child(2)) { grid-template-columns: repeat(2, 1fr); max-width: 840px; }
 
     @media (max-width: 900px) {
       .family-tabs { padding: 0 24px; }
       .family-header { padding: 24px 24px 20px; flex-direction: column; align-items: flex-start; gap: 8px; }
-      .family-grid { grid-template-columns: 1fr 1fr; }
+      .family-grid { grid-template-columns: 1fr 1fr; max-width: none; }
     }
     @media (max-width: 480px) {
-      .family-grid { grid-template-columns: 1fr; }
+      .family-grid { grid-template-columns: 1fr; max-width: none; }
     }
   </style>
 </head>
@@ -635,7 +638,7 @@
 
   <!-- WPP CTA -->
   <section class="wpp-cta" style="margin-top:2px;">
-    <div class="wpp-cta-content reveal">
+    <div class="wpp-cta-content">
       <p class="wpp-cta-eyebrow">ATENDIMENTO PERSONALIZADO</p>
       <h2 class="wpp-cta-title">Não sabe qual<br>iPhone escolher?</h2>
       <p class="wpp-cta-sub">Nossa equipe te ajuda a encontrar o modelo certo para o seu perfil e orçamento.</p>
