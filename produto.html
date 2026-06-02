@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Produto · GAETA Prime Store</title>
+  <meta id="meta-desc" name="description" content="Produto Apple original com garantia. Atendimento personalizado via WhatsApp.">
+  <meta id="og-title" property="og:title" content="Produto · GAETA Prime Store">
+  <meta id="og-desc" property="og:description" content="Produto Apple original com garantia. Atendimento personalizado via WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -567,6 +572,7 @@
         ['Sistema',    'macOS Sequoia'],
       ],
       relacionados: ['macbook-air-m5','iphone-16-pro','airpods-pro'],
+      wppMsg: 'Olá! Tenho interesse no MacBook Pro M4. Pode me ajudar?',
     },
 
     'macbook-air-m5': {
@@ -1345,6 +1351,10 @@
 
     // Atualiza título da aba
     document.getElementById('page-title').textContent = prod.nome + ' · GAETA Prime Store';
+    const metaDesc = prod.nome + ' · ' + prod.desc.slice(0, 120);
+    document.getElementById('meta-desc').setAttribute('content', metaDesc);
+    document.getElementById('og-title').setAttribute('content', prod.nome + ' · GAETA Prime Store');
+    document.getElementById('og-desc').setAttribute('content', metaDesc);
 
     // Storage inicial
     let storageAtivo = 0;
@@ -1402,10 +1412,10 @@
         <div class="prod-galeria">
           <div id="galeria-wrap" style="display:flex;flex-direction:column;align-items:center;width:100%;">
             ${prod.cores[0].imgs ? `
-              <img id="galeria-main" class="prod-main-img${classe17}" src="${prod.cores[0].imgs[0]}">
+              <img id="galeria-main" class="prod-main-img${classe17}" src="${prod.cores[0].imgs[0]}" alt="${prod.nome} · ${prod.cores[0].nome}">
               <div class="prod-foto-thumbs" id="galeria-thumbs">
                 ${prod.cores[0].imgs.map((src,i) => `
-                  <img src="${src}" class="prod-thumb${i===0?' ativo':''}" onclick="galeriaThumb(${i})">
+                  <img src="${src}" class="prod-thumb${i===0?' ativo':''}" onclick="galeriaThumb(${i})" alt="${prod.nome} foto ${i+1}">
                 `).join('')}
               </div>
               <div class="prod-foto-dots" id="galeria-dots">
@@ -1563,10 +1573,10 @@
     const cor = prod.cores[i];
     if (wrap && cor.imgs) {
       wrap.innerHTML = `
-        <img id="galeria-main" class="prod-main-img${classe17}" src="${cor.imgs[0]}">
+        <img id="galeria-main" class="prod-main-img${classe17}" src="${cor.imgs[0]}" alt="${prod.nome} · ${cor.nome}">
         <div class="prod-foto-thumbs" id="galeria-thumbs">
           ${cor.imgs.map((src,j) => `
-            <img src="${src}" class="prod-thumb${j===0?' ativo':''}" onclick="galeriaThumb(${j})">
+            <img src="${src}" class="prod-thumb${j===0?' ativo':''}" onclick="galeriaThumb(${j})" alt="${prod.nome} foto ${j+1}">
           `).join('')}
         </div>
         <div class="prod-foto-dots" id="galeria-dots">
