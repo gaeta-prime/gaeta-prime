@@ -214,7 +214,7 @@ button { font-family:inherit; cursor:pointer; }
 .prod-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--borda); }
 .prod-card {
   background:#fff; display:flex; flex-direction:column;
-  text-decoration:none; position:relative; overflow:hidden;
+  text-decoration:none; position:relative;
   transition:background .25s;
 }
 .prod-card:hover { background:var(--off); }
@@ -628,4 +628,43 @@ img.modelo-thumb[src=""] {
   height: 2px; width: 0%; background: var(--cobre);
   transition: width .05s linear;
   pointer-events: none;
+}
+
+/* ── WORD-BY-WORD REVEAL (Apple-style) ────────── */
+.gw-phrase { display: inline; }
+.gw-word { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.gw-word-inner {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform .65s cubic-bezier(.16,1,.3,1), opacity .4s ease;
+}
+.gw-word-inner--visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ── STAGGER REVEAL (já aplicado via gaeta-fx.js) */
+/* Cards entram com opacity/translateY — sem override necessário */
+
+/* ── PROD-CARD: micro-hover elevation ─────────── */
+.prod-card {
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: background .25s, box-shadow .3s cubic-bezier(.4,0,.2,1), transform .3s cubic-bezier(.4,0,.2,1);
+}
+.prod-card:hover {
+  background: var(--off);
+  box-shadow: 0 8px 32px rgba(0,0,0,.07);
+  transform: translateY(-2px);
+  z-index: 2;
+}
+
+/* ── GRAIN (textura de filme) global ──────────── */
+/* Já existe no index.html inline. Aqui deixamos a classe disponível
+   para as páginas internas que carregam style.css */
+.film-grain {
+  position: fixed; inset: 0; z-index: 9000; pointer-events: none;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
 }

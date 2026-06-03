@@ -370,6 +370,7 @@
   </style>
 </head>
 <body>
+  <div class="film-grain"></div>
   <div id="scroll-bar"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
   <div class="cursor-dot"  id="cursor-dot"></div>
@@ -1448,7 +1449,7 @@
           </div>
 
           <p class="prod-cat">${prod.cat}</p>
-          <h1 class="prod-titulo">${prod.nome}</h1>
+          <h1 class="prod-titulo gw-phrase">${prod.nome}</h1>
           <p class="prod-desc">${prod.desc}</p>
 
           ${prod.condicao ? `
@@ -1666,6 +1667,8 @@
   }
 
   render();
+  // Inicializa word-reveal após injeção do HTML do produto
+  requestAnimationFrame(() => { if (window.initGwPhrases) window.initGwPhrases(); });
   </script>
   <script src="gaeta-fx.js" defer></script>
 </body>

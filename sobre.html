@@ -10,13 +10,65 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sobre · GAETA Prime">
   <meta name="twitter:description" content="A GAETA Prime é uma loja especializada em produtos Apple originais com atendimento personalizado via WhatsApp em São Paulo.">
-  <title>Sobre · GAETA Premium Store</title>
+  <title>Sobre · GAETA Prime Store</title>
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Placeholder da loja — elegante, sem foto ainda */
+    .sobre-img-placeholder {
+      aspect-ratio: 4/5;
+      background: var(--grafite);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .sobre-img-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(184,149,90,.10) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 50% -10%, #252318 0%, var(--grafite) 70%);
+    }
+    .sip-rings {
+      position: absolute;
+      width: 320px; height: 320px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sip-ring {
+      position: absolute; border-radius: 50%;
+      border: 0.5px solid rgba(184,149,90,.12);
+      animation: sipPulse 5s ease-in-out infinite;
+    }
+    .sip-ring:nth-child(1) { width: 320px; height: 320px; animation-delay: 0s; }
+    .sip-ring:nth-child(2) { width: 220px; height: 220px; animation-delay: .8s; border-color: rgba(184,149,90,.18); }
+    .sip-ring:nth-child(3) { width: 130px; height: 130px; animation-delay: 1.6s; border-color: rgba(184,149,90,.25); }
+    @keyframes sipPulse {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.03); opacity: .65; }
+    }
+    .sip-content {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 18px;
+    }
+    .sip-g {
+      font-size: 72px; font-weight: 400; letter-spacing: 6px; color: rgba(255,255,255,.07);
+      font-family: 'Cormorant Garamond', serif; line-height: 1; user-select: none;
+    }
+    .sip-label {
+      font-size: 7px; letter-spacing: 5px; color: rgba(255,255,255,.2);
+      text-align: center; line-height: 1.8;
+    }
+    .sip-line {
+      width: 32px; height: 0.5px; background: rgba(184,149,90,.3);
+    }
+  </style>
 </head>
 <body>
+  <div class="film-grain"></div>
   <div id="scroll-bar"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
   <div class="cursor-dot"  id="cursor-dot"></div>
@@ -24,13 +76,15 @@
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">
       <span class="nav-logo-g">GAETA</span>
-      <span class="nav-logo-p">PREMIUM STORE</span>
+      <span class="nav-logo-p">PRIME STORE</span>
     </a>
     <ul class="nav-links">
-      <li><a href="colecao.html?cat=iphone">iPhone</a></li>
-      <li><a href="colecao.html?cat=mac">Mac</a></li>
-      <li><a href="colecao.html?cat=ipad">iPad</a></li>
-      <li><a href="colecao.html?cat=acessorios">Acessórios</a></li>
+      <li><a href="iphone.html">iPhone</a></li>
+      <li><a href="mac.html">Mac</a></li>
+      <li><a href="ipad.html">iPad</a></li>
+      <li><a href="watch.html">Watch</a></li>
+      <li><a href="airpods.html">AirPods</a></li>
+      <li><a href="acessorios.html">Acessórios</a></li>
       <li><a href="sobre.html" style="color:var(--cobre);">Sobre</a></li>
       <li><a href="contato.html" class="nav-wpp">Fale Conosco</a></li>
     </ul>
@@ -39,14 +93,14 @@
     </button>
   </nav>
 
-  <!-- MOBILE MENU -->
   <div class="nav-mobile-menu" id="nav-mobile-menu">
     <a href="index.html">Início</a>
     <a href="iphone.html">iPhone</a>
     <a href="mac.html">Mac</a>
     <a href="ipad.html">iPad</a>
     <a href="watch.html">Watch</a>
-    <a href="colecao.html?cat=acessorios">AirPods</a>
+    <a href="airpods.html">AirPods</a>
+    <a href="acessorios.html">Acessórios</a>
     <a href="sobre.html">Sobre</a>
     <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
   </div>
@@ -54,6 +108,8 @@
   <!-- HERO SOBRE -->
   <section style="background:var(--grafite); padding:calc(var(--nav-h) + 100px) 48px 100px; text-align:center; position:relative; overflow:hidden;">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(184,149,90,.1) 0%,transparent 70%);"></div>
+    <!-- Grade sutil -->
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%);"></div>
     <div style="position:relative;z-index:1;">
       <p class="hero-eyebrow" style="animation:fadeUp .8s ease .2s both;">NOSSA HISTÓRIA</p>
       <h1 class="hero-title" style="font-size:clamp(40px,6vw,80px); animation:fadeUp .9s ease .4s both;">
@@ -67,14 +123,23 @@
 
   <!-- SOBRE GRID -->
   <div class="sobre-grid">
-    <div class="sobre-img" style="background:var(--grafite);display:flex;align-items:center;justify-content:center;">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:120px;opacity:.15;">
-        <path fill="#B8955A" d="M100 20C56 20 20 56 20 100s36 80 80 80 80-36 80-80S144 20 100 20zm0 140c-33 0-60-27-60-60s27-60 60-60 60 27 60 60-27 60-60 60zm-8-90v20h-20v20h20v40h20v-40h20V90h-20V70H92z"/>
-      </svg>
+    <!-- Lado esquerdo: placeholder elegante até chegar a foto real da loja -->
+    <div class="sobre-img-placeholder">
+      <div class="sip-rings">
+        <div class="sip-ring"></div>
+        <div class="sip-ring"></div>
+        <div class="sip-ring"></div>
+      </div>
+      <div class="sip-content">
+        <span class="sip-g">G</span>
+        <div class="sip-line"></div>
+        <span class="sip-label">GAETA PRIME STORE<br>SÃO PAULO</span>
+      </div>
     </div>
+
     <div class="sobre-text">
       <p class="page-eyebrow" style="margin-bottom:32px;">QUEM SOMOS</p>
-      <p class="sobre-p">A GAETA é uma loja especializada em produtos Apple originais, fundada com o objetivo de oferecer uma experiência de compra diferente · personalizada, transparente e sem complicação.</p>
+      <p class="sobre-p gw-phrase">A GAETA é uma loja especializada em produtos Apple originais, fundada com o objetivo de oferecer uma experiência de compra diferente: personalizada, transparente e sem complicação.</p>
       <p class="sobre-p">Acreditamos que quem escolhe Apple merece ser atendido com o mesmo nível de cuidado e atenção que a própria marca entrega nos seus produtos. Por isso, cada conversa começa com escuta e termina com a solução certa para cada cliente.</p>
       <p class="sobre-p">Trabalhamos exclusivamente com aparelhos originais, lacrados ou de vitrine em estado impecável, sempre com garantia Apple.</p>
       <div class="sobre-nums">
@@ -101,19 +166,19 @@
   <!-- VALORES -->
   <section class="section">
     <p class="section-eyebrow" style="text-align:center;">NOSSOS VALORES</p>
-    <h2 class="section-title" style="text-align:center; max-width:600px; margin:0 auto 64px;">O que nos guia em cada atendimento.</h2>
+    <h2 class="section-title gw-phrase" style="text-align:center; max-width:600px; margin:0 auto 64px;">O que nos guia em cada atendimento.</h2>
     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--borda);" class="valores-grid">
-      <div class="" style="background:#fff; padding:48px 40px;">
+      <div class="reveal" style="background:#fff; padding:48px 40px;">
         <p style="font-size:32px; margin-bottom:20px;">◆</p>
         <h3 style="font-size:18px; font-weight:300; margin-bottom:12px;">Transparência total</h3>
-        <p style="font-size:13px; color:var(--cinza); line-height:1.8;">Sem surpresas. O que você vê é o que você recebe · produto, condição, preço e garantia sempre claros.</p>
+        <p style="font-size:13px; color:var(--cinza); line-height:1.8;">Sem surpresas. O que você vê é o que você recebe: produto, condição, preço e garantia sempre claros.</p>
       </div>
-      <div class="" style="background:#fff; padding:48px 40px;">
+      <div class="reveal reveal-d1" style="background:#fff; padding:48px 40px;">
         <p style="font-size:32px; margin-bottom:20px; color:var(--cobre);">◆</p>
         <h3 style="font-size:18px; font-weight:300; margin-bottom:12px;">Atendimento personalizado</h3>
         <p style="font-size:13px; color:var(--cinza); line-height:1.8;">Cada cliente tem uma necessidade diferente. Ouvimos antes de recomendar. Sempre.</p>
       </div>
-      <div class="" style="background:#fff; padding:48px 40px;">
+      <div class="reveal reveal-d2" style="background:#fff; padding:48px 40px;">
         <p style="font-size:32px; margin-bottom:20px;">◆</p>
         <h3 style="font-size:18px; font-weight:300; margin-bottom:12px;">Qualidade sem concessão</h3>
         <p style="font-size:13px; color:var(--cinza); line-height:1.8;">Só vendemos o que recomendaríamos a um amigo. Originalidade e garantia são inegociáveis.</p>
@@ -125,9 +190,9 @@
   <section class="wpp-cta">
     <div class="wpp-cta-content">
       <p class="wpp-cta-eyebrow">VAMOS CONVERSAR</p>
-      <h2 class="wpp-cta-title">Quer saber mais<br>sobre a GAETA?</h2>
+      <h2 class="wpp-cta-title gw-phrase">Quer saber mais<br>sobre a GAETA?</h2>
       <p class="wpp-cta-sub">Estamos no WhatsApp e prontos para ajudar.</p>
-      <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn-wpp-lg">
+      <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn-wpp-lg">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Falar no WhatsApp
       </a>
@@ -138,16 +203,18 @@
     <div class="footer-top">
       <div>
         <span class="footer-logo-g">GAETA</span>
-        <span class="footer-logo-p">PREMIUM STORE</span>
+        <span class="footer-logo-p">PRIME STORE</span>
         <p class="footer-tagline">Produtos Apple originais com atendimento que faz a diferença.</p>
       </div>
       <div class="footer-col">
         <p class="footer-col-title">PRODUTOS</p>
         <ul>
-          <li><a href="colecao.html?cat=iphone">iPhone</a></li>
-          <li><a href="colecao.html?cat=mac">Mac</a></li>
-          <li><a href="colecao.html?cat=ipad">iPad</a></li>
-          <li><a href="colecao.html?cat=acessorios">Acessórios</a></li>
+          <li><a href="iphone.html">iPhone</a></li>
+          <li><a href="mac.html">Mac</a></li>
+          <li><a href="ipad.html">iPad</a></li>
+          <li><a href="watch.html">Watch</a></li>
+          <li><a href="airpods.html">AirPods</a></li>
+          <li><a href="acessorios.html">Acessórios</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -160,7 +227,7 @@
       <div class="footer-col">
         <p class="footer-col-title">CONTATO</p>
         <ul>
-          <li><a href="https://wa.me/5500000000000" target="_blank">WhatsApp</a></li>
+          <li><a href="https://wa.me/5511999999999" target="_blank">WhatsApp</a></li>
           <li><a href="https://instagram.com/gaetaprime" target="_blank">Instagram</a></li>
         </ul>
       </div>
@@ -169,7 +236,7 @@
       <p class="footer-copy">© 2025 GAETA. Todos os direitos reservados.</p>
       <div class="footer-social">
         <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
-        <a href="https://wa.me/5500000000000" target="_blank">WHATSAPP</a>
+        <a href="https://wa.me/5511999999999" target="_blank">WHATSAPP</a>
       </div>
     </div>
   </footer>
@@ -177,15 +244,13 @@
   <script src="main.js"></script>
   <script src="gaeta-fx.js" defer></script>
   <script>
-  // ── Contador animado nos números ──────────────────────
   (function() {
     function animateCount(el) {
       const target  = parseInt(el.dataset.count, 10);
       const suffix  = el.dataset.suffix || '';
-      const dur     = 1600; // ms
+      const dur     = 1600;
       const start   = performance.now();
-      function ease(t) { return 1 - Math.pow(1 - t, 3); } // ease-out cubic
-
+      function ease(t) { return 1 - Math.pow(1 - t, 3); }
       function tick(now) {
         const elapsed = now - start;
         const progress = Math.min(elapsed / dur, 1);
@@ -195,19 +260,13 @@
       }
       requestAnimationFrame(tick);
     }
-
     const nums = document.querySelectorAll('.sobre-num-val[data-count]');
     if (!nums.length) return;
-
     const io = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCount(entry.target);
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { animateCount(entry.target); io.unobserve(entry.target); }
       });
     }, { threshold: 0.5 });
-
     nums.forEach(n => io.observe(n));
   })();
   </script>
