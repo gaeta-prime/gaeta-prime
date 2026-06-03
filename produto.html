@@ -370,6 +370,9 @@
   </style>
 </head>
 <body>
+  <div id="scroll-bar"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor-dot"  id="cursor-dot"></div>
 
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">
@@ -1506,6 +1509,7 @@
     atualizarParcela(prod.storage[0].preco);
     galeriaIdx = 0;
     ativarSwipe();
+    ativarParallax();
   }
 
   function semEstoque() {
@@ -1523,8 +1527,19 @@
     const total = thumbs.length;
     i = (i + total) % total;
     galeriaIdx = i;
+    // Transição cinematográfica: zoom-out + fade + zoom-in
+    main.style.transition = 'opacity .18s ease, transform .18s ease';
     main.style.opacity = '0';
-    setTimeout(() => { main.src = thumbs[i].src; main.style.opacity = '1'; }, 200);
+    main.style.transform = (main.classList.contains('is-17') ? 'scale(1.04)' : 'scale(1.03)');
+    setTimeout(() => {
+      main.src = thumbs[i].src;
+      main.style.transform = 'scale(.97)';
+      setTimeout(() => {
+        main.style.transition = 'opacity .22s ease, transform .35s cubic-bezier(.22,1,.36,1)';
+        main.style.opacity = '1';
+        main.style.transform = '';
+      }, 30);
+    }, 190);
     thumbs.forEach((t,j) => t.classList.toggle('ativo', j===i));
     dots.forEach((d,j) => d.classList.toggle('ativo', j===i));
   }
@@ -1586,6 +1601,7 @@
         </div>`;
       galeriaIdx = 0;
       ativarSwipe();
+      ativarParallax();
     } else if (wrap) {
       wrap.innerHTML = `
         <div class="pfp-ring"></div>
@@ -1595,6 +1611,40 @@
           <span class="pfp-label">FOTO EM BREVE</span>
         </div>`;
     }
+  }
+
+  function ativarParallax() {
+    if (window.innerWidth < 1024) return; // só desktop
+    const galeria = document.querySelector('.prod-galeria');
+    const img = document.getElementById('galeria-main');
+    if (!galeria || !img) return;
+
+    // Limpa listener anterior se houver
+    if (galeria._parallaxHandler) {
+      galeria.removeEventListener('mousemove', galeria._parallaxHandler);
+      galeria.removeEventListener('mouseleave', galeria._parallaxLeave);
+    }
+
+    const MAX_ROT = 6; // graus máximos de inclinação
+
+    galeria._parallaxHandler = function(e) {
+      const rect = galeria.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top  + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width  / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      const rotY =  dx * MAX_ROT;
+      const rotX = -dy * MAX_ROT * .6;
+      img.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.03)`;
+      img.style.transition = 'transform .12s linear';
+    };
+    galeria._parallaxLeave = function() {
+      img.style.transform = '';
+      img.style.transition = 'transform .55s cubic-bezier(.22,1,.36,1)';
+    };
+
+    galeria.addEventListener('mousemove', galeria._parallaxHandler);
+    galeria.addEventListener('mouseleave', galeria._parallaxLeave);
   }
 
   function selecionarStorage(i) {
@@ -1617,5 +1667,6 @@
 
   render();
   </script>
+  <script src="gaeta-fx.js" defer></script>
 </body>
 </html>

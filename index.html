@@ -335,13 +335,6 @@
     /* ══ NOVOS EFEITOS ══ */
     .pc-icon-wrap{will-change:transform}
 
-    /* Cursor dourado (desktop) */
-    .cursor-dot{position:fixed;top:0;left:0;z-index:99999;pointer-events:none;width:8px;height:8px;border-radius:50%;background:var(--cobre);transform:translate(-50%,-50%);transition:width .25s,height .25s,opacity .25s}
-    .cursor-ring{position:fixed;top:0;left:0;z-index:99998;pointer-events:none;width:36px;height:36px;border-radius:50%;border:1px solid rgba(184,149,90,.5);transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),border-color .3s,opacity .3s}
-    .cursor-ring.hover{width:64px;height:64px;border-color:rgba(184,149,90,.9)}
-    .cursor-dot.hover{width:4px;height:4px}
-    @media(max-width:1024px){.cursor-dot,.cursor-ring{display:none}}
-
     /* Texto que acende no scroll */
     .glow-text .gw{color:rgba(255,255,255,.12);transition:color .4s var(--ease),text-shadow .4s var(--ease)}
     .glow-text .gw.lit{color:#fff}
@@ -525,6 +518,7 @@
   </style>
 </head>
 <body>
+  <div id="scroll-bar"></div>
 
 <div class="scroll-progress" id="scroll-progress"></div>
 <div class="film-grain"></div>
@@ -1079,30 +1073,6 @@
   });
 })();
 
-// ── Cursor dourado (desktop) ──
-(function(){
-  if(window.innerWidth < 1024) return;
-  const dot = document.getElementById('cursor-dot');
-  const ring = document.getElementById('cursor-ring');
-  if(!dot||!ring) return;
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove', e => {
-    mx=e.clientX; my=e.clientY;
-    dot.style.left=mx+'px'; dot.style.top=my+'px';
-  });
-  function loop(){
-    rx += (mx-rx)*.18; ry += (my-ry)*.18;
-    ring.style.left=rx+'px'; ring.style.top=ry+'px';
-    requestAnimationFrame(loop);
-  }
-  loop();
-  // Hover em elementos clicáveis
-  document.querySelectorAll('a,button').forEach(el => {
-    el.addEventListener('mouseenter', () => { ring.classList.add('hover'); dot.classList.add('hover'); });
-    el.addEventListener('mouseleave', () => { ring.classList.remove('hover'); dot.classList.remove('hover'); });
-  });
-})();
-
 // ── Texto que acende no scroll (glow-text) ──
 (function(){
   const blocks = document.querySelectorAll('.glow-text');
@@ -1289,5 +1259,6 @@ setInterval(() => macImg((macCur+1)%3), 4000);
   setInterval(()=>{ cur=(cur+1)%3; window.ipadThumb(cur); },4000);
 })();
 </script>
+  <script src="gaeta-fx.js" defer></script>
 </body>
 </html>

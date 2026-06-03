@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="scroll-bar"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor-dot"  id="cursor-dot"></div>
 
   <nav class="nav" id="nav">
     <a href="index.html" class="nav-logo">
@@ -76,19 +79,19 @@
       <p class="sobre-p">Trabalhamos exclusivamente com aparelhos originais, lacrados ou de vitrine em estado impecável, sempre com garantia Apple.</p>
       <div class="sobre-nums">
         <div>
-          <p class="sobre-num-val">500+</p>
+          <p class="sobre-num-val" data-count="500" data-suffix="+">0+</p>
           <p class="sobre-num-label">Clientes atendidos</p>
         </div>
         <div>
-          <p class="sobre-num-val">100%</p>
+          <p class="sobre-num-val" data-count="100" data-suffix="%">0%</p>
           <p class="sobre-num-label">Produtos originais</p>
         </div>
         <div>
-          <p class="sobre-num-val">12m</p>
+          <p class="sobre-num-val" data-count="12" data-suffix="m">0m</p>
           <p class="sobre-num-label">Garantia em tudo</p>
         </div>
         <div>
-          <p class="sobre-num-val">5★</p>
+          <p class="sobre-num-val" data-count="5" data-suffix="★">0★</p>
           <p class="sobre-num-label">Avaliação média</p>
         </div>
       </div>
@@ -172,5 +175,41 @@
   </footer>
 
   <script src="main.js"></script>
+  <script src="gaeta-fx.js" defer></script>
+  <script>
+  // ── Contador animado nos números ──────────────────────
+  (function() {
+    function animateCount(el) {
+      const target  = parseInt(el.dataset.count, 10);
+      const suffix  = el.dataset.suffix || '';
+      const dur     = 1600; // ms
+      const start   = performance.now();
+      function ease(t) { return 1 - Math.pow(1 - t, 3); } // ease-out cubic
+
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / dur, 1);
+        const val = Math.round(ease(progress) * target);
+        el.textContent = val + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const nums = document.querySelectorAll('.sobre-num-val[data-count]');
+    if (!nums.length) return;
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    nums.forEach(n => io.observe(n));
+  })();
+  </script>
 </body>
 </html>
