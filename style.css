@@ -431,7 +431,7 @@ button { font-family:inherit; cursor:pointer; }
 .sobre-num-label { font-size:12px; color:var(--cinza); margin-top:4px; }
 
 /* ─── CONTATO ───────────────────────────────── */
-.contato-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; min-height:70vh; }
+.contato-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
 .contato-info { background:var(--grafite); padding:80px 64px; display:flex; flex-direction:column; justify-content:center; }
 .contato-info-title { font-size:clamp(28px,3vw,40px); font-weight:200; color:#fff; letter-spacing:-1px; margin-bottom:40px; }
 .contato-item { margin-bottom:32px; }
@@ -475,6 +475,8 @@ button { font-family:inherit; cursor:pointer; }
   .valores-grid { grid-template-columns:1fr !important; }
   .sobre-text { padding:56px 40px; }
   .contato-grid { grid-template-columns:1fr; }
+  .contato-info { padding:56px 32px; }
+  .contato-cta  { padding:56px 32px; }
   .footer-top { grid-template-columns:1fr 1fr; gap:40px; }
 }
 @media (max-width:768px) {
