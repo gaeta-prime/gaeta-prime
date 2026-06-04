@@ -2,6 +2,19 @@
    GAETA Prime — Interações Premium
    ============================================ */
 
+// ─── NÚMERO WHATSAPP — altere APENAS aqui ───
+// Formato: código do país + DDD + número (sem espaços ou símbolos)
+// Exemplo: '5511912345678'
+var GAETA_WPP = '5511999999999';
+
+// ─── Reescreve todos os links wa.me da página ─
+// Preserva ?text= existentes, substitui só o número
+(function () {
+  document.querySelectorAll('a[href*="wa.me/"]').forEach(function (a) {
+    a.href = a.href.replace(/wa\.me\/\d+/, 'wa.me/' + GAETA_WPP);
+  });
+})();
+
 // ─── HERO: texto palavra por palavra ────────
 (function () {
   const el = document.getElementById('hero-title');
@@ -157,8 +170,25 @@
   });
 })();
 
-// ─── SELETORES produto ───────────────────────
+// ─── SELETORES produto com WhatsApp dinâmico ──
 (function () {
+  function buildWppMsg() {
+    const titulo   = document.querySelector('.prod-titulo')?.textContent.trim() || '';
+    const corAtiva = document.querySelector('.cor-btn.ativo .cor-nome')?.textContent.trim() || '';
+    const storAtivo = document.querySelector('.storage-btn.ativo')?.textContent.trim() || '';
+    let msg = `Olá! Tenho interesse no ${titulo}`;
+    if (corAtiva)  msg += ` na cor ${corAtiva}`;
+    if (storAtivo) msg += `, ${storAtivo}`;
+    msg += '. Pode me ajudar?';
+    return encodeURIComponent(msg);
+  }
+
+  function updateWppLinks() {
+    document.querySelectorAll('[href*="wa.me"]').forEach(a => {
+      a.href = `https://wa.me/${GAETA_WPP}?text=${buildWppMsg()}`;
+    });
+  }
+
   // Modelos
   document.querySelectorAll('.modelo-card').forEach(card => {
     card.addEventListener('click', () => {
@@ -169,6 +199,7 @@
       const preco = card.dataset.preco;
       const el    = document.querySelector('.preco-val');
       if (preco && el) el.textContent = preco;
+      updateWppLinks();
     });
   });
 
@@ -187,6 +218,7 @@
       }
       const label = document.querySelector('[data-cor-label]');
       if (label) label.textContent = btn.querySelector('.cor-nome')?.textContent || '';
+      updateWppLinks();
     });
   });
 
@@ -201,8 +233,12 @@
       const preco = btn.dataset.preco;
       const el    = document.querySelector('.preco-val');
       if (preco && el) el.textContent = preco;
+      updateWppLinks();
     });
   });
+
+  // Init na carga
+  if (document.querySelector('.prod-titulo')) updateWppLinks();
 })();
 
 // ─── MOBILE NAV HAMBÚRGUER ───────────────────
@@ -235,13 +271,66 @@
 })();
 
 
+
+// ─── COUNT-UP animado (sobre.html) ──────────
 (function () {
-  const numero = '5511999999999';
-  const titulo = document.querySelector('.prod-titulo');
-  if (!titulo) return;
-  const msg = encodeURIComponent(`Olá! Tenho interesse no ${titulo.textContent.trim()}. Pode me ajudar?`);
-  document.querySelectorAll('[href*="wa.me"]').forEach(a => {
-    if (!a.href.includes('text=')) a.href = `https://wa.me/${numero}?text=${msg}`;
+  const els = document.querySelectorAll('[data-count]');
+  if (!els.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el     = e.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const dur    = 1200;
+      const step   = 16;
+      let current  = 0;
+      const inc    = target / (dur / step);
+      const timer  = setInterval(() => {
+        current = Math.min(current + inc, target);
+        el.textContent = Math.round(current) + suffix;
+        if (current >= target) clearInterval(timer);
+      }, step);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  els.forEach(el => io.observe(el));
+})();
+
+// ─── BUSCA em tempo real (colecao.html) ──────
+(function () {
+  const input   = document.getElementById('search-input');
+  const counter = document.getElementById('search-count');
+  if (!input) return;
+  input.addEventListener('input', () => {
+    const q     = input.value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.prod-card[data-cat]');
+    let visible = 0;
+    cards.forEach(c => {
+      const text = (c.dataset.nome || c.textContent).toLowerCase();
+      const show = !q || text.includes(q);
+      c.style.display = show ? 'flex' : 'none';
+      if (show) visible++;
+    });
+    if (counter) counter.textContent = q ? `${visible} resultado${visible !== 1 ? 's' : ''}` : '';
+  });
+})();
+
+// ─── FAQ animado ─────────────────────────────
+(function () {
+  document.querySelectorAll('details.faq-item').forEach(det => {
+    det.addEventListener('toggle', () => {
+      const body = det.querySelector('.faq-body');
+      if (!body) return;
+      if (det.open) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+      } else {
+        body.style.maxHeight = '0';
+      }
+    });
+    det.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); det.open = !det.open; }
+    });
   });
 })();
 

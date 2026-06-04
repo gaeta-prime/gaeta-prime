@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="page-title">Produto · GAETA Prime Store</title>
   <meta id="meta-desc" name="description" content="Produto Apple original com garantia. Atendimento personalizado via WhatsApp.">
-  <meta id="og-title" property="og:title" content="Produto · GAETA Prime Store">
-  <meta id="og-desc" property="og:description" content="Produto Apple original com garantia. Atendimento personalizado via WhatsApp.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
+  <meta id="og-title" property="og:title" content="Produto · Gaeta Prime">
+  <meta id="og-desc" property="og:description" content="Produto Apple original com garantia. Atendimento personalizado via WhatsApp em SP, entrega para todo o Brasil.">
+  <meta property="og:type" content="product">
+  <meta property="og:url" content="https://gaetaprime.com.br/produto">
+  <meta property="og:image" content="https://gaetaprime.com.br/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://gaetaprime.com.br/img/og-cover.jpg">
+  <link rel="canonical" href="https://gaetaprime.com.br/produto">
     <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -449,6 +455,21 @@
     </div>
   </footer>
 
+  <script type="application/ld+json" id="product-schema">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Produto Apple · Gaeta Prime",
+    "brand": { "@type": "Brand", "name": "Apple" },
+    "seller": { "@type": "Organization", "name": "Gaeta Prime", "url": "https://gaetaprime.com.br" },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/InStock",
+      "seller": { "@type": "Organization", "name": "Gaeta Prime" }
+    }
+  }
+  </script>
   <script src="main.js"></script>
   <script>
   // ══════════════════════════════════════════
@@ -1671,5 +1692,6 @@
   requestAnimationFrame(() => { if (window.initGwPhrases) window.initGwPhrases(); });
   </script>
   <script src="gaeta-fx.js" defer></script>
+  <script src="search.js" defer></script>
 </body>
 </html>

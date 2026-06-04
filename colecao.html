@@ -3,7 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo · GAETA Premium Store</title>
+  <title>Catálogo · Gaeta Prime — Todos os Produtos Apple Originais</title>
+  <meta name="description" content="Catálogo completo de produtos Apple originais: iPhone, iPad, Mac, Apple Watch, AirPods e acessórios. Lacrados com garantia Apple. Atendimento via WhatsApp.">
+  <meta property="og:title" content="Catálogo · Gaeta Prime — iPhone, Mac, iPad, Watch, AirPods">
+  <meta property="og:description" content="Catálogo completo de produtos Apple originais com garantia. Atendimento via WhatsApp, entrega para todo o Brasil.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gaetaprime.com.br/colecao">
+  <meta property="og:image" content="https://gaetaprime.com.br/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catálogo · Gaeta Prime — Todos os Produtos Apple">
+  <meta name="twitter:description" content="iPhone, Mac, iPad, Watch, AirPods originais com garantia Apple. Atendimento via WhatsApp.">
+  <meta name="twitter:image" content="https://gaetaprime.com.br/img/og-cover.jpg">
+  <link rel="canonical" href="https://gaetaprime.com.br/colecao">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
@@ -45,11 +61,24 @@
     <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
   </div>
 
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Navegação">
+    <a href="index.html">Início</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">Catálogo</span>
+  </nav>
+
   <!-- PAGE HEADER -->
   <div class="page-header">
     <p class="page-eyebrow reveal">CATÁLOGO</p>
     <h1 class="page-title reveal reveal-d1" id="page-title">Todos os produtos.</h1>
     <p class="page-sub reveal reveal-d2">Originais, com garantia Apple e atendimento personalizado.</p>
+  </div>
+
+  <!-- BUSCA -->
+  <div class="search-wrap">
+    <input type="search" id="search-input" class="search-input" placeholder="Buscar produto..." aria-label="Buscar produto">
+    <span id="search-count" class="search-count"></span>
   </div>
 
   <!-- FILTROS -->
@@ -70,7 +99,7 @@
     <a href="produto.html?id=iphone-16-pro-max" class="prod-card" data-cat="iphone" data-cond="lacrado">
       <span class="prod-badge badge-novo">NOVO</span>
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <img src="img/iphone-16-pro-max-titanio-deserto-1.webp" alt="iPhone 16 Pro Max" loading="lazy">
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">iPhone 16 Pro Max</h3>
@@ -87,7 +116,7 @@
     <a href="produto.html?id=iphone-16-pro" class="prod-card" data-cat="iphone" data-cond="lacrado">
       <span class="prod-badge badge-novo">NOVO</span>
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <img src="img/iphone-16-pro-titanio-deserto-1.webp" alt="iPhone 16 Pro" loading="lazy">
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">iPhone 16 Pro</h3>
@@ -104,7 +133,7 @@
     <a href="produto.html?id=iphone-16" class="prod-card" data-cat="iphone" data-cond="lacrado">
       <span class="prod-badge badge-novo">NOVO</span>
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <img src="img/iphone-16-ultramarine-1.webp" alt="iPhone 16" loading="lazy">
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">iPhone 16</h3>
@@ -120,7 +149,7 @@
     <!-- iPhone 15 -->
     <a href="produto.html?id=iphone-15" class="prod-card" data-cat="iphone" data-cond="vitrine">
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <div class="foto-placeholder"></div>
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">iPhone 15</h3>
@@ -136,7 +165,7 @@
     <!-- iPhone 14 Pro -->
     <a href="produto.html?id=iphone-14-pro" class="prod-card" data-cat="iphone" data-cond="vitrine">
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <div class="foto-placeholder"></div>
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">iPhone 14 Pro</h3>
@@ -153,7 +182,7 @@
     <a href="produto.html?id=macbook-air-m3" class="prod-card" data-cat="mac" data-cond="lacrado">
       <span class="prod-badge badge-novo">NOVO</span>
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <div class="foto-placeholder"></div>
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">MacBook Air 13" M3</h3>
@@ -170,7 +199,7 @@
     <a href="produto.html?id=macbook-pro-m4" class="prod-card" data-cat="mac" data-cond="lacrado">
       <span class="prod-badge badge-novo">NOVO</span>
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <div class="foto-placeholder"></div>
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">MacBook Pro 14" M4</h3>
@@ -187,7 +216,7 @@
     <a href="produto.html?id=ipad-pro-m4" class="prod-card" data-cat="ipad" data-cond="lacrado">
       <span class="prod-badge badge-novo">NOVO</span>
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <img src="img/ipad-1.webp" alt="iPad Pro M4" loading="lazy">
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">iPad Pro 13" M4</h3>
@@ -204,7 +233,7 @@
     <a href="produto.html?id=airpods-pro" class="prod-card" data-cat="acessorios" data-cond="lacrado">
       <span class="prod-badge badge-novo">NOVO</span>
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <div class="foto-placeholder"></div>
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">AirPods Pro 2</h3>
@@ -220,7 +249,7 @@
     <!-- Apple Watch Ultra 2 -->
     <a href="produto.html?id=apple-watch-ultra2" class="prod-card" data-cat="acessorios" data-cond="lacrado">
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <div class="foto-placeholder"></div>
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">Apple Watch Ultra 2</h3>
@@ -236,7 +265,7 @@
     <!-- iPad Air M2 -->
     <a href="produto.html?id=ipad-air-m2" class="prod-card" data-cat="ipad" data-cond="vitrine">
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <img src="img/ipad-2.webp" alt="iPad Air M2" loading="lazy">
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">iPad Air 11" M2</h3>
@@ -253,7 +282,7 @@
     <a href="produto.html?id=mac-mini-m4" class="prod-card" data-cat="mac" data-cond="lacrado">
       <span class="prod-badge badge-novo">NOVO</span>
       <div class="prod-foto">
-        <div class="foto-placeholder"><span>FOTO EM BREVE</span></div>
+        <div class="foto-placeholder"></div>
       </div>
       <div class="prod-info">
         <h3 class="prod-nome">Mac mini M4</h3>
@@ -313,7 +342,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 GAETA. Todos os direitos reservados.</p>
+      <p class="footer-copy">© 2025 Gaeta Prime. Todos os direitos reservados.</p>
       <div class="footer-social">
         <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
         <a href="https://wa.me/5500000000000" target="_blank">WHATSAPP</a>
@@ -321,6 +350,23 @@
     </div>
   </footer>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Catálogo Gaeta Prime — Todos os Produtos Apple",
+    "description": "iPhone, iPad, Mac, Apple Watch, AirPods e acessórios Apple originais",
+    "url": "https://gaetaprime.com.br/colecao",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "iPhone", "url": "https://gaetaprime.com.br/iphone" },
+      { "@type": "ListItem", "position": 2, "name": "iPad", "url": "https://gaetaprime.com.br/ipad" },
+      { "@type": "ListItem", "position": 3, "name": "Mac", "url": "https://gaetaprime.com.br/mac" },
+      { "@type": "ListItem", "position": 4, "name": "Apple Watch", "url": "https://gaetaprime.com.br/watch" },
+      { "@type": "ListItem", "position": 5, "name": "AirPods", "url": "https://gaetaprime.com.br/airpods" },
+      { "@type": "ListItem", "position": 6, "name": "Acessórios", "url": "https://gaetaprime.com.br/acessorios" }
+    ]
+  }
+  </script>
   <script src="main.js"></script>
   <script>
     // Atualiza título da página conforme filtro ativo
@@ -332,5 +378,6 @@
     }
   </script>
   <script src="gaeta-fx.js" defer></script>
+  <script src="search.js" defer></script>
 </body>
 </html>

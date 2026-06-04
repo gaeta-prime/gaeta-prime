@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="A GAETA Prime é uma loja especializada em produtos Apple originais com atendimento personalizado via WhatsApp em São Paulo.">
-  <meta property="og:title" content="Sobre · GAETA Prime">
-  <meta property="og:description" content="A GAETA Prime é uma loja especializada em produtos Apple originais com atendimento personalizado via WhatsApp em São Paulo.">
+  <meta property="og:title" content="Sobre · Gaeta Prime — Nossa História">
+  <meta property="og:description" content="A Gaeta Prime é uma loja especializada em produtos Apple originais com atendimento personalizado via WhatsApp em São Paulo. Transparência, qualidade e cuidado em cada venda.">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Sobre · GAETA Prime">
-  <meta name="twitter:description" content="A GAETA Prime é uma loja especializada em produtos Apple originais com atendimento personalizado via WhatsApp em São Paulo.">
-  <title>Sobre · GAETA Prime Store</title>
+  <meta property="og:url" content="https://gaetaprime.com.br/sobre">
+  <meta property="og:image" content="https://gaetaprime.com.br/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sobre · Gaeta Prime — Nossa História">
+  <meta name="twitter:description" content="A Gaeta Prime é uma loja de produtos Apple originais com atendimento personalizado via WhatsApp em São Paulo.">
+  <meta name="twitter:image" content="https://gaetaprime.com.br/img/og-cover.jpg">
+  <link rel="canonical" href="https://gaetaprime.com.br/sobre">
+  <title>Sobre · Gaeta Prime — Produtos Apple com Atendimento Personalizado</title>
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -18,54 +24,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Placeholder da loja — elegante, sem foto ainda */
-    .sobre-img-placeholder {
-      aspect-ratio: 4/5;
-      background: var(--grafite);
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .sobre-img-placeholder::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(184,149,90,.10) 0%, transparent 65%),
-        radial-gradient(ellipse 60% 40% at 50% -10%, #252318 0%, var(--grafite) 70%);
-    }
-    .sip-rings {
-      position: absolute;
-      width: 320px; height: 320px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .sip-ring {
-      position: absolute; border-radius: 50%;
-      border: 0.5px solid rgba(184,149,90,.12);
-      animation: sipPulse 5s ease-in-out infinite;
-    }
-    .sip-ring:nth-child(1) { width: 320px; height: 320px; animation-delay: 0s; }
-    .sip-ring:nth-child(2) { width: 220px; height: 220px; animation-delay: .8s; border-color: rgba(184,149,90,.18); }
-    .sip-ring:nth-child(3) { width: 130px; height: 130px; animation-delay: 1.6s; border-color: rgba(184,149,90,.25); }
-    @keyframes sipPulse {
-      0%,100% { transform: scale(1); opacity: 1; }
-      50%      { transform: scale(1.03); opacity: .65; }
-    }
-    .sip-content {
-      position: relative; z-index: 2;
-      display: flex; flex-direction: column; align-items: center; gap: 18px;
-    }
-    .sip-g {
-      font-size: 72px; font-weight: 400; letter-spacing: 6px; color: rgba(255,255,255,.07);
-      font-family: 'Cormorant Garamond', serif; line-height: 1; user-select: none;
-    }
-    .sip-label {
-      font-size: 7px; letter-spacing: 5px; color: rgba(255,255,255,.2);
-      text-align: center; line-height: 1.8;
-    }
-    .sip-line {
-      width: 32px; height: 0.5px; background: rgba(184,149,90,.3);
-    }
-  </style>
 </head>
 <body>
   <div class="film-grain"></div>
@@ -105,6 +63,13 @@
     <a href="contato.html" class="nav-wpp-mobile">FALE CONOSCO →</a>
   </div>
 
+  <!-- BREADCRUMB -->
+  <nav class="breadcrumb" aria-label="Navegação" style="background:var(--grafite);">
+    <a href="index.html" style="color:rgba(255,255,255,.4);">Início</a>
+    <span class="breadcrumb-sep" style="color:rgba(255,255,255,.2);">›</span>
+    <span class="breadcrumb-current" style="color:rgba(255,255,255,.6);">Sobre</span>
+  </nav>
+
   <!-- HERO SOBRE -->
   <section style="background:var(--grafite); padding:calc(var(--nav-h) + 100px) 48px 100px; text-align:center; position:relative; overflow:hidden;">
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(184,149,90,.1) 0%,transparent 70%);"></div>
@@ -121,23 +86,9 @@
     </div>
   </section>
 
-  <!-- SOBRE GRID -->
-  <div class="sobre-grid">
-    <!-- Lado esquerdo: placeholder elegante até chegar a foto real da loja -->
-    <div class="sobre-img-placeholder">
-      <div class="sip-rings">
-        <div class="sip-ring"></div>
-        <div class="sip-ring"></div>
-        <div class="sip-ring"></div>
-      </div>
-      <div class="sip-content">
-        <span class="sip-g">G</span>
-        <div class="sip-line"></div>
-        <span class="sip-label">GAETA PRIME STORE<br>SÃO PAULO</span>
-      </div>
-    </div>
-
-    <div class="sobre-text">
+  <!-- SOBRE EDITORIAL -->
+  <section style="background:var(--off); padding:clamp(56px,8vw,96px) clamp(24px,5vw,48px);">
+    <div style="max-width:760px; margin:0 auto;">
       <p class="page-eyebrow" style="margin-bottom:32px;">QUEM SOMOS</p>
       <p class="sobre-p gw-phrase">A GAETA é uma loja especializada em produtos Apple originais, fundada com o objetivo de oferecer uma experiência de compra diferente: personalizada, transparente e sem complicação.</p>
       <p class="sobre-p">Acreditamos que quem escolhe Apple merece ser atendido com o mesmo nível de cuidado e atenção que a própria marca entrega nos seus produtos. Por isso, cada conversa começa com escuta e termina com a solução certa para cada cliente.</p>
@@ -161,7 +112,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- VALORES -->
   <section class="section">
@@ -185,6 +136,48 @@
       </div>
     </div>
   </section>
+
+  <!-- DEPOIMENTOS — oculto até ter avaliações reais de clientes
+  <section class="depoimentos">
+    <p class="section-eyebrow" style="text-align:center;">CLIENTES</p>
+    <h2 class="section-title gw-phrase" style="text-align:center; max-width:480px; margin:0 auto 0;">O que dizem quem já comprou.</h2>
+    <div class="depo-grid">
+      <div class="depo-card reveal">
+        <div class="depo-estrelas">
+          <span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span>
+        </div>
+        <p class="depo-texto">Comprei meu iPhone 16 Pro Max com eles e foi a melhor experiência de compra que já tive. Atendimento rápido, produto lacrado e entregue no prazo. Sem dúvida voltarei.</p>
+        <div class="depo-autor">
+          <span class="depo-nome">Mariana R.</span>
+          <span class="depo-cidade">São Paulo · SP</span>
+          <span class="depo-produto">IPHONE 16 PRO MAX</span>
+        </div>
+      </div>
+      <div class="depo-card reveal reveal-d1">
+        <div class="depo-estrelas">
+          <span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span>
+        </div>
+        <p class="depo-texto">Precisava de um MacBook urgente e eles me atenderam no mesmo dia. Nota fiscal, garantia Apple, tudo certinho. Produto impecável. Super recomendo.</p>
+        <div class="depo-autor">
+          <span class="depo-nome">Felipe M.</span>
+          <span class="depo-cidade">Campinas · SP</span>
+          <span class="depo-produto">MACBOOK AIR M5</span>
+        </div>
+      </div>
+      <div class="depo-card reveal reveal-d2">
+        <div class="depo-estrelas">
+          <span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span><span class="depo-estrela">★</span>
+        </div>
+        <p class="depo-texto">Me ajudaram a escolher o iPad certo pra minha filha. Foram muito pacientes, explicaram todas as diferenças e o produto chegou em 2 dias. Incrível!</p>
+        <div class="depo-autor">
+          <span class="depo-nome">Cláudia S.</span>
+          <span class="depo-cidade">Rio de Janeiro · RJ</span>
+          <span class="depo-produto">IPAD AIR 11"</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
 
   <!-- CTA CONTATO -->
   <section class="wpp-cta">
@@ -233,7 +226,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 GAETA. Todos os direitos reservados.</p>
+      <p class="footer-copy">© 2025 Gaeta Prime. Todos os direitos reservados.</p>
       <div class="footer-social">
         <a href="https://instagram.com/gaetaprime" target="_blank">INSTAGRAM</a>
         <a href="https://wa.me/5511999999999" target="_blank">WHATSAPP</a>
@@ -241,8 +234,29 @@
     </div>
   </footer>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Gaeta Prime",
+    "description": "Loja especializada em produtos Apple originais com atendimento personalizado via WhatsApp em São Paulo.",
+    "url": "https://gaetaprime.com.br",
+    "telephone": "+5511999999999",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "openingHours": "Mo-Sa 09:00-20:00",
+    "sameAs": ["https://instagram.com/gaetaprime"],
+    "priceRange": "$$",
+    "image": "https://gaetaprime.com.br/img/og-cover.jpg"
+  }
+  </script>
   <script src="main.js"></script>
   <script src="gaeta-fx.js" defer></script>
+  <script src="search.js" defer></script>
   <script>
   (function() {
     function animateCount(el) {

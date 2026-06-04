@@ -6,7 +6,8 @@
   'use strict';
 
   // ── Cursor cobre ──────────────────────────────────────
-  if (window.innerWidth >= 1024) {
+  const isTouch = () => window.innerWidth < 1024;
+  if (!isTouch()) {
     const dot  = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
     if (dot && ring) {
@@ -59,6 +60,18 @@
     updateNavInternal();
   }
 
+  // ── Lazy loading retroativo (imagens sem loading=lazy) ──
+  const allImgs = document.querySelectorAll('img:not([loading])');
+  allImgs.forEach((img, i) => {
+    // Primeira imagem visível pode ser LCP — mantém eager
+    if (i === 0 && img.closest('.prod-galeria, .hero, .pc-visual, .cat-card')) {
+      img.setAttribute('loading', 'eager');
+      img.setAttribute('fetchpriority', 'high');
+    } else {
+      img.setAttribute('loading', 'lazy');
+    }
+  });
+
   // ── Stagger reveal nos grids de produto ──────────────
   const cardGrids = document.querySelectorAll('.prod-grid, .family-grid, .outros-grid');
   if (cardGrids.length) {
@@ -92,6 +105,11 @@
       inners.forEach((w, i) => {
         w.style.transitionDelay = `${i * 0.045}s`;
         w.classList.add('gw-word-inner--visible');
+        w.addEventListener('transitionend', () => {
+          if (w.parentElement?.classList.contains('gw-word')) {
+            w.parentElement.style.overflow = 'visible';
+          }
+        }, { once: true });
       });
       phraseIO.unobserve(entry.target);
     });

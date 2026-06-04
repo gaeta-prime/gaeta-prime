@@ -1,9 +1,9 @@
 /* ============================================
-   GAETA — Design System
+   GAETA â€” Design System
    Minimalismo premium, identidade Apple
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+/* Google Fonts carregado via <link> no HTML â€” sem @import duplo */
 
 :root {
   --grafite:  #1A1A18;
@@ -19,7 +19,7 @@
   --ease-out: cubic-bezier(0,0,.2,1);
 }
 
-/* ─── RESET ────────────────────────────────── */
+/* â”€â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
 body { font-family:'DM Sans',sans-serif; font-weight:300; color:var(--grafite); background:#fff; overflow-x:hidden; }
@@ -27,7 +27,7 @@ img { display:block; max-width:100%; }
 a { color:inherit; text-decoration:none; }
 button { font-family:inherit; cursor:pointer; }
 
-/* ─── NAVEGAÇÃO ────────────────────────────── */
+/* â”€â”€â”€ NAVEGAÃ‡ÃƒO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav {
   position:fixed; top:0; left:0; right:0; z-index:900;
   height:var(--nav-h);
@@ -57,15 +57,16 @@ button { font-family:inherit; cursor:pointer; }
 
 .nav-wpp {
   font-size:11px; letter-spacing:1px; padding:8px 18px;
-  background:var(--grafite); color:#fff;
+  background:transparent; color:var(--cobre);
+  border:1px solid var(--cobre);
   border-radius:980px;
-  transition:background .2s, color .2s;
+  transition:background .2s, color .2s, border-color .2s;
 }
-.nav-wpp:hover { background:var(--cobre); color:#fff !important; }
-.nav.dark .nav-wpp { background:var(--cobre); }
-.nav.dark .nav-wpp:hover { background:#a07840; }
+.nav-wpp:hover { background:var(--cobre); color:#fff !important; border-color:var(--cobre); }
+.nav.dark .nav-wpp { background:transparent; color:rgba(255,255,255,.7); border-color:rgba(255,255,255,.3); }
+.nav.dark .nav-wpp:hover { background:var(--cobre); color:#fff; border-color:var(--cobre); }
 
-/* ─── HERO ─────────────────────────────────── */
+/* â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero {
   position:relative; min-height:100svh;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -133,7 +134,7 @@ button { font-family:inherit; cursor:pointer; }
   animation:scrollPulse 2s ease infinite;
 }
 
-/* ─── BAND ──────────────────────────────────── */
+/* â”€â”€â”€ BAND â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .band {
   background:var(--grafite); padding:20px 48px;
   display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap;
@@ -144,7 +145,7 @@ button { font-family:inherit; cursor:pointer; }
 .band-text { font-size:12px; color:rgba(255,255,255,.45); letter-spacing:.3px; }
 .band-text strong { color:var(--cobre); font-weight:400; }
 
-/* ─── SEÇÃO GENÉRICA ───────────────────────── */
+/* â”€â”€â”€ SEÃ‡ÃƒO GENÃ‰RICA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section { padding:100px 48px; }
 .section-sm { padding:60px 48px; }
 .section-dark { background:var(--grafite); }
@@ -156,7 +157,7 @@ button { font-family:inherit; cursor:pointer; }
 .section-dark .section-title { color:#fff; }
 .section-dark .section-sub { color:rgba(255,255,255,.45); }
 
-/* ─── CATEGORIAS HOME ──────────────────────── */
+/* â”€â”€â”€ CATEGORIAS HOME â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:60px; }
 .cat-card {
   position:relative; aspect-ratio:3/4; overflow:hidden;
@@ -179,7 +180,7 @@ button { font-family:inherit; cursor:pointer; }
 .cat-nome { font-size:20px; font-weight:300; color:#fff; margin-bottom:4px; }
 .cat-ver { font-size:11px; letter-spacing:2px; color:var(--cobre); }
 
-/* ─── DESTAQUE PRODUTO ─────────────────────── */
+/* â”€â”€â”€ DESTAQUE PRODUTO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .feature {
   display:grid; grid-template-columns:1fr 1fr; min-height:70vh; overflow:hidden;
 }
@@ -198,7 +199,7 @@ button { font-family:inherit; cursor:pointer; }
 .feature-desc { font-size:14px; color:rgba(255,255,255,.45); line-height:1.8; margin-bottom:40px; }
 .feature-link { font-size:12px; letter-spacing:2px; color:var(--cobre); display:inline-flex; align-items:center; gap:8px; transition:gap .2s; }
 .feature-link:hover { gap:14px; }
-.feature-link::after { content:'→'; }
+.feature-link::after { content:'â†’'; }
 .feature.reverse { direction:rtl; }
 .feature.reverse > * { direction:ltr; }
 .feature.reverse .feature-content { background:#fff; }
@@ -206,7 +207,7 @@ button { font-family:inherit; cursor:pointer; }
 .feature.reverse .feature-title { color:var(--grafite); }
 .feature.reverse .feature-desc { color:var(--cinza); }
 
-/* ─── GRID PRODUTOS ────────────────────────── */
+/* â”€â”€â”€ GRID PRODUTOS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .prod-section { padding:60px 0; }
 .prod-section-header { padding:0 48px 36px; display:flex; align-items:flex-end; justify-content:space-between; }
 .ver-todos { font-size:12px; letter-spacing:1px; color:var(--cobre); transition:opacity .2s; }
@@ -241,14 +242,14 @@ button { font-family:inherit; cursor:pointer; }
 .cond-lacrado { background:#F0F9F0; color:#2A6A2A; }
 .cond-vitrine { background:#FFF8EE; color:#8A6020; }
 
-/* Duas condições lado a lado; a indisponível fica riscada e apagada */
+/* Duas condiÃ§Ãµes lado a lado; a indisponÃ­vel fica riscada e apagada */
 .prod-conds { display:flex; gap:6px; align-items:center; }
 .cond-off {
   background:#F2F2F2; color:#B0B0B0;
   text-decoration:line-through; text-decoration-thickness:1px;
 }
 
-/* Preços por condição (vitrine / lacrado) no card */
+/* PreÃ§os por condiÃ§Ã£o (vitrine / lacrado) no card */
 .prod-precos { display:flex; flex-direction:column; gap:3px; margin-bottom:14px; }
 .prod-preco-cond { font-size:13px; letter-spacing:.2px; }
 .prc-vitrine { color:#8A6020; }
@@ -259,7 +260,7 @@ button { font-family:inherit; cursor:pointer; }
   font-size:12px;
 }
 
-/* ─── WPP CTA ───────────────────────────────── */
+/* â”€â”€â”€ WPP CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .wpp-cta {
   background:var(--grafite); padding:72px 48px; text-align:center;
   position:relative; overflow:hidden;
@@ -281,7 +282,7 @@ button { font-family:inherit; cursor:pointer; }
 .btn-wpp-lg:hover { background:#a07840; transform:scale(1.03); }
 .btn-wpp-lg svg { width:18px; height:18px; }
 
-/* ─── FOOTER ────────────────────────────────── */
+/* â”€â”€â”€ FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .footer { background:#111110; padding:48px 48px 32px; }
 .footer-top { display:grid; grid-template-columns:1fr auto auto auto; gap:64px; padding-bottom:36px; border-bottom:0.5px solid rgba(255,255,255,.08); margin-bottom:24px; }
 .footer-logo-g { font-size:18px; font-weight:400; letter-spacing:3px; color:#fff; }
@@ -297,7 +298,7 @@ button { font-family:inherit; cursor:pointer; }
 .footer-social a { font-size:11px; color:rgba(255,255,255,.3); letter-spacing:1px; transition:color .2s; }
 .footer-social a:hover { color:var(--cobre); }
 
-/* ─── PÁGINA INTERNA — HEADER ──────────────── */
+/* â”€â”€â”€ PÃGINA INTERNA â€” HEADER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .page-header {
   padding:calc(var(--nav-h) + 40px) 48px 36px;
   border-bottom:0.5px solid var(--borda);
@@ -306,7 +307,7 @@ button { font-family:inherit; cursor:pointer; }
 .page-title { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,5vw,64px); font-weight:300; letter-spacing:-1px; line-height:1; }
 .page-sub { font-size:14px; color:var(--cinza); margin-top:12px; max-width:480px; line-height:1.65; }
 
-/* ─── FILTROS CATÁLOGO ─────────────────────── */
+/* â”€â”€â”€ FILTROS CATÃLOGO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .filtros {
   position:sticky; top:var(--nav-h); z-index:100;
   background:#fff; border-bottom:0.5px solid var(--borda);
@@ -323,7 +324,7 @@ button { font-family:inherit; cursor:pointer; }
 .filtro-btn:hover { color:var(--grafite); }
 .filtro-btn.ativo { color:var(--grafite); border-bottom-color:var(--grafite); }
 
-/* Botões de modelo (iPhone, iPad, Mac) */
+/* BotÃµes de modelo (iPhone, iPad, Mac) */
 .modelo-btn {
   padding:8px 18px; border:0.5px solid var(--borda); background:#fff;
   font-size:11px; letter-spacing:.5px; color:var(--grafite);
@@ -333,7 +334,7 @@ button { font-family:inherit; cursor:pointer; }
 .modelo-btn:hover { border-color:var(--grafite); }
 .modelo-btn.ativo { background:var(--grafite); color:#fff; border-color:var(--grafite); }
 
-/* ─── PÁGINA PRODUTO ───────────────────────── */
+/* â”€â”€â”€ PÃGINA PRODUTO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .prod-hero { display:grid; grid-template-columns:1fr 480px; min-height:calc(100svh - var(--nav-h)); }
 .prod-galeria {
   position:sticky; top:var(--nav-h); height:calc(100svh - var(--nav-h));
@@ -418,7 +419,7 @@ button { font-family:inherit; cursor:pointer; }
 .spec-label { color:var(--cinza); }
 .spec-val { color:var(--grafite); font-weight:400; text-align:right; max-width:55%; }
 
-/* ─── SOBRE ─────────────────────────────────── */
+/* â”€â”€â”€ SOBRE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .sobre-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
 .sobre-img { aspect-ratio:4/5; overflow:hidden; }
 .sobre-img img { width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease); }
@@ -426,11 +427,11 @@ button { font-family:inherit; cursor:pointer; }
 .sobre-text { display:flex; flex-direction:column; justify-content:center; padding:80px 72px; background:var(--off); }
 .sobre-p { font-size:15px; color:var(--cinza); line-height:1.85; margin-bottom:24px; }
 .sobre-p:last-child { margin-bottom:0; }
-.sobre-nums { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:48px; padding-top:48px; border-top:0.5px solid var(--borda); }
+.sobre-nums { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; margin-top:48px; padding-top:48px; border-top:0.5px solid var(--borda); }
 .sobre-num-val { font-size:40px; font-weight:200; color:var(--cobre); letter-spacing:-1px; }
 .sobre-num-label { font-size:12px; color:var(--cinza); margin-top:4px; }
 
-/* ─── CONTATO ───────────────────────────────── */
+/* â”€â”€â”€ CONTATO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .contato-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
 .contato-info { background:var(--grafite); padding:80px 64px; display:flex; flex-direction:column; justify-content:center; }
 .contato-info-title { font-size:clamp(28px,3vw,40px); font-weight:200; color:#fff; letter-spacing:-1px; margin-bottom:40px; }
@@ -450,19 +451,19 @@ button { font-family:inherit; cursor:pointer; }
 }
 .btn-wpp-contato:hover { background:var(--cobre); }
 
-/* ─── REVEAL SCROLL ─────────────────────────── */
+/* â”€â”€â”€ REVEAL SCROLL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .reveal { opacity:0; transform:translateY(32px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); }
 .reveal.visible { opacity:1; transform:translateY(0); }
 .reveal-d1 { transition-delay:.1s; }
 .reveal-d2 { transition-delay:.2s; }
 .reveal-d3 { transition-delay:.3s; }
 
-/* ─── ANIMAÇÕES ─────────────────────────────── */
+/* â”€â”€â”€ ANIMAÃ‡Ã•ES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 @keyframes scrollPulse { 0%,100% { opacity:.3; transform:scaleY(1); } 50% { opacity:.7; transform:scaleY(.8); } }
 
-/* ─── RESPONSIVO ────────────────────────────── */
+/* â”€â”€â”€ RESPONSIVO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width:1024px) {
   .cat-grid { grid-template-columns:1fr 1fr; }
   .feature { grid-template-columns:1fr; min-height:auto; }
@@ -498,7 +499,7 @@ button { font-family:inherit; cursor:pointer; }
   .footer-top { grid-template-columns:1fr; gap:32px; }
 }
 
-/* ─── MOBILE NAV HAMBÚRGUER ─────────────────── */
+/* â”€â”€â”€ MOBILE NAV HAMBÃšRGUER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav-hamburger {
   display: none;
   flex-direction: column; gap: 5px;
@@ -506,11 +507,17 @@ button { font-family:inherit; cursor:pointer; }
   padding: 4px; z-index: 1001;
 }
 .nav-hamburger span {
-  display: block; width: 22px; height: 1px;
-  background: #fff; transition: all .3s var(--ease);
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--grafite);
+  transition: all .3s var(--ease);
   transform-origin: center;
 }
-.nav.light .nav-hamburger span { background: var(--grafite); }
+
+.nav.dark .nav-hamburger span {
+  background: #fff;
+}
 .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
@@ -553,11 +560,11 @@ button { font-family:inherit; cursor:pointer; }
   .cat-grid { grid-template-columns:1fr; }
   .prod-grid { grid-template-columns:1fr; }
   .hero-ctas { flex-direction:column; align-items:center; }
-  .sobre-nums { grid-template-columns:1fr; }
+  .sobre-nums { grid-template-columns:repeat(2,1fr); }
   .valores-grid { grid-template-columns:1fr !important; }
 }
 
-/* ── FOTO PLACEHOLDER GENÉRICO ────────────────── */
+/* â”€â”€ FOTO PLACEHOLDER GENÃ‰RICO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .foto-placeholder {
   width: 100%; aspect-ratio: 1/1;
   display: flex; align-items: center; justify-content: center;
@@ -583,13 +590,153 @@ button { font-family:inherit; cursor:pointer; }
   color: rgba(0,0,0,.25); position: relative; z-index: 1;
   text-align: center;
 }
-/* Versões menores (thumbs de modelo) */
+/* VersÃµes menores (thumbs de modelo) */
 .modelo-thumb.foto-placeholder,
 img.modelo-thumb[src=""] {
   aspect-ratio: 1/1; width: 64px; height: 64px;
 }
 
-/* ══ CURSOR PERSONALIZADO GLOBAL ══ */
+/* â”€â”€â”€ BREADCRUMB â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.breadcrumb {
+  padding: calc(var(--nav-h) + 12px) 48px 0;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; color: var(--cinza); letter-spacing: .3px;
+}
+.breadcrumb a { color: var(--cinza); transition: color .2s; }
+.breadcrumb a:hover { color: var(--grafite); }
+.breadcrumb-sep { opacity: .4; }
+.breadcrumb-current { color: var(--grafite); }
+@media (max-width: 768px) { .breadcrumb { padding: calc(var(--nav-h) + 8px) 24px 0; } }
+
+/* â”€â”€â”€ MOBILE: tap targets mÃ­nimos â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (max-width: 768px) {
+  .storage-btn { padding: 12px 20px; min-height: 44px; }
+  .family-tab  { padding: 12px 18px; min-height: 44px; }
+  .modelo-btn  { padding: 11px 18px; min-height: 44px; }
+  .cor-circulo { width: 36px; height: 36px; }
+  .filtro-btn  { padding: 18px 24px; min-height: 48px; }
+}
+
+/* â”€â”€â”€ FAQ ANIMADO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+details.faq-item { border-bottom: 0.5px solid var(--borda); }
+details.faq-item summary {
+  font-size: 13px; font-weight: 400; list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 0; cursor: pointer; user-select: none;
+  transition: color .2s;
+}
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary:hover { color: var(--cobre); }
+.faq-icon {
+  color: var(--cobre); font-size: 20px; font-weight: 200;
+  flex-shrink: 0; margin-left: 16px;
+  transition: transform .3s cubic-bezier(.4,0,.2,1);
+  display: inline-block; line-height: 1;
+}
+details.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-body {
+  overflow: hidden; max-height: 0;
+  transition: max-height .35s cubic-bezier(.4,0,.2,1), padding .35s;
+  padding-bottom: 0;
+}
+details.faq-item[open] .faq-body { max-height: 200px; padding-bottom: 16px; }
+.faq-body p { font-size: 12px; color: var(--cinza); line-height: 1.75; }
+
+/* â”€â”€â”€ BADGE RESPOSTA RÃPIDA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.wpp-response-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; color: rgba(255,255,255,.45);
+  margin-bottom: 20px; letter-spacing: .3px;
+}
+.wpp-response-badge::before {
+  content: ''; display: block;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74,222,128,.6);
+  animation: pulse-green 2s ease-in-out infinite;
+}
+@keyframes pulse-green {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .7; transform: scale(1.3); }
+}
+
+/* â”€â”€â”€ DEPOIMENTOS / PROVA SOCIAL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.depoimentos { padding: 80px 48px; background: var(--off); }
+.depo-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2px; background: var(--borda); margin-top: 48px;
+}
+.depo-card {
+  background: #fff; padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.depo-estrelas { display: flex; gap: 3px; }
+.depo-estrela { color: var(--cobre); font-size: 14px; }
+.depo-texto { font-size: 14px; color: var(--cinza); line-height: 1.8; font-style: italic; flex: 1; }
+.depo-texto::before { content: '\201C'; }
+.depo-texto::after  { content: '\201D'; }
+.depo-autor { display: flex; flex-direction: column; gap: 3px; padding-top: 16px; border-top: 0.5px solid var(--borda); }
+.depo-nome   { font-size: 13px; font-weight: 400; }
+.depo-cidade { font-size: 11px; color: var(--cinza); letter-spacing: .3px; }
+.depo-produto { font-size: 10px; letter-spacing: 1px; color: var(--cobre); margin-top: 2px; }
+@media (max-width: 768px) {
+  .depo-grid { grid-template-columns: 1fr; }
+  .depoimentos { padding: 56px 24px; }
+}
+
+/* â”€â”€â”€ NEWSLETTER FOOTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.footer-newsletter { margin-top: 20px; }
+.footer-newsletter-label { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,.28); margin-bottom: 10px; display: block; }
+.footer-newsletter-form { display: flex; gap: 0; max-width: 280px; }
+.footer-newsletter-input {
+  flex: 1; padding: 10px 14px;
+  background: rgba(255,255,255,.06); border: 0.5px solid rgba(255,255,255,.12);
+  border-right: none; color: #fff; font-family: inherit; font-size: 12px;
+  outline: none; transition: border-color .2s;
+}
+.footer-newsletter-input::placeholder { color: rgba(255,255,255,.25); }
+.footer-newsletter-input:focus { border-color: var(--cobre); }
+.footer-newsletter-btn {
+  padding: 10px 14px; background: var(--cobre); border: none;
+  color: #fff; font-size: 11px; letter-spacing: 1px; cursor: pointer;
+  transition: background .2s; white-space: nowrap;
+  font-family: inherit;
+}
+.footer-newsletter-btn:hover { background: #a07840; }
+.footer-newsletter-ok { font-size: 11px; color: var(--cobre); display: none; margin-top: 8px; }
+
+/* â”€â”€â”€ BUSCA (colecao.html) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.search-wrap {
+  padding: 20px 48px; background: #fff;
+  border-bottom: 0.5px solid var(--borda);
+  display: flex; align-items: center; gap: 12px;
+}
+.search-input {
+  flex: 1; max-width: 420px;
+  padding: 10px 16px; border: 0.5px solid var(--borda);
+  background: var(--off); font-family: inherit; font-size: 13px;
+  color: var(--grafite); outline: none;
+  transition: border-color .2s;
+}
+.search-input::placeholder { color: var(--cinza); }
+.search-input:focus { border-color: var(--grafite); }
+.search-count { font-size: 11px; color: var(--cinza); letter-spacing: .3px; }
+@media (max-width: 768px) { .search-wrap { padding: 16px 24px; } }
+
+/* â”€â”€â”€ BADGE ESTOQUE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.stock-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 9px; letter-spacing: 1.5px; padding: 3px 8px;
+  border-radius: 2px;
+}
+.stock-last  { background: #FFF3F0; color: #C0392B; border: 0.5px solid rgba(192,57,43,.2); }
+.stock-in    { background: #F0F9F0; color: #2A6A2A; }
+@media (max-width: 768px) {
+  .section { padding: 56px 24px; }
+  .search-wrap { flex-wrap: wrap; }
+}
+
+/* â•â• CURSOR PERSONALIZADO GLOBAL â•â• */
 .cursor-dot {
   position: fixed; top: 0; left: 0; z-index: 99999;
   pointer-events: none; width: 8px; height: 8px; border-radius: 50%;
@@ -609,7 +756,7 @@ img.modelo-thumb[src=""] {
 .cursor-dot.click  { transform: translate(-50%,-50%) scale(.6); }
 @media (max-width: 1024px) { .cursor-dot, .cursor-ring { display: none; } }
 
-/* ══ PARALLAX 3D NA GALERIA ══ */
+/* â•â• PARALLAX 3D NA GALERIA â•â• */
 .galeria-tilt-wrap {
   perspective: 900px;
   display: flex; align-items: center; justify-content: center;
@@ -622,7 +769,7 @@ img.modelo-thumb[src=""] {
   width: 100%; height: 100%;
 }
 
-/* ══ BARRA DE PROGRESSO DE SCROLL ══ */
+/* â•â• BARRA DE PROGRESSO DE SCROLL â•â• */
 #scroll-bar {
   position: fixed; top: 0; left: 0; z-index: 99997;
   height: 2px; width: 0%; background: var(--cobre);
@@ -630,9 +777,9 @@ img.modelo-thumb[src=""] {
   pointer-events: none;
 }
 
-/* ── WORD-BY-WORD REVEAL (Apple-style) ────────── */
+/* â”€â”€ WORD-BY-WORD REVEAL (Apple-style) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .gw-phrase { display: inline; }
-.gw-word { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.gw-word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.3em; margin-bottom: -0.3em; }
 .gw-word-inner {
   display: inline-block;
   transform: translateY(105%);
@@ -644,10 +791,10 @@ img.modelo-thumb[src=""] {
   opacity: 1;
 }
 
-/* ── STAGGER REVEAL (já aplicado via gaeta-fx.js) */
-/* Cards entram com opacity/translateY — sem override necessário */
+/* â”€â”€ STAGGER REVEAL (jÃ¡ aplicado via gaeta-fx.js) */
+/* Cards entram com opacity/translateY â€” sem override necessÃ¡rio */
 
-/* ── PROD-CARD: micro-hover elevation ─────────── */
+/* â”€â”€ PROD-CARD: micro-hover elevation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .prod-card {
   box-shadow: 0 0 0 rgba(0,0,0,0);
   transition: background .25s, box-shadow .3s cubic-bezier(.4,0,.2,1), transform .3s cubic-bezier(.4,0,.2,1);
@@ -659,9 +806,9 @@ img.modelo-thumb[src=""] {
   z-index: 2;
 }
 
-/* ── GRAIN (textura de filme) global ──────────── */
-/* Já existe no index.html inline. Aqui deixamos a classe disponível
-   para as páginas internas que carregam style.css */
+/* â”€â”€ GRAIN (textura de filme) global â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* JÃ¡ existe no index.html inline. Aqui deixamos a classe disponÃ­vel
+   para as pÃ¡ginas internas que carregam style.css */
 .film-grain {
   position: fixed; inset: 0; z-index: 9000; pointer-events: none;
   opacity: .025;
