@@ -1487,11 +1487,16 @@
       </button>`).join('');
 
     // Storage
+    const primeiroDisp = prod.storage.findIndex(s => !s.esgotado && s.preco !== 'Esgotado');
     const storageHTML = prod.storage.map((s,i) => {
-      const esgotado = s.preco === 'Consultar' || !s.preco;
-      const ativo = i===0 && !esgotado ? ' ativo' : '';
-      return `<button class="storage-btn${ativo}${esgotado?' sem-estoque':''}" data-i="${i}"
-        onclick="selecionarStorage(${i})">${s.label}</button>`;
+      const esgotado = s.esgotado || s.preco === 'Esgotado';
+      const ativo = i === primeiroDisp ? ' ativo' : '';
+      return `<button class="storage-btn${ativo}${esgotado?' sem-estoque':''}"
+        data-i="${i}" data-esgotado="${esgotado}"
+        ${esgotado ? 'disabled title="Indisponível no momento"' : ''}
+        onclick="selecionarStorage(${i})"
+        style="${esgotado ? 'opacity:.35;cursor:not-allowed;text-decoration:line-through;' : ''}"
+        >${s.label}</button>`;
     }).join('');
 
     // Specs
@@ -1620,8 +1625,9 @@
         <div class="outros-grid">${relHTML}</div>
       </section>`;
 
-    // Parcela inicial
-    atualizarParcela(prod.storage[0].preco);
+    // Parcela inicial — usa primeiro item disponível
+    const primeiroDispStorage = prod.storage.find(s => !s.esgotado && s.preco !== 'Esgotado');
+    atualizarParcela(primeiroDispStorage ? primeiroDispStorage.preco : 'Consultar');
     galeriaIdx = 0;
     ativarSwipe();
     ativarParallax();
@@ -1764,9 +1770,25 @@
 
   function selecionarStorage(i) {
     const prod = CATALOGO[new URLSearchParams(window.location.search).get('id')];
+    const item = prod.storage[i];
+
+    // Bloqueia se esgotado
+    if (item.esgotado || item.preco === 'Esgotado') return;
+
     document.querySelectorAll('.storage-btn').forEach((b,j) => b.classList.toggle('ativo', i===j));
-    const preco = prod.storage[i].preco;
-    document.getElementById('preco-val').textContent = preco;
+
+    const preco = item.preco;
+    const precoEl = document.getElementById('preco-val');
+    if (precoEl) precoEl.textContent = preco;
+
+    // Atualiza label de condição com base no label do storage
+    const label = item.label || '';
+    const condLabel = document.querySelector('.preco-cond-label');
+    if (condLabel) {
+      if (label.includes('Lacrado')) condLabel.textContent = 'LACRADO · NOVO';
+      else if (label.includes('Vitrine')) condLabel.textContent = 'VITRINE · SEMINOVO';
+    }
+
     atualizarParcela(preco);
   }
 

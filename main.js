@@ -224,18 +224,42 @@ var GAETA_WPP = '5511999999999';
 
   // Storage
   document.querySelectorAll('.storage-btn').forEach(btn => {
+    // Bloquear visualmente os esgotados
+    if (btn.dataset.esgotado === 'true') {
+      btn.disabled = true;
+      btn.style.opacity = '0.35';
+      btn.style.cursor = 'not-allowed';
+      btn.style.textDecoration = 'line-through';
+      btn.title = 'Indisponível no momento';
+    }
+
     btn.addEventListener('click', () => {
       if (btn.disabled) return;
       btn.closest('.storage-grid')
          .querySelectorAll('.storage-btn')
          .forEach(b => b.classList.remove('ativo'));
       btn.classList.add('ativo');
+
       const preco = btn.dataset.preco;
       const el    = document.querySelector('.preco-val');
       if (preco && el) el.textContent = preco;
+
+      // Atualiza label de condição se existir
+      const condicaoLabel = document.querySelector('[data-condicao-label]');
+      if (condicaoLabel) {
+        const label = btn.textContent.trim();
+        if (label.includes('Vitrine')) condicaoLabel.textContent = 'VITRINE · SEMINOVO';
+        else if (label.includes('Lacrado')) condicaoLabel.textContent = 'LACRADO · NOVO';
+        else condicaoLabel.textContent = '';
+      }
+
       updateWppLinks();
     });
   });
+
+  // Seleciona automaticamente o primeiro storage disponível
+  const primeiroDisponivel = document.querySelector('.storage-btn:not([disabled])');
+  if (primeiroDisponivel) primeiroDisponivel.click();
 
   // Init na carga
   if (document.querySelector('.prod-titulo')) updateWppLinks();
