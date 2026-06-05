@@ -480,22 +480,21 @@
   // ══════════════════════════════════════════
   const CATALOGO = {
 
-    'iphone-17-pro-max': {
+    'iphone-17-pro-max-prateado': {
       cat: 'IPHONE', catLink: 'iphone.html',
       condicao: 'vitrine',
       perspectiva: true,
-      nome: 'iPhone 17 Pro Max',
-      desc: 'Chip A19 Pro com Apple Intelligence. Câmera Fusion Pro de 48MP. Tela Super Retina XDR de 6,9" ProMotion 120Hz. O iPhone mais avançado já criado, agora em três cores exclusivas.',
+      nome: 'iPhone 17 Pro Max · Prateado',
+      desc: 'Chip A19 Pro com Apple Intelligence. Câmera Fusion Pro de 48MP. Tela Super Retina XDR de 6,9" ProMotion 120Hz. Acabamento em titânio na cor Prateado.',
       icone: 'iphone',
       cores: [
-        { nome: 'Prateado',        hex: '#C8C8C8', borda: true, imgs: ['img/iphone-17-pro-max-prateado-1.webp','img/iphone-17-pro-max-prateado-2.webp','img/iphone-17-pro-max-prateado-3.webp','img/iphone-17-pro-max-prateado-4.webp'] },
-        { nome: 'Azul',            hex: '#4A6FA5',              imgs: ['img/iphone-17-pro-max-azul-1.webp','img/iphone-17-pro-max-azul-2.webp','img/iphone-17-pro-max-azul-3.webp','img/iphone-17-pro-max-azul-4.webp'] },
-        { nome: 'Laranja Cósmico', hex: '#C85A1E',              imgs: ['img/iphone-17-pro-max-laranja-cosmico-1.webp','img/iphone-17-pro-max-laranja-cosmico-2.webp','img/iphone-17-pro-max-laranja-cosmico-3.webp','img/iphone-17-pro-max-laranja-cosmico-4.webp'] },
+        { nome: 'Prateado', hex: '#C8C8C8', borda: true, imgs: ['img/iphone-17-pro-max-prateado-1.webp','img/iphone-17-pro-max-prateado-2.webp','img/iphone-17-pro-max-prateado-3.webp','img/iphone-17-pro-max-prateado-4.webp'] },
       ],
       storage: [
-        { label: '256 GB', preco: 'Vitrine R$ 7.150 · Lacrado R$ 7.850' },
-        { label: '512 GB', preco: 'Consultar' },
-        { label: '1 TB',   preco: 'Consultar' },
+        { label: '256 GB · Vitrine', preco: 'R$ 7.150' },
+        { label: '256 GB · Lacrado', preco: 'Esgotado', esgotado: true },
+        { label: '512 GB',           preco: 'Esgotado', esgotado: true },
+        { label: '1 TB',             preco: 'Esgotado', esgotado: true },
       ],
       specs: [
         ['Tela',            'Super Retina XDR OLED 6,9" ProMotion 120 Hz'],
@@ -508,9 +507,70 @@
         ['Material',        'Titânio grau 5, vidro Ceramic Shield'],
         ['Sistema',         'iOS 18 com Apple Intelligence'],
       ],
-      aviso: '⚠ Preços sujeitos a alteração sem aviso prévio.',
-      relacionados: ['iphone-16-pro-max','airpods-pro','apple-watch-ultra2'],
-      wppMsg: 'Olá! Tenho interesse no iPhone 17 Pro Max. Pode me ajudar?',
+      relacionados: ['iphone-17-pro-max-azul','iphone-17-pro-max-laranja','iphone-16-pro-max'],
+      wppMsg: 'Olá! Tenho interesse no iPhone 17 Pro Max Prateado 256GB Vitrine. Pode me ajudar?',
+    },
+
+    'iphone-17-pro-max-azul': {
+      cat: 'IPHONE', catLink: 'iphone.html',
+      condicao: 'vitrine',
+      perspectiva: true,
+      nome: 'iPhone 17 Pro Max · Azul',
+      desc: 'Chip A19 Pro com Apple Intelligence. Câmera Fusion Pro de 48MP. Tela Super Retina XDR de 6,9" ProMotion 120Hz. Acabamento em titânio na cor Azul.',
+      icone: 'iphone',
+      cores: [
+        { nome: 'Azul', hex: '#4A6FA5', imgs: ['img/iphone-17-pro-max-azul-1.webp','img/iphone-17-pro-max-azul-2.webp','img/iphone-17-pro-max-azul-3.webp','img/iphone-17-pro-max-azul-4.webp'] },
+      ],
+      storage: [
+        { label: '256 GB · Vitrine', preco: 'R$ 6.950' },
+        { label: '256 GB · Lacrado', preco: 'Esgotado', esgotado: true },
+        { label: '512 GB',           preco: 'Esgotado', esgotado: true },
+        { label: '1 TB',             preco: 'Esgotado', esgotado: true },
+      ],
+      specs: [
+        ['Tela',            'Super Retina XDR OLED 6,9" ProMotion 120 Hz'],
+        ['Chip',            'A19 Pro com Neural Engine 16-core'],
+        ['Câmera principal','48 MP Fusion Pro, f/1.78, OIS'],
+        ['Câmera frontal',  '24 MP TrueDepth, f/1.9'],
+        ['Zoom óptico',     '5x (teleobjetiva 12 MP)'],
+        ['Conectividade',   '5G, Wi-Fi 7, Bluetooth 5.3, USB-C 3'],
+        ['Resistência',     'IP68 · até 6 metros por 30 min'],
+        ['Material',        'Titânio grau 5, vidro Ceramic Shield'],
+        ['Sistema',         'iOS 18 com Apple Intelligence'],
+      ],
+      relacionados: ['iphone-17-pro-max-prateado','iphone-17-pro-max-laranja','iphone-16-pro-max'],
+      wppMsg: 'Olá! Tenho interesse no iPhone 17 Pro Max Azul 256GB Vitrine. Pode me ajudar?',
+    },
+
+    'iphone-17-pro-max-laranja': {
+      cat: 'IPHONE', catLink: 'iphone.html',
+      condicao: 'vitrine',
+      perspectiva: true,
+      nome: 'iPhone 17 Pro Max · Laranja Cósmico',
+      desc: 'Chip A19 Pro com Apple Intelligence. Câmera Fusion Pro de 48MP. Tela Super Retina XDR de 6,9" ProMotion 120Hz. Acabamento em titânio na cor Laranja Cósmico.',
+      icone: 'iphone',
+      cores: [
+        { nome: 'Laranja Cósmico', hex: '#C85A1E', imgs: ['img/iphone-17-pro-max-laranja-cosmico-1.webp','img/iphone-17-pro-max-laranja-cosmico-2.webp','img/iphone-17-pro-max-laranja-cosmico-3.webp','img/iphone-17-pro-max-laranja-cosmico-4.webp'] },
+      ],
+      storage: [
+        { label: '256 GB · Vitrine', preco: 'R$ 6.950' },
+        { label: '256 GB · Lacrado', preco: 'Esgotado', esgotado: true },
+        { label: '512 GB',           preco: 'Esgotado', esgotado: true },
+        { label: '1 TB',             preco: 'Esgotado', esgotado: true },
+      ],
+      specs: [
+        ['Tela',            'Super Retina XDR OLED 6,9" ProMotion 120 Hz'],
+        ['Chip',            'A19 Pro com Neural Engine 16-core'],
+        ['Câmera principal','48 MP Fusion Pro, f/1.78, OIS'],
+        ['Câmera frontal',  '24 MP TrueDepth, f/1.9'],
+        ['Zoom óptico',     '5x (teleobjetiva 12 MP)'],
+        ['Conectividade',   '5G, Wi-Fi 7, Bluetooth 5.3, USB-C 3'],
+        ['Resistência',     'IP68 · até 6 metros por 30 min'],
+        ['Material',        'Titânio grau 5, vidro Ceramic Shield'],
+        ['Sistema',         'iOS 18 com Apple Intelligence'],
+      ],
+      relacionados: ['iphone-17-pro-max-prateado','iphone-17-pro-max-azul','iphone-16-pro-max'],
+      wppMsg: 'Olá! Tenho interesse no iPhone 17 Pro Max Laranja Cósmico 256GB Vitrine. Pode me ajudar?',
     },
 
     'iphone-16-pro': {
