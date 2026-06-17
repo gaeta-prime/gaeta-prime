@@ -1527,10 +1527,11 @@
     const temLacrado = LACRADO_DISPONIVEL.has(id);
     const is17 = prod.perspectiva === true;
     const classe17 = is17 ? ' is-17' : '';
-    const vitrineBox = `<div class="preco-cond-box preco-cond-vitrine"><p class="preco-cond-label">VITRINE · SEMINOVO</p><p class="preco-cond-val" id="preco-val">${prod.storage[0].preco}</p></div>`;
+    const precoInicial = prod.storage[primeiroDisp !== -1 ? primeiroDisp : 0].preco;
+    const vitrineBox = `<div class="preco-cond-box preco-cond-vitrine"><p class="preco-cond-label">VITRINE · SEMINOVO</p><p class="preco-cond-val" id="preco-val">${precoInicial}</p></div>`;
     const lacradoBox = temLacrado
       ? `<div class="preco-cond-box preco-cond-lacrado"><p class="preco-cond-label">LACRADO · NOVO</p><p class="preco-cond-consultar">Consultar</p></div>`
-      : `<div class="preco-cond-box preco-cond-off"><p class="preco-cond-label">LACRADO</p><p class="preco-cond-consultar">Consultar</p></div>`;
+      : `<div class="preco-cond-box preco-cond-off"><p class="preco-cond-label">LACRADO</p><p class="preco-cond-consultar">Indisponível</p></div>`;
     const precosCondHTML = `<div class="precos-cond">${vitrineBox}${lacradoBox}</div>`;
 
     root.innerHTML = `
